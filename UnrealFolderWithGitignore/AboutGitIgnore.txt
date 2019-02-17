@@ -1,0 +1,2 @@
+This git ignore must stay beside the Unreal project or else it will not work
+Just thought this would be a good thing if we do do Unreal
