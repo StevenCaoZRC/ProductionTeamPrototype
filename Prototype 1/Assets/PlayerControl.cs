@@ -4,67 +4,66 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private bool m_waterChildSelected = true;
+    [Header("Character references")]
+    public Player m_childOne;
+    public Player m_childTwo;
 
-    public Player m_waterChild;
-    public Player m_forestChild;
-    public GameObject m_pivotPoint;
-    public float m_rotationSpeed = 0.1f;
-    float t;
-    Quaternion initial;
-    Quaternion target;
+    [Header("Target Positions For Characters to stay at (Idle)")]
+    public GameObject m_selectedPos;
+    public GameObject[] m_backupPos;
+
+    [Header("Private //just for checking")]
+    [SerializeField]
+    private bool m_childOneLeading = true;
 
     private void Start()
     {
-
+        //Depending on who is leading when script starts up, set character as lead
+        if(m_childOneLeading)
+            SwitchPos(m_childTwo, m_childOne);
+        else
+            SwitchPos(m_childOne, m_childTwo);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SwitchPlayerPos();
-    }
-
-    public void SwitchPlayerPos()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Single Mouse Right click
+        if (Input.GetMouseButtonDown(1)) 
         {
-            //StartCoroutine(Rotation(m_waterChild.transform.rotation, 180));
-
-            if (m_waterChildSelected)
-            {
-                Vector3 tempWaterPos = m_waterChild.transform.position;
-                m_waterChild.transform.position = m_forestChild.transform.position;
-                m_forestChild.transform.position = tempWaterPos;
-
-                //m_waterChild.transform.RotateAround(m_pivotPoint.transform.position, new Vector3(0.0f, 1.0f, 0.0f), 180.0f);
-
-                //Play anims
-                m_waterChildSelected = false;
-            }
-            else
-            {
-                Vector3 tempforestPos = m_forestChild.transform.position;
-                m_forestChild.transform.position = m_waterChild.transform.position;
-                m_waterChild.transform.position = tempforestPos;
-                //Play anims
-
-                m_waterChildSelected = true;
-            }
-            Debug.Log("WaterSelected: " + m_waterChildSelected);
+            SwitchCharaPos();
         }
     }
 
-    //public IEnumerator Rotation(Quaternion degrees, float time)
-    //{
-    //    float distance = Vector3.Distance(m_waterChild.transform.position, m_forestChild.transform.position);
-    //    while (distance > 0.499999999999999999f)
-    //    {
-    //        m_waterChild.transform.RotateAround(m_pivotPoint.transform.up, Vector3.up, time * Time.deltaTime);
-    //        m_waterChild.transform.rotation = degrees;
-    //        Debug.Log("Water position: " + distance);
+    //Checks who is leading and switches them with the backup chara
+    //Handles animation
+    public void SwitchCharaPos()
+    {
+        if (m_childOneLeading)
+        {
+            SwitchPos(m_childOne, m_childTwo);
 
-    //        yield return null;
-    //    }
-    //}
+            //Play animations
+            m_childOneLeading = false;
+
+        }
+        else
+        {
+            SwitchPos(m_childTwo, m_childOne);
+
+            //Play animations
+            m_childOneLeading = true;
+        }
+        Debug.Log("Child leading: " + ((m_childOneLeading) ? m_childOne.tag : m_childTwo.tag));
+    }
+
+    //Switches positions of two players
+    private void SwitchPos(Player _p1, Player _p2)
+    {
+        //Switches backup player to the front
+        _p2.transform.position = m_selectedPos.transform.position;
+
+        //Switches leading player to the back
+        _p1.transform.position = m_backupPos[Random.Range(0, 3)].transform.position;
+    }
 }
