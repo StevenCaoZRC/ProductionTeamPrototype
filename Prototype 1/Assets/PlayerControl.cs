@@ -28,6 +28,12 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            //if fire is infront of characters and ability is selected and 
+            
+        }
+
         //Single Mouse Right click
         if (Input.GetMouseButtonDown(1)) 
         {
