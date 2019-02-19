@@ -16,16 +16,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
             if (Physics.Raycast(ray, out hit))
             {
-               
-                agent.SetDestination(hit.point);
-
+                if (hit.collider != null)
+                {
+                    Vector3 targetDir = hit.collider.transform.position - transform.position;
+                    
+                    Vector3 dir = Vector3.RotateTowards(transform.forward, targetDir, 20 * Time.deltaTime, 0.0f);
+                    Debug.DrawRay(transform.position,dir,Color.red, 50);
+                    transform.rotation = Quaternion.LookRotation(dir);
+                    agent.SetDestination(hit.collider.gameObject.transform.position);
+                }
             }
                 
          }
