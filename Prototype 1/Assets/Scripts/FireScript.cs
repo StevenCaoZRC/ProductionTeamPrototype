@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class FireScript : MonoBehaviour
 {
-    
-
-
     // Start is called before the first frame update
     void Start()
     {

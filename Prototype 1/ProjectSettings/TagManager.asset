@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WaterChild
   - ForestChild
+  - Fire
   layers:
   - Default
   - TransparentFX

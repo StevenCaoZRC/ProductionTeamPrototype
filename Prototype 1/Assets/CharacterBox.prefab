@@ -535,7 +535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7820958797551645756}
-  - component: {fileID: 2146836003428159294}
+  - component: {fileID: 400040730}
   m_Layer: 0
   m_Name: ForestChildTemp
   m_TagString: ForestChild
@@ -558,7 +558,7 @@ Transform:
   m_Father: {fileID: 7072469332789200576}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2146836003428159294
+--- !u!114 &400040730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,9 +567,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1541825684512639981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d654960e1cb72449843a2f843d95c5, type: 3}
+  m_Script: {fileID: 11500000, guid: c0f70027cc433e6459a36f8468be8df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_charaElement: 0
 --- !u!1 &2934844228630660424
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2989771775410946574}
-  - component: {fileID: 1600108899734182775}
+  - component: {fileID: 1493535514}
   m_Layer: 0
   m_Name: WaterChildTemp
   m_TagString: WaterChild
@@ -786,7 +787,7 @@ Transform:
   m_Father: {fileID: 7072469332789200576}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1600108899734182775
+--- !u!114 &1493535514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -795,9 +796,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7150418909339701321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d654960e1cb72449843a2f843d95c5, type: 3}
+  m_Script: {fileID: 11500000, guid: e7d6d2158ccce3d4d82657d20c88dce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_charaElement: 0
 --- !u!1 &7334874127785605265
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +904,6 @@ GameObject:
   - component: {fileID: 8346460012047830327}
   - component: {fileID: 446010642}
   - component: {fileID: 446010641}
-  - component: {fileID: 8486484404198339558}
   m_Layer: 0
   m_Name: CharacterBox
   m_TagString: ForestChild
@@ -939,8 +940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405f3a24f8e16f248be5d4d329b38ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_childOne: {fileID: 1600108899734182775}
-  m_childTwo: {fileID: 2146836003428159294}
+  m_childOne: {fileID: 1493535514}
+  m_childTwo: {fileID: 400040730}
   m_selectedPos: {fileID: 165064020977176066}
   m_backupPos:
   - {fileID: 165064020191661168}
@@ -983,20 +984,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8486484404198339558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8179580167466031114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ef1dc3e4ee3744d865919c6c701ca9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_camera: {fileID: 0}
-  agent: {fileID: 446010641}
 --- !u!1 &9107063112368002843
 GameObject:
   m_ObjectHideFlags: 0

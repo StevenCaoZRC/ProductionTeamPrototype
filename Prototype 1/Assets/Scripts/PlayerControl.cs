@@ -28,10 +28,24 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
-            //if fire is infront of characters and ability is selected and 
-            
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.transform.gameObject.name);
+
+                if (hit.transform.gameObject.tag == "Fire"
+                    && m_childOne.GetElement() == Player.Element.Water)
+                {
+                    //Deleting fire
+                    m_childOne.SpellOne(hit.transform.gameObject);
+                }
+                
+
+            }
         }
 
         //Single Mouse Right click
@@ -66,6 +80,7 @@ public class PlayerControl : MonoBehaviour
     //Switches positions of two players
     private void SwitchPos(Player _p1, Player _p2)
     {
+        
         //Switches backup player to the front
         _p2.transform.position = m_selectedPos.transform.position;
 

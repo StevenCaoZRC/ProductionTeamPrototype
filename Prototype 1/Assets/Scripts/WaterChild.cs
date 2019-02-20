@@ -6,7 +6,7 @@ public class WaterChild : Player
 {
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_charaElement = Element.Water;
     }
@@ -14,17 +14,17 @@ public class WaterChild : Player
     // Update is called once per frame
     void Update()
     {
-        if (m_isActive && m_isCasting)
-        {
-            //Do abilities
-        }
+        
     }
 
-    public void WaterSpell()
+    public override void SpellOne(GameObject _fire)
     {
-
+        Debug.Log("Putting out fire: " + _fire.name);
+        //Play animation 
+        m_isCasting = true;
+        Destroy(_fire, 2.0f);
     }
-    public void FreezeSpell()
+    public override void SpellTwo(GameObject _waterBlock)
     {
 
     }
