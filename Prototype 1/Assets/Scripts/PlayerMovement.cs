@@ -26,9 +26,7 @@ public class PlayerMovement : MonoBehaviour
                 if (hit.collider != null)
                 {
                     Vector3 targetDir = hit.collider.transform.position - transform.position;
-                    
-                    Vector3 dir = Vector3.RotateTowards(transform.forward, targetDir, 15 * Time.deltaTime, 1.0f);
-                    Debug.DrawRay(transform.position,dir,Color.red, 50);
+                    Vector3 dir = Vector3.Slerp(transform.forward, hit.collider.transform.position, 1.0f * Time.deltaTime);
                     transform.rotation = Quaternion.LookRotation(dir);
                     agent.SetDestination(hit.collider.gameObject.transform.position); 
                 }
