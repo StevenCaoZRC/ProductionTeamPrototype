@@ -6,25 +6,33 @@ public class Player : MonoBehaviour
 {
     // Player Variables
 
-    public enum Element {NONE, FIRE, WATER};
-    public int abilityCount = 3;
+    public enum Element {None, Water, Forest};
 
-    public Element charaElement;
+    protected int m_abilityCount = 3;
+    protected Element m_charaElement = Element.None;
+    protected bool m_isActive;
+    protected bool m_isCasting;
 
     // Start is called before the first frame update
     void Start()
     {
-        abilityCount = 0;
-        charaElement = Element.FIRE;
+
     }
 
     public void SetAbilityCount(int newAmount)
     {
-        abilityCount = newAmount;
+        m_abilityCount = newAmount;
     }
 
     public int GetAbilityCount()
     {
-        return abilityCount;
+        return m_abilityCount;
     }
+
+    public Element GetElement()
+    {
+        return m_charaElement;
+    }
+
+    
 }
