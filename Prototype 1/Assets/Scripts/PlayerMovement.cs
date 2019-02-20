@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Camera camera; //grabs the main camera
+    public Camera m_camera; //grabs the main camera
     public NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = m_camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
             if (Physics.Raycast(ray, out hit))

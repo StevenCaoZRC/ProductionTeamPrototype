@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ef1dc3e4ee3744d865919c6c701ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  m_camera: {fileID: 0}
   agent: {fileID: 446010641}
 --- !u!195 &446010641
 NavMeshAgent:
@@ -995,7 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ef1dc3e4ee3744d865919c6c701ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  m_camera: {fileID: 0}
   agent: {fileID: 446010641}
 --- !u!1 &9107063112368002843
 GameObject:
