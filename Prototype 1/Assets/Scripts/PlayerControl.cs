@@ -43,8 +43,6 @@ public class PlayerControl : MonoBehaviour
                     //Deleting fire
                     m_childOne.SpellOne(hit.transform.gameObject);
                 }
-                
-
             }
         }
 
