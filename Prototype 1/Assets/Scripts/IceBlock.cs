@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireScript : MonoBehaviour
+public class IceBlock : MonoBehaviour
 {
+
+
+
     // Start is called before the first frame update
     void Start()
     {
