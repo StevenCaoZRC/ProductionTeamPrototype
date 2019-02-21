@@ -37,8 +37,7 @@ public class PlayerControl : MonoBehaviour
             {
                 Debug.Log(hit.transform.gameObject.name);
 
-                if (hit.transform.gameObject.tag == "Fire"
-                    && m_childOne.GetElement() == Player.Element.Water)
+                if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)
                 {
                     //Deleting fire
                     m_childOne.SpellOne(hit.transform.gameObject);

@@ -20,28 +20,41 @@ public class WaterChild : Player
     public override void SpellOne(GameObject _fire)
     {
         //put out fire
-        StartCoroutine(DestroyFire(_fire));
+        StartCoroutine(PutOutFire(_fire));
     }
     public override void SpellTwo(GameObject _waterBlock)
     {
         //Create ice block in river
-        m_isCasting = true;
-
-
+        StartCoroutine(CastIceBlock(_waterBlock));
     }
 
-    private IEnumerator DestroyFire(GameObject _fire)
+    private IEnumerator PutOutFire(GameObject _fire)
     {
         m_isCasting = true;
 
-        Debug.Log("Casting: " + m_isCasting);
-        //Play animation 
-        yield return new WaitForSeconds(5);
-        Destroy(_fire.transform.parent.gameObject);
+        //Play fire dying animation 
+        yield return new WaitForSeconds(2);
+        _fire.transform.parent.gameObject.SetActive(false);
 
         m_isCasting = false;
-        Debug.Log("Casting: " + m_isCasting);
 
         yield return null;
     }
+
+    private IEnumerator CastIceBlock(GameObject _river)
+    {
+        m_isCasting = true;
+
+        //_river.
+
+        //Play fire dying animation 
+        yield return new WaitForSeconds(2);
+
+        //Spawn ice block in water block. float.
+
+        m_isCasting = false;
+
+        yield return null;
+    }
+
 }

@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
                     Vector3 targetDir = hit.collider.transform.position - transform.position;
                     if(Mathf.Abs(targetDir.x) >= 0.9f || Mathf.Abs(targetDir.z) >= 0.9f) //If player is moving more than 1 square
                     {
-                        //
-                        Debug.Log("target: x: " + targetDir.x + " y: " + targetDir.y + " z: " + targetDir.z);
+                        //Debug.Log("target: x: " + targetDir.x + " y: " + targetDir.y + " z: " + targetDir.z);
                         Vector3 dir = Vector3.Slerp(transform.forward, hit.collider.transform.position, speed * Time.deltaTime);
                         transform.rotation = Quaternion.LookRotation(dir);
                         agent.SetDestination(hit.collider.gameObject.transform.position);
