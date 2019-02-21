@@ -11,10 +11,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 targetDir;
     RaycastHit hit;
     Vector3 rayHitPoint;
+    Vector3 hitLocation;
+    bool isRotating;
+    bool ableToRotate;
     // Start is called before the first frame update
     void Start()
     {
         rayHitPoint = transform.forward;
+        isRotating = false;
     }
 
     // Update is called once per frame
@@ -29,30 +33,45 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
+                    isRotating = true;
+                    ableToRotate = true;
                     targetDir = hit.collider.transform.position - transform.position;
                     if(Mathf.Abs(targetDir.x) >= 0.9f || Mathf.Abs(targetDir.z) >= 0.9f) //If player is moving more than 1 square
                     {
                         rayHitPoint = hit.point;
-
-
+                        hitLocation = hit.collider.transform.position;
                     }
-
-            
-
-                }
-               
-                    
+                }      
             }
                 
          }
-        Debug.Log("target: x: " + targetDir.x + " y: " + targetDir.y + " z: " + targetDir.z);
+        Movement();
 
-        Quaternion _targetDir = Quaternion.LookRotation(rayHitPoint - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, _targetDir, speed * Time.deltaTime);
+
+    }
+    void Movement()
+    {
+        Quaternion _targetDir = new Quaternion();
+
+        if (isRotating == true && ableToRotate == true)
+        {
+            _targetDir = Quaternion.LookRotation(rayHitPoint - transform.position);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetDir, speed * Time.deltaTime);
+        }
+
+
+        Debug.Log(isRotating);
+        if (transform.rotation.eulerAngles.y == _targetDir.eulerAngles.y)
+        {
+            isRotating = false;
+            ableToRotate = false;
+            agent.SetDestination(hitLocation);
+            if (agent.transform.position == transform.position)
+            {
+                isRotating = true;
+            }
+        }
+
        
-           
-
-       agent.SetDestination(hit.collider.gameObject.transform.position);
-    }       
-
+    }
 }
