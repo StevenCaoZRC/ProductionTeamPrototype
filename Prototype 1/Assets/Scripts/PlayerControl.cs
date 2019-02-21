@@ -35,11 +35,11 @@ public class PlayerControl : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.gameObject.name);
+                Debug.Log(hit.collider.transform.gameObject.name);
 
-                if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading && hit.transform.gameObject.transform.forward == transform.position)
+                if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
-                    //Deleting fire
+                    //Put out fire
                     m_childOne.SpellOne(hit.transform.gameObject);
                 }
             }

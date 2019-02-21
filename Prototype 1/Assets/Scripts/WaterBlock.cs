@@ -25,6 +25,7 @@ public class WaterBlock : Block
 
     public override void Reset()
     {
+        gameObject.layer = LayerMask.NameToLayer("Water");
         m_waterIsEmpty = true;
         m_isWalkable = false;
         m_blockType = BlockType.Fire;
@@ -39,6 +40,7 @@ public class WaterBlock : Block
             m_waterIsEmpty = false;
             m_isWalkable = true;
             m_blockType = BlockType.Ice;
+            gameObject.layer = LayerMask.NameToLayer("IceBlock");
         }
         
     }

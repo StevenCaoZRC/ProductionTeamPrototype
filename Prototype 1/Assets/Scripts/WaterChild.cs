@@ -34,7 +34,9 @@ public class WaterChild : Player
 
         //Play fire dying animation 
         yield return new WaitForSeconds(2);
-        _fire.transform.parent.gameObject.SetActive(false);
+
+        //_fire.transform.parent.
+        _fire.transform.parent.GetComponent<FireBlock>().PutOutFire();
 
         m_isCasting = false;
 
