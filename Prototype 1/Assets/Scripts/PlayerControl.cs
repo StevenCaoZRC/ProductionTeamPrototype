@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -16,10 +17,13 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private bool m_childOneLeading = true;
 
+    public NavMeshSurface surface;
+
     private void Start()
     {
+        
         //Depending on who is leading when script starts up, set character as lead
-        if(m_childOneLeading)
+        if (m_childOneLeading)
             SwitchPos(m_childTwo, m_childOne);
         else
             SwitchPos(m_childOne, m_childTwo);
@@ -28,8 +32,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
+            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -41,6 +47,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     //Deleting fire
                     m_childOne.SpellOne(hit.transform.gameObject);
+                    surface.BuildNavMesh();
                 }
             }
         }
