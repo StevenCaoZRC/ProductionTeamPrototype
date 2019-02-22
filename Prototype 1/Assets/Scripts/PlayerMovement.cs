@@ -71,7 +71,5 @@ public class PlayerMovement : MonoBehaviour
                 isRotating = true;
             }
         }
-
-       
     }
 }

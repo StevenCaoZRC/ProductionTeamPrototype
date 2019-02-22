@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PlayerControl : MonoBehaviour
 {
     [Header("Character references")]
     public Player m_childOne;
     public Player m_childTwo;
-    public GameObject Vine1;
-    public GameObject Vine2;
+
     [Header("Target Positions For Characters to stay at (Idle)")]
     public GameObject m_selectedPos;
     public GameObject[] m_backupPos;
@@ -20,10 +18,8 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-        Vine1.SetActive(false);
-        Vine2.SetActive(false);
         //Depending on who is leading when script starts up, set character as lead
-        if (m_childOneLeading)
+        if(m_childOneLeading)
             SwitchPos(m_childTwo, m_childOne);
         else
             SwitchPos(m_childOne, m_childTwo);
@@ -32,30 +28,21 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (Input.GetMouseButtonDown(0))
         {
-            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.gameObject.name);
+                Debug.Log(hit.collider.transform.gameObject.name);
 
-                if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)
+                if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
-                    //Deleting fire
+                    //Put out fire
                     m_childOne.SpellOne(hit.transform.gameObject);
-                   
-                }
-                if(hit.transform.gameObject.tag == "VineBlock" && m_childOne.tag == "ForestChild")
-                {
-                    StartCoroutine(ClimbVines());
                 }
             }
-            
-            
         }
 
         //Single Mouse Right click
@@ -96,17 +83,5 @@ public class PlayerControl : MonoBehaviour
 
         //Switches leading player to the back
         _p1.transform.position = m_backupPos[Random.Range(0, 3)].transform.position;
-    }
-
-
-    //Start Coroutine
-    IEnumerator ClimbVines()
-    {
-        //Spawn Vines
-        Vine1.SetActive(true);
-        Vine2.SetActive(true);
-        //Wait
-        yield return new WaitForSeconds(2);
-        //Teleport up
     }
 }
