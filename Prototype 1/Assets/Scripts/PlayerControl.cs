@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
     [Header("Character references")]
     public Player m_childOne;
     public Player m_childTwo;
-
+  
     [Header("Target Positions For Characters to stay at (Idle)")]
     public GameObject m_selectedPos;
     public GameObject[] m_backupPos;
@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
+      
         //Depending on who is leading when script starts up, set character as lead
         if(m_childOneLeading)
             SwitchPos(m_childTwo, m_childOne);
@@ -42,9 +43,14 @@ public class PlayerControl : MonoBehaviour
                     //Put out fire
                     m_childOne.SpellOne(hit.transform.gameObject);
                 }
+
+                if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading)
+                {
+                    Debug.Log("GROW VINES");
+                    m_childTwo.SpellOne(hit.transform.gameObject);
+                }
             }
         }
-
         //Single Mouse Right click
         if (Input.GetMouseButtonDown(1)) 
         {
@@ -84,4 +90,6 @@ public class PlayerControl : MonoBehaviour
         //Switches leading player to the back
         _p1.transform.position = m_backupPos[Random.Range(0, 3)].transform.position;
     }
+
+
 }

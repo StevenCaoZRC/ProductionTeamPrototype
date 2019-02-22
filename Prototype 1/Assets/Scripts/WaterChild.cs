@@ -36,7 +36,7 @@ public class WaterChild : Player
         yield return new WaitForSeconds(2);
 
         //_fire.transform.parent.
-        _fire.transform.parent.GetComponent<FireBlock>().PutOutFire();
+        //_fire.transform.parent.GetComponent<FireBlock>().PutOutFire();
 
         m_isCasting = false;
 
