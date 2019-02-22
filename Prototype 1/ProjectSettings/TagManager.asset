@@ -7,8 +7,10 @@ TagManager:
   - WaterChild
   - ForestChild
   - Fire
+  - FireBlock
+  - WaterBlock
+  - IceCube
   - WaterCube
-  - IceBlock
   layers:
   - Default
   - TransparentFX
