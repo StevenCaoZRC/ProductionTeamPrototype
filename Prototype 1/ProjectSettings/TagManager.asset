@@ -7,10 +7,9 @@ TagManager:
   - WaterChild
   - ForestChild
   - Fire
-  - FireBlock
-  - WaterBlock
-  - IceCube
   - WaterCube
+  - IceBlock
+  - VineBlock
   layers:
   - Default
   - TransparentFX
@@ -24,7 +23,7 @@ TagManager:
   - IceBlock
   - FireBall
   - Player
-  - 
+  - VineBlock
   - 
   - 
   - 
