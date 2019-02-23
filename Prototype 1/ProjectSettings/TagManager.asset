@@ -10,6 +10,8 @@ TagManager:
   - WaterCube
   - IceBlock
   - VineBlock
+  - FireBlock
+  - Ground
   layers:
   - Default
   - TransparentFX
