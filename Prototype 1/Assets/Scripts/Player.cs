@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     protected Element m_charaElement = Element.None;
     protected bool m_isActive = false;
     protected bool m_isCasting = false;
-    protected int m_abilityCount = 3;
+    protected int m_currAbilityCount = 2;
+    protected int m_maxAbilityCount = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +28,22 @@ public class Player : MonoBehaviour
 
     public void SetAbilityCount(int newAmount)
     {
-        m_abilityCount = newAmount;
+        m_currAbilityCount = newAmount;
     }
 
     public int GetAbilityCount()
     {
-        return m_abilityCount;
+        return m_currAbilityCount;
+    }
+
+    public void SetMaxAbilityCount(int newAmount)
+    {
+        m_maxAbilityCount = newAmount;
+    }
+
+    public int GetMaxAbilityCount()
+    {
+        return m_maxAbilityCount;
     }
 
     public void SetIsCasting(bool _casting)

@@ -11,6 +11,7 @@ public class ForestChild : Player
     {
        
         m_charaElement = Element.Forest;
+        m_currAbilityCount = 1;
     }
 
     // Update is called once per frame
@@ -20,19 +21,28 @@ public class ForestChild : Player
 
     public override void SpellOne(GameObject _Vines)
     {
-        if (_Vines.tag == "VineBlock")
-        { StartCoroutine(ClimbVines(_Vines)); }
-        else if (_Vines.tag == "Ground")
+        if (m_currAbilityCount > 0)
         {
-            StartCoroutine(Decending(_Vines));
-        }
+            m_currAbilityCount -= 1;
 
+            if (_Vines.tag == "VineBlock")
+            { StartCoroutine(ClimbVines(_Vines)); }
+            else if (_Vines.tag == "Ground")
+            {
+                StartCoroutine(Decending(_Vines));
+            }
+        }
 
     }
 
     public override void SpellTwo(GameObject _waterBlock)
     {
+        if (m_currAbilityCount > 0)
+        {
+            m_currAbilityCount -= 1;
 
+            //Do spell
+        }
     }
 
     private IEnumerator ClimbVines(GameObject _Vines)

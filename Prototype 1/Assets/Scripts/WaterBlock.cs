@@ -34,14 +34,20 @@ public class WaterBlock : Block
     {
         if (m_waterIsEmpty)
         {
-            GameObject iceBlock = Instantiate(m_iceBlockPrefab, transform.position, Quaternion.identity);
-            iceBlock.transform.parent = gameObject.transform;
-
-            m_waterIsEmpty = false;
-            m_blockType = BlockType.Ice;
-            m_waterLink.SetActive(true);
-
+            StartCoroutine(SpawnIceAfterAnimation());
         }
+    }
+
+    IEnumerator SpawnIceAfterAnimation()
+    {
+        GameObject iceBlock = Instantiate(m_iceBlockPrefab, transform.position, Quaternion.identity);
+        iceBlock.transform.parent = gameObject.transform;
+
+        yield return new WaitForSeconds(2.5f);
+        m_waterIsEmpty = false;
+        m_blockType = BlockType.Ice;
+        m_waterLink.SetActive(true);
+        yield return null;
     }
 
     public void WaterWaitPosition(Transform _player, ref Vector3 _waitPos)

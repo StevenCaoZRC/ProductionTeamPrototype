@@ -9,6 +9,8 @@ public class WaterChild : Player
     void Awake()
     {
         m_charaElement = Element.Water;
+        m_currAbilityCount = 2;
+
     }
 
     // Update is called once per frame
@@ -20,12 +22,20 @@ public class WaterChild : Player
     public override void SpellOne(GameObject _fire)
     {
         //put out fire
-        StartCoroutine(PutOutFire(_fire));
+        if(m_currAbilityCount > 0)
+        {
+            m_currAbilityCount -= 1;
+            StartCoroutine(PutOutFire(_fire));
+        }
     }
     public override void SpellTwo(GameObject _waterBlock)
     {
         //Create ice block in river
-        StartCoroutine(CastIceBlock(_waterBlock));
+        if (m_currAbilityCount > 0)
+        {
+            m_currAbilityCount -= 1;
+            StartCoroutine(CastIceBlock(_waterBlock));
+        }
     }
 
     private IEnumerator PutOutFire(GameObject _fire)
@@ -35,7 +45,7 @@ public class WaterChild : Player
         //Play fire dying animation 
         yield return new WaitForSeconds(2);
 
-        _fire.transform.parent.GetComponent<FireBlock>().PutOutFire();
+        _fire.transform.parent.parent.GetComponent<FireBlock>().PutOutFire();
 
         m_isCasting = false;
 

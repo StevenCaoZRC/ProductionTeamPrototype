@@ -8,7 +8,12 @@ public class PlayerControl : MonoBehaviour
     [Header("Character references")]
     public Player m_childOne;
     public Player m_childTwo;
-  
+    public Animator m_doubleCharaAnimator;
+    public Animator m_waterChildAnim;
+    public Animator m_forestChildAnim;
+
+    public PlayerMovement m_movement;
+
     [Header("Target Positions For Characters to stay at (Idle)")]
     public GameObject m_selectedPos;
     public GameObject[] m_backupPos;
@@ -22,7 +27,7 @@ public class PlayerControl : MonoBehaviour
     private void Start()
     {
         //Depending on who is leading when script starts up, set character as lead
-        if(m_childOneLeading)
+        if (m_childOneLeading)
             SwitchPos(m_childTwo, m_childOne);
         else
             SwitchPos(m_childOne, m_childTwo);
@@ -38,19 +43,47 @@ public class PlayerControl : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                if (hit.collider != null)
+                {
+                    m_movement.MovePlayer(hit);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
                 Debug.Log(hit.collider.transform.gameObject.name);
 
                 if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
                     //Put out fire
+                    m_waterChildAnim.SetTrigger("WCWater");
                     m_childOne.SpellOne(hit.transform.gameObject);
                 }
+
+                if (hit.transform.gameObject.tag == "WaterBlock" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
+                {
+                    //Create Ice
+                    m_waterChildAnim.SetTrigger("WCIce");
+
+                    m_childOne.SpellTwo(hit.transform.gameObject);
+                }
+
                 if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading && !Climbed)
                 {
+                    m_forestChildAnim.SetTrigger("FCVine");
+
                     Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = true;
                 }
+
+
                 Vector3 temp1 = new Vector3(0, VineBlock.transform.position.y / 2, 0);
                 if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
                 {
@@ -62,7 +95,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
         //Single Mouse Right click
-        if (Input.GetMouseButtonDown(1)) 
+        if (Input.GetMouseButtonDown(2))
         {
             SwitchCharaPos();
         }
@@ -72,6 +105,9 @@ public class PlayerControl : MonoBehaviour
     //Handles animation
     public void SwitchCharaPos()
     {
+        m_waterChildAnim.SetTrigger("WCFidget");
+        m_forestChildAnim.SetTrigger("FCFidget");
+
         if (m_childOneLeading)
         {
             SwitchPos(m_childOne, m_childTwo);
