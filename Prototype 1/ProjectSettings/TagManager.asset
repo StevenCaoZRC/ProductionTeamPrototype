@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - WaterChild
+  - ForestChild
+  - Fire
+  - WaterCube
+  - IceBlock
+  - VineBlock
+  - FireBlock
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -14,10 +22,10 @@ TagManager:
   - 
   - 
   - PostProcessing
+  - IceBlock
+  - FireBall
   - Player
-  - 
-  - 
-  - 
+  - VineBlock
   - 
   - 
   - 
