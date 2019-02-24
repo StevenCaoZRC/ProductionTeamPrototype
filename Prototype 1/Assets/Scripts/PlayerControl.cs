@@ -31,6 +31,11 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //mOVEMENT
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -44,6 +49,12 @@ public class PlayerControl : MonoBehaviour
                     m_childOne.SpellOne(hit.transform.gameObject);
                 }
 
+                if (hit.transform.gameObject.tag == "WaterBlock" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
+                {
+                    //Make ice
+                    m_childOne.SpellTwo(hit.transform.gameObject);
+                }
+
                 if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading)
                 {
                     Debug.Log("GROW VINES");
@@ -52,7 +63,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
         //Single Mouse Right click
-        if (Input.GetMouseButtonDown(1)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SwitchCharaPos();
         }
