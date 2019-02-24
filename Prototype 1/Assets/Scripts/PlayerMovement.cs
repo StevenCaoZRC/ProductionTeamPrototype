@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        Debug.Log(isRotating);
+        //Debug.Log(isRotating);
         if (transform.rotation.eulerAngles.y == _targetDir.eulerAngles.y)
         {
             isRotating = false;

@@ -18,7 +18,6 @@ public class VineBlock : Block
         }
        
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -37,12 +36,13 @@ public class VineBlock : Block
     public void ClimbingVines()
     {
         if(HasClimbed)
-        {
+         {
             for (int i = 0; i < Vines.Length; i++)
             {
                 Vines[i].SetActive(true);
             }
-            m_isWalkable = true;
+        }
+        m_isWalkable = true;
             m_blockType = BlockType.Ground;
             
             Vector3 temp = new Vector3(0, transform.position.y/2, 0);
@@ -52,8 +52,8 @@ public class VineBlock : Block
             player.GetComponent<NavMeshAgent>().enabled = true;
             Debug.Log(player.transform.position);
             HasClimbed = false;
-        }
-        
-        
+       
     }
+    
+
 }

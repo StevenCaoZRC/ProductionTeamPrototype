@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -12,13 +13,14 @@ public class PlayerControl : MonoBehaviour
     public GameObject m_selectedPos;
     public GameObject[] m_backupPos;
 
+    public GameObject VineBlock;
+
     [Header("Private //just for checking")]
     [SerializeField]
     private bool m_childOneLeading = true;
-
+    private bool Climbed = false;
     private void Start()
     {
-      
         //Depending on who is leading when script starts up, set character as lead
         if(m_childOneLeading)
             SwitchPos(m_childTwo, m_childOne);
@@ -30,11 +32,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {
-            //mOVEMENT
-        }
-
-        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -48,22 +45,24 @@ public class PlayerControl : MonoBehaviour
                     //Put out fire
                     m_childOne.SpellOne(hit.transform.gameObject);
                 }
-
-                if (hit.transform.gameObject.tag == "WaterBlock" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
-                {
-                    //Make ice
-                    m_childOne.SpellTwo(hit.transform.gameObject);
-                }
-
-                if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading)
+                if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading && !Climbed)
                 {
                     Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
+                    Climbed = true;
+                }
+                Vector3 temp1 = new Vector3(0, VineBlock.transform.position.y / 2, 0);
+                if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
+                {
+                    Debug.Log("GetOff");
+                    m_childTwo.SpellOne(hit.transform.gameObject);
+                    Climbed = false;
+                   
                 }
             }
         }
         //Single Mouse Right click
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(1)) 
         {
             SwitchCharaPos();
         }
