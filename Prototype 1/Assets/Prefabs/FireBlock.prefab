@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8003651714125283683}
   - component: {fileID: 8003651714125283682}
   - component: {fileID: 8003651714125283681}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FireBlock
   m_TagString: FireBlock
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8003651714125283695}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -228,12 +228,12 @@ PrefabInstance:
       value: FireParticles
       objectReference: {fileID: 0}
     - target: {fileID: 1141729969707864, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
-      propertyPath: m_TagString
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141729969707864, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141729969707864, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
+      propertyPath: m_TagString
+      value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 4030165839563792, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -279,18 +279,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4030165839563792, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4030165839563792, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4030165839563792, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4747620376882584, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -326,41 +314,6 @@ PrefabInstance:
     - target: {fileID: 4343864458000608, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: ShapeModule.length
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: ClampVelocityModule.multiplyDragByParticleSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: SizeModule.separateAxes
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: RotationModule.separateAxes
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199302993464224412, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: m_MaxParticleSize
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1722233628034092, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_Layer
@@ -373,6 +326,21 @@ PrefabInstance:
     - target: {fileID: 1504851549349786, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
+        type: 3}
+      propertyPath: ShapeModule.length
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4731675d126ccd04993c928afe603e1a, type: 3}

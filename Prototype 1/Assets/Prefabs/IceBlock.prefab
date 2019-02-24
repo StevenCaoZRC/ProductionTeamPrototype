@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4531215569513260546}
-  - component: {fileID: 7446697560573033259}
   - component: {fileID: 4531215569513260548}
   m_Layer: 0
   m_Name: IceBlock
@@ -33,20 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7446697560573033259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531215569513260547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40261e83c8f0fd3419d836e822785261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_blockType: 3
-  m_isWalkable: 1
 --- !u!95 &4531215569513260548
 Animator:
   serializedVersion: 3

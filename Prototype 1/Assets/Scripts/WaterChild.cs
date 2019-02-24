@@ -35,23 +35,21 @@ public class WaterChild : Player
         //Play fire dying animation 
         yield return new WaitForSeconds(2);
 
-        //_fire.transform.parent.
-        //_fire.transform.parent.GetComponent<FireBlock>().PutOutFire();
+        _fire.transform.parent.GetComponent<FireBlock>().PutOutFire();
 
         m_isCasting = false;
 
         yield return null;
     }
 
-    private IEnumerator CastIceBlock(GameObject _river)
+    private IEnumerator CastIceBlock(GameObject _water)
     {
         m_isCasting = true;
-
-        //_river.
-
         //Play fire dying animation 
-        yield return new WaitForSeconds(2);
-
+        _water.gameObject.GetComponent<WaterBlock>().CreateIce();
+        yield return new WaitForSeconds(3);
+        //Make it walkable only after animation is done
+        _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
         //Spawn ice block in water block. float.
 
         m_isCasting = false;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 165064020127313465}
   - component: {fileID: 165064020127313466}
   - component: {fileID: 165064020127313467}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: VisualPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165064020191661175}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BackupPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165064020823350317}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BackupPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165064020977176065}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SelectedPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 165064021198731544}
   - component: {fileID: 165064021198731545}
   - component: {fileID: 165064021198731546}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: VisualPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 165064021255245178}
   - component: {fileID: 165064021255245179}
   - component: {fileID: 165064021255245172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: VisualPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165064021407427064}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CharacterPlacement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165064022032672293}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BackupPos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 165064022043824382}
   - component: {fileID: 165064022043824383}
   - component: {fileID: 165064022043824376}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: VisualPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7820958797551645756}
   - component: {fileID: 400040730}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ForestChildTemp
   m_TagString: ForestChild
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541825684512639981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0, z: -0.15}
+  m_LocalPosition: {x: -0.15, y: -0.341, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8493659868357893357}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 3113963341124209011}
   - component: {fileID: 8684010540171113323}
   - component: {fileID: 8494921458330868385}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 7723346605046690994}
   - component: {fileID: 6707725570026236419}
   - component: {fileID: 576114543504000711}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2989771775410946574}
   - component: {fileID: 1493535514}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WaterChildTemp
   m_TagString: WaterChild
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7150418909339701321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.15}
+  m_LocalPosition: {x: 0, y: -0.341, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 320607129006187031}
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 8955725418771550856}
   - component: {fileID: 2963920358752011655}
   - component: {fileID: 2215856047447399462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 8346460012047830327}
   - component: {fileID: 446010642}
   - component: {fileID: 446010641}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CharacterBox
   m_TagString: ForestChild
   m_Icon: {fileID: 0}
@@ -962,6 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 0}
   agent: {fileID: 446010641}
+  speed: 200
 --- !u!195 &446010641
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -970,18 +971,18 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8179580167466031114}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1923039037
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
+  m_Height: 0.5
+  m_BaseOffset: 0.09
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &9107063112368002843
@@ -996,7 +997,7 @@ GameObject:
   - component: {fileID: 3208680417988260195}
   - component: {fileID: 8061539197813917097}
   - component: {fileID: 2513964950977525290}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
