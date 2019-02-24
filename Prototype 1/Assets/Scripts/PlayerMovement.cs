@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             m_hitLocation = m_hit.collider.transform.position;
         }
         
-        //---------steven old code
+        //---------Steven old code
         //
         //Quaternion _targetDir = new Quaternion();
 

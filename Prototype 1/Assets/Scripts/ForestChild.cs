@@ -21,16 +21,23 @@ public class ForestChild : Player
 
     public override void SpellOne(GameObject _Vines)
     {
-        if (m_currAbilityCount > 0)
+        
+        if (_Vines.tag == "VineBlock")
         {
-            m_currAbilityCount -= 1;
-
-            if (_Vines.tag == "VineBlock")
-            { StartCoroutine(ClimbVines(_Vines)); }
-            else if (_Vines.tag == "Ground")
+            if (!_Vines.transform.GetComponent<VineBlock>().GetVinesSpawned() && m_currAbilityCount > 0)
             {
-                StartCoroutine(Decending(_Vines));
+                m_currAbilityCount -= 1;
             }
+
+            StartCoroutine(ClimbVines(_Vines));
+        }
+
+        if (_Vines.tag == "Ground")
+        {
+            Debug.Log("DFKGJHDFKSBGKDFBG");
+
+
+            StartCoroutine(Decending(_Vines));
         }
 
     }
@@ -49,6 +56,7 @@ public class ForestChild : Player
     {
         m_isCasting = true;
         //yield return new WaitForSeconds(2);
+
         _Vines.transform.GetComponent<VineBlock>().ClimbingVines();
         m_isCasting = false;
         yield return null;
@@ -57,7 +65,7 @@ public class ForestChild : Player
     {
         m_isCasting = true;
         //yield return new WaitForSeconds(2);
-        
+        Debug.Log("im a nerd");
         Vector3 temp = new Vector3(0, _SelectedBlock.transform.position.y / 2, 0);
         //play animation
         BothCharacters.GetComponent<NavMeshAgent>().enabled = false;

@@ -77,7 +77,6 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading && !Climbed)
                 {
                     m_forestChildAnim.SetTrigger("FCVine");
-
                     Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = true;
@@ -87,7 +86,6 @@ public class PlayerControl : MonoBehaviour
                 Vector3 temp1 = new Vector3(0, VineBlock.transform.position.y / 2, 0);
                 if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
                 {
-                    Debug.Log("GetOff");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = false;
                    
