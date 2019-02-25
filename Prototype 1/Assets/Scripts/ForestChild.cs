@@ -38,11 +38,9 @@ public class ForestChild : Player
             {
                 BothCharacters.transform.position = new Vector3(Mathf.Lerp(BothCharacters.transform.position.x, VineAnchorPnt.transform.position.x, Time.deltaTime * fracComplete), BothCharacters.transform.position.y, Mathf.Lerp(BothCharacters.transform.position.z, VineAnchorPnt.transform.position.z, Time.deltaTime * fracComplete));
             }
-
-            
         }
         
-        if (BothCharacters.transform.position == temp)
+        if (BothCharacters.transform.position.x >= temp.x - 0.01)
         {
             BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
             ClimbingVines = false;
@@ -58,11 +56,13 @@ public class ForestChild : Player
             m_currAbilityCount -= 0;
 
             if (_Vines.tag == "VineBlock")
-            { ClimbingVines = true;
+            {
+                ClimbingVines = true;
             }
             else if (_Vines.tag == "Ground")
             {
-                IsDecending = true;
+                // IsDecending = true;\
+                StartCoroutine(Decending(_Vines));
             }
         }
 
