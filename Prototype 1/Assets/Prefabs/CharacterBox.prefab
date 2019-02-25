@@ -384,7 +384,7 @@ MonoBehaviour:
   m_childAnim: {fileID: 803765052}
   m_charaElement: 2
   BothCharacters: {fileID: 1507551707181514283}
-  vine: {fileID: 0}
+  VineBlocks: []
   VineAnchorPnt: {fileID: 0}
   ClimbingVines: 0
   IsDecending: 0
@@ -948,6 +948,10 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 165064020187274047}
+    - target: {fileID: 13700008, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d251e2f5e9e940468c42d227fd570ee, type: 2}
     - target: {fileID: 13700006, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
