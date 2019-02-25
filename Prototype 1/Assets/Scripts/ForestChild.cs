@@ -20,11 +20,17 @@ public class ForestChild : Player
     private GameObject DecendingLoc;
     public bool ClimbingVines = false;
     public bool  IsDecending  = false;
-    private bool LerpPT1Done = false;
+  
     // Start is called before the first frame update
     void Start()
     {
         timeStarted = Time.time;
+        for (int i = 0; i < VineBlocks.Length; i++)
+        {
+            VineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
+            VineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
+        }
+
     }
     void Awake()
     {
@@ -52,11 +58,13 @@ public class ForestChild : Player
                     if (VineBlocks[i].name == CheckVine.name)
                     {
                         vine = VineBlocks[i];
+                        VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
+                        VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
                     }
                 }
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             }
-            else if (_Vines.tag == "Ground")
+            else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x && BothCharacters.transform.position.z == vine.transform.GetChild(0).transform.position.z)
             {
                 IsDecending = true;
                 DecendingLoc = _Vines;
@@ -77,12 +85,12 @@ public class ForestChild : Player
 
     public Vector3 Lerp(Vector3 start, Vector3 end, float timeStartedLerping, float lerptime)
     {
-        float timeSinceStart = Time.time - timeStartedLerping * 0.5f ;
+        float timeSinceStart = 5 - timeStartedLerping  ;
 
         float percentageOfComplete = timeSinceStart / lerptime * Time.deltaTime;
 
         var result = Vector3.Lerp(start, end, percentageOfComplete);
-
+        
         return result;
     }
     public void Climbing()
@@ -167,28 +175,7 @@ public class ForestChild : Player
                 IsDecending = false;
             }
         }
-        //BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
-        //Vector3 CurrentPlayerLocation = BothCharacters.transform.GetChild(0).transform.position;
-
-        //float fracComplete = 1.0f;
-
-        //player.transform.position = transform.position + temp;\
-        //temp = new Vector3(DecendingLoc.gameObject.transform.position.x, DecendingLoc.transform.position.y + (DecendingLoc.transform.position.y / 2), DecendingLoc.gameObject.transform.position.z);
-
-
-        //BothCharacters.transform.position = new Vector3(Mathf.Lerp(BothCharacters.transform.position.x, DecendingLoc.transform.position.x, Time.deltaTime * fracComplete), BothCharacters.transform.position.y, Mathf.Lerp(BothCharacters.transform.position.z, DecendingLoc.transform.position.z, Time.deltaTime * fracComplete));
-        //BothCharacters.transform.position = Vector3.Lerp(BothCharacters.transform.position, DecendingLoc.transform.position, Time.deltaTime);
-
-        //if (BothCharacters.transform.position.x > DecendingLoc.transform.position.x - 0.01 && BothCharacters.transform.position.x <= DecendingLoc.transform.position.x)
-        //{
-        //    BothCharacters.transform.position = new Vector3(BothCharacters.transform.position.x, Mathf.Lerp(BothCharacters.transform.position.y, DecendingLoc.transform.position.y, Time.deltaTime * fracComplete), BothCharacters.transform.position.z);
-        //}
-
-        //if (BothCharacters.transform.position == temp)
-        //{
-        //    BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
-        //    IsDecending = false;
-        //}
+       
 
 
 

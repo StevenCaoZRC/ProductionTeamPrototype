@@ -12,6 +12,8 @@ TagManager:
   - VineBlock
   - FireBlock
   - Ground
+  - WaterBlock
+  - VineGround
   layers:
   - Default
   - TransparentFX

@@ -77,7 +77,7 @@ public class PlayerControl : MonoBehaviour
                 }
 
 
-                if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
+                if (hit.transform.gameObject.tag == "VineGround" && !m_childOneLeading && Climbed)
                 {
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = false;
