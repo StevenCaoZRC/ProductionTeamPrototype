@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject m_selectedPos;
     public GameObject[] m_backupPos;
 
-    public GameObject VineBlock;
+  
 
     [Header("Private //just for checking")]
     [SerializeField]
@@ -84,7 +84,7 @@ public class PlayerControl : MonoBehaviour
                 }
 
 
-                Vector3 temp1 = new Vector3(0, VineBlock.transform.position.y / 2, 0);
+               
                 if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
                 {
                     Debug.Log("GetOff");

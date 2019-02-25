@@ -16,7 +16,7 @@ public class VineBlock : Block
         {
             surface[i].BuildNavMesh ();
         }
-       
+        
     }
     // Update is called once per frame
     void Update()
@@ -43,15 +43,15 @@ public class VineBlock : Block
             }
         }
         m_isWalkable = true;
-            m_blockType = BlockType.Ground;
+        m_blockType = BlockType.Ground;
             
-            Vector3 temp = new Vector3(0, transform.position.y/2, 0);
-            //play animation
-            player.GetComponent<NavMeshAgent>().enabled = false;
-            player.transform.position = transform.position + temp;
-            player.GetComponent<NavMeshAgent>().enabled = true;
-            Debug.Log(player.transform.position);
-            HasClimbed = false;
+        Vector3 temp = new Vector3(transform.position.x, transform.position.y + transform.position.y/2, transform.position.z);
+        Vector3 speed = new Vector3(0, transform.position.y / 2, 0);
+        //play animation
+        
+        
+        //Debug.Log(player.transform.position);
+        HasClimbed = false;
        
     }
     
