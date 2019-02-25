@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        m_agent.angularSpeed = 0;
+
         if (m_agent.isOnOffMeshLink && !m_traversingLink)
         {
             StartCoroutine(WaterLink());
@@ -58,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             m_hitLocation = m_hit.collider.transform.position;
         }
         
-        //---------steven old code
+        //---------Steven old code
         //
         //Quaternion _targetDir = new Quaternion();
 

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     // Player Variables
 
     public enum Element {None, Water, Forest};
+    public Animator m_childAnim;
 
     [SerializeField]
     protected Element m_charaElement = Element.None;
@@ -66,6 +67,11 @@ public class Player : MonoBehaviour
         return m_isActive;
     }
     
+    public void PlaySwitchAnim()
+    {
+        m_childAnim.SetTrigger("Fidget");
+    }
+
     public virtual void SpellOne(GameObject _object) { }
     public virtual void SpellTwo(GameObject _object) { }
 }
