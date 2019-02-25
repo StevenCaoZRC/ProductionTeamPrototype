@@ -88,10 +88,15 @@ public class PlayerMovement : MonoBehaviour
     //Move and rotate towards dest
     IEnumerator Move()
     {
+        m_waterChildAnim.SetBool("WCWalk", true);
+        m_forestChildAnim.SetBool("FCWalk", true);
 
         m_agent.SetDestination(m_hitLocation); // Start moving
         yield return new WaitForSeconds(0.05f); // compensating for remaining dist not updating immediately
 
+
+        m_waterChildAnim.SetBool("WCWalk", true);
+        m_forestChildAnim.SetBool("FCWalk", true);
         while (m_agent.remainingDistance != 0) // if agent is not at destination
         {
 
@@ -108,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
             FacePosition(m_hitLocation); //Rotate chara to face location
-            
             yield return null;
         }
         m_waterChildAnim.SetBool("WCWalk", false);
