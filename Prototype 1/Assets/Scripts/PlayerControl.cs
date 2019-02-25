@@ -9,7 +9,6 @@ public class PlayerControl : MonoBehaviour
     public Player m_childOne;
     public Player m_childTwo;
     public Animator m_doubleCharaAnimator;
-
     public PlayerMovement m_movement;
 
     [Header("Target Positions For Characters to stay at (Idle)")]
@@ -21,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private bool m_childOneLeading = true;
     private bool Climbed = false;
+    
     private void Start()
     {
         //Depending on who is leading when script starts up, set character as lead
@@ -51,11 +51,11 @@ public class PlayerControl : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
+           
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.collider.transform.gameObject.name);
-
+                
                 if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
                     //Put out fire

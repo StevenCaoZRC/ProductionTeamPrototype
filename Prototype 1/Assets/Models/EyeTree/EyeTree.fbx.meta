@@ -43,7 +43,17 @@ ModelImporter:
     7400000: Take 001
     9500000: //RootNode
     13700000: EyeTree
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert5
+    second: {fileID: 2100000, guid: 81e13b76a88dfd84bb4c7bf4cb10b74c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert6
+    second: {fileID: 2100000, guid: a4d73b5b2ad920b4e983b6c172f68046, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,22 +1,51 @@
 fileFormatVersion: 2
-guid: d2172e5ac88102046bf2d022cdf1fe63
+guid: e782e96ae68c8554e8ae63f74da5466a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: flower
+    100000: Body
     100002: //RootNode
-    400000: flower
+    100004: Head
+    100006: L_Arm
+    100008: L_Foot
+    100010: L_ForeArm
+    100012: L_Hand
+    100014: L_HandEnd
+    100016: L_Knee
+    100018: L_Leg
+    100020: R_Arm
+    100022: R_Foot
+    100024: R_ForeArm
+    100026: R_Hand
+    100028: R_HandEnd
+    100030: R_Knee
+    100032: R_Leg
+    100034: Top
+    100036: UpperBody
+    100038: WholeRig
+    400000: Body
     400002: //RootNode
-    2100000: lambert1
-    2300000: flower
-    3300000: flower
-    4300000: flower
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: b75cb5a7feeb8a645831d5ae8d7ad720, type: 2}
+    400004: Head
+    400006: L_Arm
+    400008: L_Foot
+    400010: L_ForeArm
+    400012: L_Hand
+    400014: L_HandEnd
+    400016: L_Knee
+    400018: L_Leg
+    400020: R_Arm
+    400022: R_Foot
+    400024: R_ForeArm
+    400026: R_Hand
+    400028: R_HandEnd
+    400030: R_Knee
+    400032: R_Leg
+    400034: Top
+    400036: UpperBody
+    400038: WholeRig
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -68,8 +97,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -96,7 +125,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
