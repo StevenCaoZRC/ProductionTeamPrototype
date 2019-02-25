@@ -2437,7 +2437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 737647066}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &590539984
 PrefabInstance:
@@ -2516,6 +2516,31 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 94147532}
+    - target: {fileID: 7641427904031560204, guid: fdb02a83b953e634ca9e05fa15bf4416,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.366
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641427904031560204, guid: fdb02a83b953e634ca9e05fa15bf4416,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641427904031560204, guid: fdb02a83b953e634ca9e05fa15bf4416,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641427903419918533, guid: fdb02a83b953e634ca9e05fa15bf4416,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81e13b76a88dfd84bb4c7bf4cb10b74c, type: 2}
+    - target: {fileID: 7641427904033329388, guid: fdb02a83b953e634ca9e05fa15bf4416,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81e13b76a88dfd84bb4c7bf4cb10b74c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdb02a83b953e634ca9e05fa15bf4416, type: 3}
 --- !u!1 &596681706
@@ -6732,7 +6757,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 635030950}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583226277
 GameObject:
@@ -9253,11 +9278,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6848058405132626490, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: VineBlock
-      value: 
-      objectReference: {fileID: 635030945}
     - target: {fileID: 3862658002689625971, guid: 461af3a1561eafd4da9a37d5df9028f9,
         type: 3}
       propertyPath: m_camera
@@ -9273,11 +9293,6 @@ PrefabInstance:
       propertyPath: VineAnchorPnt
       value: 
       objectReference: {fileID: 1583210083}
-    - target: {fileID: 3967305050261829929, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461af3a1561eafd4da9a37d5df9028f9, type: 3}
 --- !u!1001 &7641427903841147643

@@ -84,15 +84,12 @@ MonoBehaviour:
   m_childOne: {fileID: 426953159878576453}
   m_childTwo: {fileID: 2512595813771141737}
   m_doubleCharaAnimator: {fileID: 94147537}
-  m_waterChildAnim: {fileID: 1792777201}
-  m_forestChildAnim: {fileID: 803765052}
   m_movement: {fileID: 3862658002689625971}
   m_selectedPos: {fileID: 3083971064813888089}
   m_backupPos:
   - {fileID: 2178121581548191481}
   - {fileID: 1767712711218482463}
   - {fileID: 1038708050224938163}
-  VineBlock: {fileID: 0}
   m_childOneLeading: 1
 --- !u!114 &3862658002689625971
 MonoBehaviour:
@@ -384,11 +381,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f70027cc433e6459a36f8468be8df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_childAnim: {fileID: 803765052}
   m_charaElement: 2
   BothCharacters: {fileID: 1507551707181514283}
   vine: {fileID: 0}
   VineAnchorPnt: {fileID: 0}
   ClimbingVines: 0
+  IsDecending: 0
 --- !u!95 &803765052
 Animator:
   serializedVersion: 3
@@ -515,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &829165314655068516
 Transform:
   m_ObjectHideFlags: 0
@@ -671,6 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d6d2158ccce3d4d82657d20c88dce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_childAnim: {fileID: 1792777201}
   m_charaElement: 1
 --- !u!95 &1792777201
 Animator:
