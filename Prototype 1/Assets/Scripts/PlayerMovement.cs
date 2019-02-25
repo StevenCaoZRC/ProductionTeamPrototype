@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         MovementDestination();
 
-        if (!m_traversingLink) //If not already on a link
+        if (!m_traversingLink && m_agent != null) //If not already on a link
         {
             StartCoroutine(Move());
         }
@@ -99,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
         m_forestChildAnim.SetBool("FCWalk", true);
         while (m_agent.remainingDistance != 0) // if agent is not at destination
         {
-
             m_waterChildAnim.SetBool("WCWalk", true);
             m_forestChildAnim.SetBool("FCWalk", true);
             //Cancel movement if destination is not reachable
@@ -119,6 +118,15 @@ public class PlayerMovement : MonoBehaviour
         m_forestChildAnim.SetBool("FCWalk", false);
 
     }
+
+    //IEnumerator MoveToTarget(GameObject _object)
+    //{
+    //    m_agent.stoppingDistance = _object.radius * .8f;
+    //    m_agent.updateRotation = false;
+
+    //    target = newTarget.interactionTransform;
+
+    //}
 
     //Used to start StraightAcross routine and to end the offmeshlink movement
     IEnumerator WaterLink()
