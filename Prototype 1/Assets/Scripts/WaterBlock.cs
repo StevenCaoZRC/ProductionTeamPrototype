@@ -40,6 +40,7 @@ public class WaterBlock : Block
 
     IEnumerator SpawnIceAfterAnimation()
     {
+        Debug.Log("Spawning water block");
         GameObject iceBlock = Instantiate(m_iceBlockPrefab, transform.position, Quaternion.identity);
         iceBlock.transform.parent = gameObject.transform;
 

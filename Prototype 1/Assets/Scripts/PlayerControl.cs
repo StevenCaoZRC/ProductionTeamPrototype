@@ -9,8 +9,6 @@ public class PlayerControl : MonoBehaviour
     public Player m_childOne;
     public Player m_childTwo;
     public Animator m_doubleCharaAnimator;
-    public Animator m_waterChildAnim;
-    public Animator m_forestChildAnim;
 
     public PlayerMovement m_movement;
 
@@ -18,7 +16,6 @@ public class PlayerControl : MonoBehaviour
     public GameObject m_selectedPos;
     public GameObject[] m_backupPos;
 
-    public GameObject VineBlock;
 
     [Header("Private //just for checking")]
     [SerializeField]
@@ -62,32 +59,26 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
                     //Put out fire
-                    m_waterChildAnim.SetTrigger("WCWater");
                     m_childOne.SpellOne(hit.transform.gameObject);
                 }
 
                 if (hit.transform.gameObject.tag == "WaterBlock" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
                     //Create Ice
-                    m_waterChildAnim.SetTrigger("WCIce");
 
                     m_childOne.SpellTwo(hit.transform.gameObject);
                 }
 
                 if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading && !Climbed)
                 {
-                    m_forestChildAnim.SetTrigger("FCVine");
-
                     Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = true;
                 }
 
 
-                Vector3 temp1 = new Vector3(0, VineBlock.transform.position.y / 2, 0);
                 if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
                 {
-                    Debug.Log("GetOff");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = false;
                    
@@ -105,8 +96,8 @@ public class PlayerControl : MonoBehaviour
     //Handles animation
     public void SwitchCharaPos()
     {
-        m_waterChildAnim.SetTrigger("WCFidget");
-        m_forestChildAnim.SetTrigger("FCFidget");
+        m_childOne.PlaySwitchAnim();
+        m_childTwo.PlaySwitchAnim();
 
         if (m_childOneLeading)
         {
