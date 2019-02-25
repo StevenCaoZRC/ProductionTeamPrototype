@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465791, g: 0.49641287, b: 0.5748174, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657862, g: 0.49641234, b: 0.5748166, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13775,6 +13775,41 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: VineBlocks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: m_childAnim
+      value: 
+      objectReference: {fileID: 654361170}
+    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: vine
+      value: 
+      objectReference: {fileID: 635030945}
+    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: VineAnchorPnt
+      value: 
+      objectReference: {fileID: 1698754389}
+    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: VineBlocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 635030945}
+    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: VineBlocks.Array.data[1]
+      value: 
+      objectReference: {fileID: 838008743}
+    - target: {fileID: 426953159878576453, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: m_childAnim
+      value: 
+      objectReference: {fileID: 1318583861}
     - target: {fileID: 3843797261974457785, guid: 461af3a1561eafd4da9a37d5df9028f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13835,36 +13870,6 @@ PrefabInstance:
       propertyPath: m_camera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: VineBlocks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: m_childAnim
-      value: 
-      objectReference: {fileID: 654361170}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: vine
-      value: 
-      objectReference: {fileID: 635030945}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: VineAnchorPnt
-      value: 
-      objectReference: {fileID: 1698754389}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: VineBlocks.Array.data[0]
-      value: 
-      objectReference: {fileID: 635030945}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: VineBlocks.Array.data[1]
-      value: 
-      objectReference: {fileID: 838008743}
     - target: {fileID: 1820916537034565368, guid: 461af3a1561eafd4da9a37d5df9028f9,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -13875,11 +13880,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 426953159878576453, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: m_childAnim
-      value: 
-      objectReference: {fileID: 1318583861}
     - target: {fileID: 3967305050261829929, guid: 461af3a1561eafd4da9a37d5df9028f9,
         type: 3}
       propertyPath: m_IsActive
@@ -14009,7 +14009,8 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 94147532}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7641427904440325981, guid: fdb02a83b953e634ca9e05fa15bf4416, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fdb02a83b953e634ca9e05fa15bf4416, type: 3}
 --- !u!1001 &7794580261506684425
 PrefabInstance:

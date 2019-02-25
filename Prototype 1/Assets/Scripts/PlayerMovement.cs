@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
         MovementDestination();
 
-        if (!m_traversingLink) //If not already on a link
+        if (!m_traversingLink || m_agent != null) //If not already on a link
         {
             StartCoroutine(Move());
         }
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_waterChildAnim.SetBool("WCWalk", true);
         m_forestChildAnim.SetBool("FCWalk", true);
-        while (m_agent.remainingDistance != 0) // if agent is not at destination
+        while (m_agent.remainingDistance != 0 && m_agent.enabled) // if agent is not at destination
         {
 
             m_waterChildAnim.SetBool("WCWalk", true);

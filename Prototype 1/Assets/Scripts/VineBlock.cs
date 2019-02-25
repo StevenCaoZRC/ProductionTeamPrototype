@@ -27,10 +27,6 @@ public class VineBlock : Block
     }
     public override void Reset()
     {
-        for (int i = 0; i < Vines.Length; i++)
-        {
-            Vines[i].SetActive(false);
-        }
         m_hasClimbed = true;
         m_blockType = BlockType.Vine;
         m_isWalkable = false;
