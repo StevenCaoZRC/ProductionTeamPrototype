@@ -40,6 +40,8 @@ public class WaterChild : Player
 
     private IEnumerator PutOutFire(GameObject _fire)
     {
+        m_childAnim.SetTrigger("WCWater");
+
         m_isCasting = true;
 
         //Play fire dying animation 
@@ -51,13 +53,18 @@ public class WaterChild : Player
 
         yield return null;
     }
-
+    // m_childAnim.SetTrigger("WCFidget");
     private IEnumerator CastIceBlock(GameObject _water)
     {
+        m_childAnim.SetTrigger("WCIce");
+
         m_isCasting = true;
+        yield return new WaitForSeconds(1.5f);
+
         //Play fire dying animation 
         _water.gameObject.GetComponent<WaterBlock>().CreateIce();
         yield return new WaitForSeconds(3);
+
         //Make it walkable only after animation is done
         _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
         //Spawn ice block in water block. float.

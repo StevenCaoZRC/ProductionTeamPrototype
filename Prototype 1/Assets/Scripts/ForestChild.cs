@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class ForestChild : Player
 {
     public GameObject BothCharacters;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -54,8 +55,10 @@ public class ForestChild : Player
 
     private IEnumerator ClimbVines(GameObject _Vines)
     {
+        m_childAnim.SetTrigger("FCVine");
+
         m_isCasting = true;
-        //yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2);
 
         _Vines.transform.GetComponent<VineBlock>().ClimbingVines();
         m_isCasting = false;

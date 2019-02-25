@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        m_agent.angularSpeed = 0;
+
         if (m_agent.isOnOffMeshLink && !m_traversingLink)
         {
             StartCoroutine(WaterLink());
