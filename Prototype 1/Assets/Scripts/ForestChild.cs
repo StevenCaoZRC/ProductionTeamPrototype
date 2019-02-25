@@ -6,9 +6,13 @@ using UnityEngine.AI;
 public class ForestChild : Player
 {
     public GameObject BothCharacters;
-    public GameObject vine;
+    public GameObject[] VineBlocks;
     public GameObject VineAnchorPnt;
+    private PlayerControl playerCtrl;
+    private GameObject CheckVine;
+    private GameObject vine;
     private Vector3 temp;
+    private GameObject DecendingLoc;
     public bool ClimbingVines = false;
     public bool  IsDecending  = false;
     // Start is called before the first frame update
@@ -22,6 +26,7 @@ public class ForestChild : Player
     // Update is called once per frame
     void Update()
     {
+     
         if (ClimbingVines == true)
         {
             BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
@@ -32,22 +37,22 @@ public class ForestChild : Player
             //player.transform.position = transform.position + temp;\
             temp = new Vector3(vine.transform.position.x, vine.transform.position.y+(vine.transform.position.y / 2), vine.transform.position.z);
 
-            BothCharacters.transform.position = new Vector3(BothCharacters.transform.position.x, Mathf.Lerp(BothCharacters.transform.position.y, VineAnchorPnt.transform.position.y, Time.deltaTime * fracComplete), BothCharacters.transform.position.z);
+            BothCharacters.transform.position = new Vector3(BothCharacters.transform.position.x, Mathf.Lerp(BothCharacters.transform.position.y, vine.transform.GetChild(0).transform.position.y, Time.deltaTime * fracComplete), BothCharacters.transform.position.z);
             
-            if (BothCharacters.transform.position.y > VineAnchorPnt.transform.position.y - 0.01 && BothCharacters.transform.position.y <= VineAnchorPnt.transform.position.y )
+            if (BothCharacters.transform.position.y > vine.transform.GetChild(0).transform.position.y - 0.01 && BothCharacters.transform.position.y <= vine.transform.GetChild(0).transform.position.y )
             {
-                BothCharacters.transform.position = new Vector3(Mathf.Lerp(BothCharacters.transform.position.x, VineAnchorPnt.transform.position.x, Time.deltaTime * fracComplete), BothCharacters.transform.position.y, Mathf.Lerp(BothCharacters.transform.position.z, VineAnchorPnt.transform.position.z, Time.deltaTime * fracComplete));
+                BothCharacters.transform.position = new Vector3(Mathf.Lerp(BothCharacters.transform.position.x, vine.transform.GetChild(0).transform.position.x, Time.deltaTime * fracComplete), BothCharacters.transform.position.y, Mathf.Lerp(BothCharacters.transform.position.z, vine.transform.GetChild(0).transform.position.z, Time.deltaTime * fracComplete));
             }
-
-            
         }
-        
         if (BothCharacters.transform.position == temp)
         {
             BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
             ClimbingVines = false;
+            
         }
-      
+        Decending();
+
+
     }
 
     public override void SpellOne(GameObject _Vines)
@@ -59,10 +64,19 @@ public class ForestChild : Player
 
             if (_Vines.tag == "VineBlock")
             { ClimbingVines = true;
+                CheckVine = _Vines;
+                for (int i = 0; i < VineBlocks.Length; i++)
+                {
+                    if (VineBlocks[i].name == CheckVine.name)
+                    {
+                        vine = VineBlocks[i];
+                    }
+                }
             }
             else if (_Vines.tag == "Ground")
             {
                 IsDecending = true;
+                DecendingLoc = _Vines;
             }
         }
 
@@ -79,20 +93,36 @@ public class ForestChild : Player
     }
 
     
-    private IEnumerator Decending(GameObject _SelectedBlock)
+    public void Decending()
     {
-        m_isCasting = true;
-      // yield return new Wait
-        
-        Vector3 temp = new Vector3(0, _SelectedBlock.transform.position.y / 2, 0);
-        //play animation
-        BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
-        BothCharacters.transform.position = _SelectedBlock.transform.position + temp;
-        BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
-          
-        
-        m_isCasting = false;
-        yield return null;
+
+        if (IsDecending == true)
+        {
+            BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
+            Vector3 CurrentPlayerLocation = BothCharacters.transform.GetChild(0).transform.position;
+
+            float fracComplete =1.0f;
+
+            //player.transform.position = transform.position + temp;\
+            temp = new Vector3(DecendingLoc.gameObject.transform.position.x, DecendingLoc.transform.position.y + (DecendingLoc.transform.position.y / 2), DecendingLoc.gameObject.transform.position.z);
+
+
+            //BothCharacters.transform.position = new Vector3(Mathf.Lerp(BothCharacters.transform.position.x, DecendingLoc.transform.position.x, Time.deltaTime * fracComplete), BothCharacters.transform.position.y, Mathf.Lerp(BothCharacters.transform.position.z, DecendingLoc.transform.position.z, Time.deltaTime * fracComplete));
+            BothCharacters.transform.position = Vector3.Lerp(BothCharacters.transform.position, DecendingLoc.transform.position, Time.deltaTime); 
+
+            if (BothCharacters.transform.position.x > DecendingLoc.transform.position.x - 0.01 && BothCharacters.transform.position.x <= DecendingLoc.transform.position.x)
+            {
+                BothCharacters.transform.position = new Vector3(BothCharacters.transform.position.x, Mathf.Lerp(BothCharacters.transform.position.y, DecendingLoc.transform.position.y, Time.deltaTime * fracComplete), BothCharacters.transform.position.z);
+            }
+        }
+        if (BothCharacters.transform.position == temp)
+        {
+            BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
+            IsDecending = false;
+        }
+
+
+
     }
 
 }
