@@ -64,7 +64,7 @@ public class ForestChild : Player
                 }
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             }
-            else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x && BothCharacters.transform.position.z == vine.transform.GetChild(0).transform.position.z)
+            else if (_Vines.tag == "Ground" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x && BothCharacters.transform.position.z == vine.transform.GetChild(0).transform.position.z)
             {
                 IsDecending = true;
                 DecendingLoc = _Vines;
@@ -105,7 +105,7 @@ public class ForestChild : Player
             totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT1);
             BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT1, timeStarted,totalDistance );
 
-            //yield return new WaitUntil(()=> BothCharacters.transform.position.y == vine.transform.GetChild(0).transform.position.y);
+           
             if(BothCharacters.transform.position.y == vine.transform.GetChild(0).transform.position.y)
             {
                 Vector3 EndPostionPT2 = new Vector3(vine.transform.GetChild(0).transform.position.x,
@@ -163,7 +163,7 @@ public class ForestChild : Player
             if (BothCharacters.transform.position.x == DecendingLoc.transform.position.x && BothCharacters.transform.position.z == DecendingLoc.transform.position.z)
             {
                 Vector3 EndPostionPT2 = new Vector3(DecendingLoc.transform.position.x,
-                                                   (DecendingLoc.transform.position.y  ),
+                                                   DecendingLoc.transform.position.y ,
                                                   DecendingLoc.transform.position.z);
 
                 totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT2);

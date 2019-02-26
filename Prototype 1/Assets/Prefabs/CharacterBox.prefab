@@ -85,6 +85,9 @@ MonoBehaviour:
   m_childTwo: {fileID: 2512595813771141737}
   m_doubleCharaAnimator: {fileID: 94147537}
   m_movement: {fileID: 3862658002689625971}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_selectedPos: {fileID: 3083971064813888089}
   m_backupPos:
   - {fileID: 2178121581548191481}
@@ -518,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &829165314655068516
 Transform:
   m_ObjectHideFlags: 0

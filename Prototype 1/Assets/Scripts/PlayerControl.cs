@@ -77,11 +77,12 @@ public class PlayerControl : MonoBehaviour
 
                 if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading && !Climbed)
                 {
-                    m_movement.MoveToTarget(hit.transform.gameObject);
-
+                   
                     Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = true;
+                    m_movement.MoveToTarget(hit.transform.gameObject);
+
                 }
 
                 if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
