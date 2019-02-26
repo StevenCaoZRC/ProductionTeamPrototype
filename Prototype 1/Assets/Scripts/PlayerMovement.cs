@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
             //Cancel movement if destination is not reachable
             if (m_agent.remainingDistance == Mathf.Infinity || m_agent.pathPending
                 || m_agent.pathStatus == NavMeshPathStatus.PathPartial
-                || (m_agent.remainingDistance <= m_agent.stoppingDistance && m_targeting))
+                || (m_agent.remainingDistance < m_agent.stoppingDistance && m_targeting))
             {
                 m_waterChildAnim.SetBool("WCWalk", false);
                 m_forestChildAnim.SetBool("FCWalk", false);
