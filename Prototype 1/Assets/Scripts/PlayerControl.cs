@@ -42,7 +42,8 @@ public class PlayerControl : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(LayerMask.LayerToName(hit.collider.transform.gameObject.layer));
-                if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")
+                    || hit.collider.gameObject.layer == LayerMask.NameToLayer("VineBlock"))
                 {
                     m_movement.MovePlayer(hit);
                 }
@@ -84,10 +85,9 @@ public class PlayerControl : MonoBehaviour
                     Climbed = true;
                 }
 
-                if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
+                if (hit.transform.gameObject.tag == "VineGround" && !m_childOneLeading && Climbed)
                 {
-                    m_movement.MoveToTarget(hit.transform.gameObject);
-
+                    //m_movement.MoveToTarget(hit.transform.gameObject);
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = false;
                    

@@ -66,6 +66,8 @@ public class ForestChild : Player
             }
             else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x && BothCharacters.transform.position.z == vine.transform.GetChild(0).transform.position.z)
             {
+                Debug.Log("VineGround DESCEND: " + IsDecending);
+
                 IsDecending = true;
                 DecendingLoc = _Vines;
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
@@ -152,6 +154,8 @@ public class ForestChild : Player
 
         if (IsDecending == true)
         {
+            Debug.Log("yaALLL DESCEND: " + IsDecending);
+
             Vector3 EndPostionPT1 = new Vector3(DecendingLoc.transform.position.x,
                                                 BothCharacters.transform.position.y,
                                                 DecendingLoc.transform.position.z);
