@@ -64,7 +64,7 @@ public class ForestChild : Player
                 }
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             }
-            else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x && BothCharacters.transform.position.z == vine.transform.GetChild(0).transform.position.z)
+            else if (_Vines.tag == "VineGround" )//&& BothCharacters.transform.position == vine.transform.GetChild(0).transform.position)
             {
                 Debug.Log("VineGround DESCEND: " + IsDecending);
 
@@ -121,6 +121,8 @@ public class ForestChild : Player
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 ClimbingVines = false;
+        
+               
             }
         
             
