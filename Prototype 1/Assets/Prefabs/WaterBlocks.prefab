@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1979058222221057605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1979058223292913608}
   - {fileID: 7400351672890833884}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1979058223244774208}
   - component: {fileID: 1979058223244774209}
   - component: {fileID: 1979058223244774222}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EndBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 1979058223292913613}
   - component: {fileID: 1979058223292913610}
   - component: {fileID: 1979058223292913611}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StartBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,6 +229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 9062458874765597670, guid: 448c957f8c2be404bb549e55c803d03c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9062458874765597666, guid: 448c957f8c2be404bb549e55c803d03c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -299,6 +304,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9062458874765597668, guid: 448c957f8c2be404bb549e55c803d03c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e99fa3d12c8e4ce4cb6195a9d1829c8f, type: 2}
     - target: {fileID: 7944248291321057635, guid: 448c957f8c2be404bb549e55c803d03c,
         type: 3}
       propertyPath: m_waterLink
@@ -314,6 +324,14 @@ PrefabInstance:
       propertyPath: m_endBlock
       value: 
       objectReference: {fileID: 1979058223244774223}
+    - target: {fileID: 1257990211, guid: 448c957f8c2be404bb549e55c803d03c, type: 3}
+      propertyPath: m_StartPoint.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257990211, guid: 448c957f8c2be404bb549e55c803d03c, type: 3}
+      propertyPath: m_EndPoint.x
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1257990211, guid: 448c957f8c2be404bb549e55c803d03c, type: 3}
       propertyPath: m_Width
       value: 0.1
@@ -342,6 +360,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_Name
       value: platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_Name
       value: platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalPosition.x

@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public Player m_childTwo;
     public Animator m_doubleCharaAnimator;
     public PlayerMovement m_movement;
+    public LayerMask m_layerMask;
 
     [Header("Target Positions For Characters to stay at (Idle)")]
     public GameObject m_selectedPos;
@@ -40,7 +41,8 @@ public class PlayerControl : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider != null)
+                Debug.Log(LayerMask.LayerToName(hit.collider.transform.gameObject.layer));
+                if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
                     m_movement.MovePlayer(hit);
                 }
@@ -55,30 +57,37 @@ public class PlayerControl : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.collider.transform.gameObject.name);
-                
+
                 if (hit.transform.gameObject.tag == "Fire" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
                     //Put out fire
+                    m_movement.MoveToTarget(hit.transform.gameObject);
+                    
                     m_childOne.SpellOne(hit.transform.gameObject);
+
                 }
 
                 if (hit.transform.gameObject.tag == "WaterBlock" && m_childOneLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                 {
                     //Create Ice
+                    m_movement.MoveToTarget(hit.transform.gameObject);
 
                     m_childOne.SpellTwo(hit.transform.gameObject);
                 }
 
                 if (hit.transform.gameObject.tag == "VineBlock" && !m_childOneLeading && !Climbed)
                 {
+                    m_movement.MoveToTarget(hit.transform.gameObject);
+
                     Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = true;
                 }
 
-
-                if (hit.transform.gameObject.tag == "VineGround" && !m_childOneLeading && Climbed)
+                if (hit.transform.gameObject.tag == "Ground" && !m_childOneLeading && Climbed)
                 {
+                    m_movement.MoveToTarget(hit.transform.gameObject);
+
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = false;
                    
