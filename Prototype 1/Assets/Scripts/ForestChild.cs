@@ -64,13 +64,22 @@ public class ForestChild : Player
                 }
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             }
-            else if (_Vines.tag == "VineGround" )//&& BothCharacters.transform.position == vine.transform.GetChild(0).transform.position)
+            else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
             {
                 Debug.Log("VineGround DESCEND: " + IsDecending);
 
                 IsDecending = true;
                 DecendingLoc = _Vines;
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
+                for (int i = 0; i < VineBlocks.Length; i++)
+                {
+                    if (VineBlocks[i].name == CheckVine.name)
+                    {
+                        vine = VineBlocks[i];
+                        VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
+                        VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
+                    }
+                }
             }
         }
 
