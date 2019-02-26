@@ -55,6 +55,9 @@ ModelImporter:
     400048: WholeRig
     2100000: lambert1
     2100002: lambert4
+    2100004: BodyBase
+    2100006: lambert2
+    2100008: Outershell
     4300000: Eyes
     4300002: NatureChild_Dress
     4300004: NatureChild_Base
