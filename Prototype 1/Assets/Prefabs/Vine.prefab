@@ -42,8 +42,7 @@ GameObject:
   - component: {fileID: 7641427904440325983}
   - component: {fileID: 7641427904440325976}
   - component: {fileID: 7641427904440325977}
-  - component: {fileID: 7641427904440325981}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Vine
   m_TagString: VineBlock
   m_Icon: {fileID: 0}
@@ -128,26 +127,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7641427904440325981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7641427904440325978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2eee4f4b08bca74c83010ee4bda815b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_blockType: 4
-  m_isWalkable: 0
-  surface:
-  - {fileID: 0}
-  Vines:
-  - {fileID: 7641427903266334702}
-  - {fileID: 7641427904296741059}
-  player: {fileID: 0}
 --- !u!1001 &3457905256174553008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -304,12 +283,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df35f3fbec557546899b30df8eabd84, type: 3}
---- !u!1 &7641427903266334702 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 4df35f3fbec557546899b30df8eabd84,
-    type: 3}
-  m_PrefabInstance: {fileID: 7641427903266365774}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7641427903266503630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4df35f3fbec557546899b30df8eabd84,
@@ -571,12 +544,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df35f3fbec557546899b30df8eabd84, type: 3}
---- !u!1 &7641427904296741059 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 4df35f3fbec557546899b30df8eabd84,
-    type: 3}
-  m_PrefabInstance: {fileID: 7641427904296709731}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7641427904296580323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4df35f3fbec557546899b30df8eabd84,

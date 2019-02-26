@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(WaterLink());
 
         }
-        Debug.Log("Stop: " + m_agent.stoppingDistance);
+       // Debug.Log("Stop: " + m_agent.stoppingDistance);
         //if(transform.position != m_hitLocation)
         //{
         //    m_toLookAt = new Vector3(m_hitLocation.x, m_agent.transform.position.y, m_hitLocation.z);

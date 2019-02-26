@@ -16,7 +16,6 @@ public class PlayerControl : MonoBehaviour
     public GameObject m_selectedPos;
     public GameObject[] m_backupPos;
 
-
     [Header("Private //just for checking")]
     [SerializeField]
     private bool m_childOneLeading = true;
@@ -88,6 +87,7 @@ public class PlayerControl : MonoBehaviour
 
                 if (hit.transform.gameObject.tag == "VineGround" && !m_childOneLeading && Climbed)
                 {
+                    Debug.Log("NANI");
                     //m_movement.MoveToTarget(hit.transform.gameObject);
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = false;

@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     protected Element m_charaElement = Element.None;
     protected bool m_isActive = false;
     protected bool m_isCasting = false;
-    protected int m_currAbilityCount = 2;
-    protected int m_maxAbilityCount = 2;
+    protected int m_currAbilityCount = 5;
+    protected int m_maxAbilityCount = 5;
 
     // Start is called before the first frame update
     void Start()

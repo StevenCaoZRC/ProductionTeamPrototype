@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465791, g: 0.49641287, b: 0.5748174, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657862, g: 0.49641234, b: 0.5748166, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8945,10 +8945,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 100000, guid: 4b7c631994485a049b5309b8c4b13fad, type: 3}
-      propertyPath: m_Name
-      value: grass_2
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4b7c631994485a049b5309b8c4b13fad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.14
@@ -9004,6 +9000,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 4b7c631994485a049b5309b8c4b13fad, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4b7c631994485a049b5309b8c4b13fad, type: 3}
+      propertyPath: m_Name
+      value: grass_2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4b7c631994485a049b5309b8c4b13fad, type: 3}
       propertyPath: m_Materials.Array.data[0]
