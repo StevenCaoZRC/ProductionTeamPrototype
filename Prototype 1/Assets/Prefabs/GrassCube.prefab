@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2245837152791519457}
   - component: {fileID: 2245837152791519456}
   - component: {fileID: 2245837152791519486}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GrassCube
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -64,6 +64,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_Name
       value: platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalPosition.x

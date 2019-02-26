@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038708050224938163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0, z: -0.15}
+  m_LocalPosition: {x: 0.15, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1273603070460355739}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 94147537}
   m_Layer: 11
   m_Name: CharacterBox
-  m_TagString: ForestChild
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767712711218482463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.15}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4730683954671281736}
@@ -298,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2178121581548191481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0, z: -0.15}
+  m_LocalPosition: {x: -0.15, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6793261864114686955}
@@ -329,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3083971064813888089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.15}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7063197177663779364}
@@ -362,7 +362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3241480433977725789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -0.341, z: -0.15}
+  m_LocalPosition: {x: -0.15, y: -0.341, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 165064021452673678}
@@ -383,9 +383,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_childAnim: {fileID: 803765052}
   m_charaElement: 2
+  timeStarted: 0
+  lerpTime: 4
+  totalDistance: 0
   BothCharacters: {fileID: 1507551707181514283}
-  VineBlocks: []
-  VineAnchorPnt: {fileID: 0}
+  VineBlocks:
+  - {fileID: 0}
+  - {fileID: 0}
   ClimbingVines: 0
   IsDecending: 0
 --- !u!95 &803765052
@@ -514,7 +518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &829165314655068516
 Transform:
   m_ObjectHideFlags: 0
@@ -651,7 +655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5153020353457779233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.341, z: 0.15}
+  m_LocalPosition: {x: 0, y: -0.341, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 165064020187274011}
@@ -869,6 +873,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13700008, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d251e2f5e9e940468c42d227fd570ee, type: 2}
+    - target: {fileID: 13700008, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
       objectReference: {fileID: 165064020187274047}
@@ -948,10 +956,6 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 165064020187274047}
-    - target: {fileID: 13700008, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1d251e2f5e9e940468c42d227fd570ee, type: 2}
     - target: {fileID: 13700006, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1056,6 +1060,10 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 165064020187274047}
+    - target: {fileID: 13700002, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d251e2f5e9e940468c42d227fd570ee, type: 2}
     - target: {fileID: 13700002, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
@@ -1326,6 +1334,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13700008, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 629a82af586ad624884f6f2ce2db78d3, type: 2}
+    - target: {fileID: 13700008, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 
       objectReference: {fileID: 165064021452673706}
@@ -1509,6 +1521,10 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 165064021452673706}
+    - target: {fileID: 13700002, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 629a82af586ad624884f6f2ce2db78d3, type: 2}
     - target: {fileID: 13700002, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
       propertyPath: m_Bones.Array.data[0]
       value: 

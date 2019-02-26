@@ -15,15 +15,16 @@ public class PlayerMovement : MonoBehaviour
     public Animator m_forestChildAnim;
 
     bool m_traversingLink = false;
+    bool m_targeting = false;
+    bool m_isMoving = false;
 
     RaycastHit m_hit;
-    Vector3 m_rayHitPoint;
+    Vector3 m_toLookAt;
     Vector3 m_hitLocation;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_rayHitPoint = transform.forward;
     }
 
     private void Update()
@@ -35,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(WaterLink());
 
         }
+        Debug.Log("Stop: " + m_agent.stoppingDistance);
+        //if(transform.position != m_hitLocation)
+        //{
+        //    m_toLookAt = new Vector3(m_hitLocation.x, m_agent.transform.position.y, m_hitLocation.z);
+        //    transform.LookAt(m_toLookAt);
+        //}
     }
 
     // Update is called once per frame
@@ -43,10 +50,25 @@ public class PlayerMovement : MonoBehaviour
         m_hit = _hit;
 
         MovementDestination();
+    }
 
-        if (!m_traversingLink && m_agent != null) //If not already on a link
+    public void MoveToTarget(GameObject _object)
+    {
+        m_targetDir = _object.transform.position - transform.position;
+
+        //If player is clicking on a pos more than 1 square && clicking a higher square
+        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f)
+            && (m_targetDir.y <= 0 && m_targetDir.y >= -1.5f))
         {
-            StartCoroutine(Move());
+            m_hitLocation = new Vector3(_object.transform.position.x, transform.position.y, _object.transform.position.z);
+
+            if (!m_traversingLink && m_agent != null) //If not already on a link
+            {
+                m_targeting = true;
+                m_agent.stoppingDistance = 3.5f;
+
+                StartCoroutine(Move());
+            }
         }
     }
 
@@ -54,10 +76,18 @@ public class PlayerMovement : MonoBehaviour
     void MovementDestination()
     {
         m_targetDir = m_hit.collider.transform.position - transform.position;
-        if (Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f) //If player is moving more than 1 square
+
+        //If player is clicking on a pos more than 1 square && clicking a higher square
+        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f )
+            && (m_targetDir.y <= 0 && m_targetDir.y >= -1.5f)) 
         {
-            m_rayHitPoint = m_hit.point;
             m_hitLocation = m_hit.collider.transform.position;
+            m_agent.stoppingDistance = 0.0f;
+
+            if (!m_traversingLink && m_agent != null) //If not already on a link
+            {
+                StartCoroutine(Move());
+            }
         }
         
         //---------Steven old code
@@ -85,9 +115,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public bool GetIsMoving()
+    {
+        return m_isMoving;
+    }
+
     //Move and rotate towards dest
     IEnumerator Move()
     {
+        m_isMoving = true;
         m_waterChildAnim.SetBool("WCWalk", true);
         m_forestChildAnim.SetBool("FCWalk", true);
 
@@ -97,41 +133,36 @@ public class PlayerMovement : MonoBehaviour
 
         m_waterChildAnim.SetBool("WCWalk", true);
         m_forestChildAnim.SetBool("FCWalk", true);
-        while (m_agent.remainingDistance != 0) // if agent is not at destination
+        while ((m_agent.remainingDistance != 0 && m_agent.enabled)) // if agent is not at destination
         {
             m_waterChildAnim.SetBool("WCWalk", true);
             m_forestChildAnim.SetBool("FCWalk", true);
             //Cancel movement if destination is not reachable
             if (m_agent.remainingDistance == Mathf.Infinity || m_agent.pathPending
-                || m_agent.pathStatus == NavMeshPathStatus.PathPartial)
+                || m_agent.pathStatus == NavMeshPathStatus.PathPartial
+                || (m_agent.remainingDistance <= m_agent.stoppingDistance && m_targeting))
             {
                 m_waterChildAnim.SetBool("WCWalk", false);
                 m_forestChildAnim.SetBool("FCWalk", false);
-
+                m_targeting = false;
+                m_isMoving = false;
                 yield break;
             }
-
+            
             FacePosition(m_hitLocation); //Rotate chara to face location
             yield return null;
         }
         m_waterChildAnim.SetBool("WCWalk", false);
         m_forestChildAnim.SetBool("FCWalk", false);
-
+        m_targeting = false;
+        m_isMoving = false;
     }
 
-    //IEnumerator MoveToTarget(GameObject _object)
-    //{
-    //    m_agent.stoppingDistance = _object.radius * .8f;
-    //    m_agent.updateRotation = false;
-
-    //    target = newTarget.interactionTransform;
-
-    //}
 
     //Used to start StraightAcross routine and to end the offmeshlink movement
     IEnumerator WaterLink()
     {
-        m_doubleCharaAnim.SetTrigger("JumpIce");
+        //m_doubleCharaAnim.SetTrigger("JumpIce");
 
         m_traversingLink = true;
         //MoveAcrossLink
@@ -165,7 +196,9 @@ public class PlayerMovement : MonoBehaviour
     void FacePosition(Vector3 _pos)
     {
         Vector3 dir = (_pos - transform.position).normalized;
+
         Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0.0f, dir.z));
+
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * m_speed);
     }
 }
