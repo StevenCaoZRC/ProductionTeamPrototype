@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 957bb5b9d11ae48429a3200344cd43ea
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bird
+    100002: BirdHead
+    100004: BirdMouth
+    100006: BotMouth
+    100008: Hair1
+    100010: Hair1End
+    100012: Hair2
+    100014: Hair2End
+    100016: Hair3
+    100018: Hair3End
+    100020: Hair4
+    100022: Hair4End
+    100024: Hair5
+    100026: Hair5End
+    100028: Hair6
+    100030: Hair6End
+    100032: Hair7
+    100034: Hair7End
+    100036: Hair8
+    100038: Hair8End
+    100040: HairAndHat
+    100042: HairStrandA
+    100044: HairStrandB
+    100046: HairStrandC
+    100048: HairStrandD
+    100050: HairStrandE
+    100052: HairStrandF
+    100054: HairStrandG
+    100056: HairStrandH
+    100058: //RootNode
+    100060: Nest
+    100062: TopMouth
+    400000: Bird
+    400002: BirdHead
+    400004: BirdMouth
+    400006: BotMouth
+    400008: Hair1
+    400010: Hair1End
+    400012: Hair2
+    400014: Hair2End
+    400016: Hair3
+    400018: Hair3End
+    400020: Hair4
+    400022: Hair4End
+    400024: Hair5
+    400026: Hair5End
+    400028: Hair6
+    400030: Hair6End
+    400032: Hair7
+    400034: Hair7End
+    400036: Hair8
+    400038: Hair8End
+    400040: HairAndHat
+    400042: HairStrandA
+    400044: HairStrandB
+    400046: HairStrandC
+    400048: HairStrandD
+    400050: HairStrandE
+    400052: HairStrandF
+    400054: HairStrandG
+    400056: HairStrandH
+    400058: //RootNode
+    400060: Nest
+    400062: TopMouth
+    2100000: lambert2
+    4300000: Bird
+    4300002: Nest
+    4300004: HairStrandH
+    4300006: HairStrandG
+    4300008: HairStrandF
+    4300010: HairStrandE
+    4300012: HairStrandD
+    4300014: HairStrandC
+    4300016: HairStrandB
+    4300018: HairStrandA
+    9500000: //RootNode
+    13700000: Bird
+    13700002: HairStrandA
+    13700004: HairStrandB
+    13700006: HairStrandC
+    13700008: HairStrandD
+    13700010: HairStrandE
+    13700012: HairStrandF
+    13700014: HairStrandG
+    13700016: HairStrandH
+    13700018: Nest
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
