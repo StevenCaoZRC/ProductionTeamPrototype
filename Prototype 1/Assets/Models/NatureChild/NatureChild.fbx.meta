@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ec6d46ac3622f9468f47cf32834498f
+guid: c52f077750f38544dab85a167f7a95d5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -66,17 +66,7 @@ ModelImporter:
     13700004: NatureChild_Dress
     13700006: NatureChild_Top
     13700008: OuterShell
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert4
-    second: {fileID: 2100000, guid: 4ec6d46ac3622f9468f47cf32834498f, type: 3}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
