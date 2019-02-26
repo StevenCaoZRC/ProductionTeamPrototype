@@ -64,7 +64,7 @@ public class ForestChild : Player
                 }
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             }
-            else if (_Vines.tag == "Ground" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x && BothCharacters.transform.position.z == vine.transform.GetChild(0).transform.position.z)
+            else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x && BothCharacters.transform.position.z == vine.transform.GetChild(0).transform.position.z)
             {
                 Debug.Log("VineGround DESCEND: " + IsDecending);
 
@@ -167,13 +167,13 @@ public class ForestChild : Player
             if (BothCharacters.transform.position.x == DecendingLoc.transform.position.x && BothCharacters.transform.position.z == DecendingLoc.transform.position.z)
             {
                 Vector3 EndPostionPT2 = new Vector3(DecendingLoc.transform.position.x,
-                                                   DecendingLoc.transform.position.y ,
+                                                   DecendingLoc.transform.position.y + 1 ,
                                                   DecendingLoc.transform.position.z);
 
                 totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT2);
                 BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT2, timeStarted, totalDistance);
             }
-            if (BothCharacters.transform.position == DecendingLoc.transform.position)
+            if (BothCharacters.transform.position.y == DecendingLoc.transform.position.y + 1)
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 IsDecending = false;
