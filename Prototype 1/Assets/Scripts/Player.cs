@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     protected Element m_charaElement = Element.None;
     protected bool m_isActive = false;
     protected bool m_isCasting = false;
+    //protected bool m_isLeading = false;
+
     protected int m_currAbilityCount = 5;
     protected int m_maxAbilityCount = 5;
 
@@ -66,7 +68,16 @@ public class Player : MonoBehaviour
     {
         return m_isActive;
     }
-    
+    //public void SetIsLeading(bool _leading)
+    //{
+    //    m_isLeading = _leading;
+    //}
+
+    //public bool GetIsLeading()
+    //{
+    //    return m_isLeading;
+    //}
+
     public void PlaySwitchAnim()
     {
         m_childAnim.SetTrigger("Fidget");
