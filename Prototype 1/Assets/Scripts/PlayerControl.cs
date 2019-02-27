@@ -81,7 +81,7 @@ public class PlayerControl : MonoBehaviour
                     Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = true;
-                    m_movement.MoveToTarget(hit.transform.gameObject);
+                    //m_movement.MoveToTarget(hit.transform.gameObject);
 
                 }
 

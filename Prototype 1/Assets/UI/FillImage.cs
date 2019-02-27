@@ -9,7 +9,7 @@ public class FillImage : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float scale = 1.0f;
     //public float m_times = 5.0f;
-    private float m_maxTimes = 5.0f;
+    private float m_maxTimes;
 
    // public RectTransform rectTransform;
     public Player m_child;
@@ -19,6 +19,7 @@ public class FillImage : MonoBehaviour
     private void Start()
     {
         m_maxTimes = m_child.GetAbilityCount();
+        Charm.fillAmount = 1.0f;
     }
 
     // Update is called once per frame
@@ -27,9 +28,12 @@ public class FillImage : MonoBehaviour
         // scale = m_child.GetAbilityCount() / m_maxTimes;
 
         // rectTransform.localScale = new Vector3(rectTransform.localScale.x, scale, rectTransform.localScale.z);
+        if(m_child.GetAbilityCount() != 0)
+        {
+            Charm.fillAmount = m_child.GetAbilityCount() / m_maxTimes;
+        }
         
-       Charm.fillAmount -= 1.0f / m_child.GetAbilityCount();
-        
+        //Charm.fillAmount = 1.0f;
 
     }
 
