@@ -20,16 +20,22 @@ public class ForestChild : Player
     private GameObject DecendingLoc;
     public bool ClimbingVines = false;
     public bool  IsDecending  = false;
-    private bool LerpPT1Done = false;
+  
     // Start is called before the first frame update
     void Start()
     {
         timeStarted = Time.time;
+        for (int i = 0; i < VineBlocks.Length; i++)
+        {
+            VineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
+            VineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
+        }
+
     }
     void Awake()
     {
         m_charaElement = Element.Forest;
-        m_currAbilityCount = 1; 
+        m_currAbilityCount = 4; 
     }
     // Update is called once per frame
     void Update()
@@ -42,25 +48,36 @@ public class ForestChild : Player
 
         if (m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 0;
 
             if (_Vines.tag == "VineBlock")
-            { ClimbingVines = true;
+            {
+                ClimbingVines = true;
                 CheckVine = _Vines;
                 for (int i = 0; i < VineBlocks.Length; i++)
                 {
                     if (VineBlocks[i].name == CheckVine.name)
                     {
                         vine = VineBlocks[i];
+                        VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
+                        VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
                     }
                 }
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             }
-            else if (_Vines.tag == "Ground")
+            else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
             {
+                Debug.Log("VineGround DESCEND: " + IsDecending);
+
                 IsDecending = true;
                 DecendingLoc = _Vines;
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
+                for (int i = 0; i < VineBlocks.Length; i++)
+                {
+                    
+                        VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
+                        VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
+                    
+                }
             }
         }
 
@@ -77,12 +94,12 @@ public class ForestChild : Player
 
     public Vector3 Lerp(Vector3 start, Vector3 end, float timeStartedLerping, float lerptime)
     {
-        float timeSinceStart = Time.time - timeStartedLerping * 0.5f ;
+        float timeSinceStart = 5 - timeStartedLerping  ;
 
         float percentageOfComplete = timeSinceStart / lerptime * Time.deltaTime;
 
         var result = Vector3.Lerp(start, end, percentageOfComplete);
-
+        
         return result;
     }
     public void Climbing()
@@ -97,7 +114,7 @@ public class ForestChild : Player
             totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT1);
             BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT1, timeStarted,totalDistance );
 
-            //yield return new WaitUntil(()=> BothCharacters.transform.position.y == vine.transform.GetChild(0).transform.position.y);
+           
             if(BothCharacters.transform.position.y == vine.transform.GetChild(0).transform.position.y)
             {
                 Vector3 EndPostionPT2 = new Vector3(vine.transform.GetChild(0).transform.position.x,
@@ -111,6 +128,8 @@ public class ForestChild : Player
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 ClimbingVines = false;
+        
+               
             }
         
             
@@ -144,6 +163,8 @@ public class ForestChild : Player
 
         if (IsDecending == true)
         {
+            Debug.Log("yaALLL DESCEND: " + IsDecending);
+
             Vector3 EndPostionPT1 = new Vector3(DecendingLoc.transform.position.x,
                                                 BothCharacters.transform.position.y,
                                                 DecendingLoc.transform.position.z);
@@ -155,40 +176,19 @@ public class ForestChild : Player
             if (BothCharacters.transform.position.x == DecendingLoc.transform.position.x && BothCharacters.transform.position.z == DecendingLoc.transform.position.z)
             {
                 Vector3 EndPostionPT2 = new Vector3(DecendingLoc.transform.position.x,
-                                                   (DecendingLoc.transform.position.y  ),
+                                                   DecendingLoc.transform.position.y + 1 ,
                                                   DecendingLoc.transform.position.z);
 
                 totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT2);
                 BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT2, timeStarted, totalDistance);
             }
-            if (BothCharacters.transform.position == DecendingLoc.transform.position)
+            if (BothCharacters.transform.position.y == DecendingLoc.transform.position.y + 1)
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 IsDecending = false;
             }
         }
-        //BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
-        //Vector3 CurrentPlayerLocation = BothCharacters.transform.GetChild(0).transform.position;
-
-        //float fracComplete = 1.0f;
-
-        //player.transform.position = transform.position + temp;\
-        //temp = new Vector3(DecendingLoc.gameObject.transform.position.x, DecendingLoc.transform.position.y + (DecendingLoc.transform.position.y / 2), DecendingLoc.gameObject.transform.position.z);
-
-
-        //BothCharacters.transform.position = new Vector3(Mathf.Lerp(BothCharacters.transform.position.x, DecendingLoc.transform.position.x, Time.deltaTime * fracComplete), BothCharacters.transform.position.y, Mathf.Lerp(BothCharacters.transform.position.z, DecendingLoc.transform.position.z, Time.deltaTime * fracComplete));
-        //BothCharacters.transform.position = Vector3.Lerp(BothCharacters.transform.position, DecendingLoc.transform.position, Time.deltaTime);
-
-        //if (BothCharacters.transform.position.x > DecendingLoc.transform.position.x - 0.01 && BothCharacters.transform.position.x <= DecendingLoc.transform.position.x)
-        //{
-        //    BothCharacters.transform.position = new Vector3(BothCharacters.transform.position.x, Mathf.Lerp(BothCharacters.transform.position.y, DecendingLoc.transform.position.y, Time.deltaTime * fracComplete), BothCharacters.transform.position.z);
-        //}
-
-        //if (BothCharacters.transform.position == temp)
-        //{
-        //    BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
-        //    IsDecending = false;
-        //}
+       
 
 
 

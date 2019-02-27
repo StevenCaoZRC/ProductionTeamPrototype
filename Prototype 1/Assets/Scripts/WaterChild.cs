@@ -9,7 +9,7 @@ public class WaterChild : Player
     void Awake()
     {
         m_charaElement = Element.Water;
-        m_currAbilityCount = 2;
+        m_currAbilityCount = 3;
 
     }
 
@@ -24,7 +24,7 @@ public class WaterChild : Player
         //put out fire
         if(m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 1;
+            m_currAbilityCount -= 0;
             StartCoroutine(PutOutFire(_fire));
         }
     }
@@ -33,7 +33,7 @@ public class WaterChild : Player
         //Create ice block in river
         if (m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 1;
+            m_currAbilityCount -= 0;
             StartCoroutine(CastIceBlock(_waterBlock));
         }
     }
