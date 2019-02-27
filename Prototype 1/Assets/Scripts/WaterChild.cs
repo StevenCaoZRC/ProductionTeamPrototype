@@ -9,7 +9,7 @@ public class WaterChild : Player
     void Awake()
     {
         m_charaElement = Element.Water;
-        m_currAbilityCount = 5;
+        m_currAbilityCount = 3;
 
     }
 
