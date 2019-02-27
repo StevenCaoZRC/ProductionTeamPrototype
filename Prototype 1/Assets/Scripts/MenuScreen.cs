@@ -6,36 +6,37 @@ using UnityEngine.SceneManagement;
 public class MenuScreen : MonoBehaviour
 {
     public GameObject MainMenuUI;
-    public GameObject HelpMenuUI;
+    public GameObject HowToPlayUI;
     public GameObject CreditsMenuUI;
 
     public void Start()
     {
-        GameManager.SetInMenu(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        MainMenuUI.SetActive(true);
+        HowToPlayUI.SetActive(false);
+        CreditsMenuUI.SetActive(false);
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Level(Steven)");
     }
 
     public void LoadMainMenu()
     {
         MainMenuUI.SetActive(true);
-        HelpMenuUI.SetActive(false);
+        HowToPlayUI.SetActive(false);
         CreditsMenuUI.SetActive(false);
     }
     public void LoadHelpMenu()
     {
-        HelpMenuUI.SetActive(true);
+        HowToPlayUI.SetActive(true);
         MainMenuUI.SetActive(false);
     }
 
     public void LoadCreditsMenu()
     {
         CreditsMenuUI.SetActive(true);
+        HowToPlayUI.SetActive(false);
         MainMenuUI.SetActive(false);
     }
 

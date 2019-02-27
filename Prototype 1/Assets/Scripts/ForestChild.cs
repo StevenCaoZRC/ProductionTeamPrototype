@@ -86,8 +86,9 @@ public class ForestChild : Player
                     if (hit.transform.gameObject.tag == "VineBlock" && VineBlocks[i].tag == hit.transform.gameObject.tag)
                     {
                         decendingVine = hit.transform.gameObject;
-                        if (decendingVine.transform.GetChild(3).gameObject.activeSelf == false && decendingVine.transform.GetChild(4).gameObject.activeSelf == false)
+                        if (m_currAbilityCount > 0 && decendingVine.transform.GetChild(3).gameObject.activeSelf == false && decendingVine.transform.GetChild(4).gameObject.activeSelf == false)
                         {
+                            m_currAbilityCount -= 1;
                             decendingVine.transform.GetChild(3).gameObject.SetActive(true);
                             decendingVine.transform.GetChild(4).gameObject.SetActive(true);
                         }
