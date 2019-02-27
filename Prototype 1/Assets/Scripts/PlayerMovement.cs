@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
         //If player is clicking on a pos more than 1 square && clicking a higher square
         if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f)
-            && (m_targetDir.y <= 0 && m_targetDir.y >= -1.5f))
+            )//&& (m_targetDir.y <= 0 && m_targetDir.y >= -1.5f))
         {
             m_hitLocation = new Vector3(_object.transform.position.x, transform.position.y, _object.transform.position.z);
 
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
         //If player is clicking on a pos more than 1 square && clicking a higher square
         if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f )
-            && (m_targetDir.y <= 0 && m_targetDir.y >= -1.5f)) 
+           )// && (m_targetDir.y <= 1.5 && m_targetDir.y >= -1.5f)) 
         {
             m_hitLocation = m_hit.collider.transform.position;
             m_agent.stoppingDistance = 0.0f;
