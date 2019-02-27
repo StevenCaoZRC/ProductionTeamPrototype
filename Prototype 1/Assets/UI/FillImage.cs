@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class FillImage : MonoBehaviour
@@ -10,8 +11,10 @@ public class FillImage : MonoBehaviour
     //public float m_times = 5.0f;
     private float m_maxTimes = 5.0f;
 
-    public RectTransform rectTransform;
+   // public RectTransform rectTransform;
     public Player m_child;
+
+    public Image Charm;
 
     private void Start()
     {
@@ -21,9 +24,13 @@ public class FillImage : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        scale = m_child.GetAbilityCount() / m_maxTimes;
+        // scale = m_child.GetAbilityCount() / m_maxTimes;
 
-        rectTransform.localScale = new Vector3(rectTransform.localScale.x, scale, rectTransform.localScale.z);
+        // rectTransform.localScale = new Vector3(rectTransform.localScale.x, scale, rectTransform.localScale.z);
+        
+       Charm.fillAmount -= 1.0f / m_child.GetAbilityCount();
+        
+
     }
 
 
