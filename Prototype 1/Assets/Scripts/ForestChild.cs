@@ -73,12 +73,10 @@ public class ForestChild : Player
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
                 for (int i = 0; i < VineBlocks.Length; i++)
                 {
-                    if (VineBlocks[i].name == CheckVine.name)
-                    {
-                        vine = VineBlocks[i];
+                    
                         VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
                         VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
-                    }
+                    
                 }
             }
         }
