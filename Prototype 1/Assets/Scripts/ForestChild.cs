@@ -35,7 +35,7 @@ public class ForestChild : Player
     void Awake()
     {
         m_charaElement = Element.Forest;
-        m_currAbilityCount = 1; 
+        m_currAbilityCount = 4; 
     }
     // Update is called once per frame
     void Update()
@@ -48,10 +48,10 @@ public class ForestChild : Player
 
         if (m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 0;
 
             if (_Vines.tag == "VineBlock")
-            { ClimbingVines = true;
+            {
+                ClimbingVines = true;
                 CheckVine = _Vines;
                 for (int i = 0; i < VineBlocks.Length; i++)
                 {
