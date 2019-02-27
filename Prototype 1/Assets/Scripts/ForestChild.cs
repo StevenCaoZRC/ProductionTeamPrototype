@@ -46,38 +46,47 @@ public class ForestChild : Player
     public override void SpellOne(GameObject _Vines)
     {
 
-        if (m_currAbilityCount > 0)
+        if (_Vines.tag == "VineBlock")
         {
-
-            if (_Vines.tag == "VineBlock")
+            ClimbingVines = true;
+            CheckVine = _Vines;
+            for (int i = 0; i < VineBlocks.Length; i++)
             {
-                ClimbingVines = true;
-                CheckVine = _Vines;
-                for (int i = 0; i < VineBlocks.Length; i++)
+                if (VineBlocks[i].name == CheckVine.name)
                 {
-                    if (VineBlocks[i].name == CheckVine.name)
+                    if (!VineBlocks[i].transform.GetChild(3).gameObject.activeSelf && !VineBlocks[i].transform.GetChild(4).gameObject.activeSelf
+                    && m_currAbilityCount > 0)
                     {
+                        Debug.Log("VineBlock abilityCount: " + m_currAbilityCount);
+
+                        m_currAbilityCount -= 1;
                         vine = VineBlocks[i];
                         VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
                         VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
                     }
+                
                 }
-                BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             }
-            else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
-            {
-                Debug.Log("VineGround DESCEND: " + IsDecending);
-
-                IsDecending = true;
-                DecendingLoc = _Vines;
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
-                for (int i = 0; i < VineBlocks.Length; i++)
-                {
-                    
-                        VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
-                        VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
-                    
-                }
+        }
+        else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
+        {
+            Debug.Log("VineGround DESCEND: " + IsDecending);
+
+            IsDecending = true;
+            DecendingLoc = _Vines;
+            BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
+            for (int i = 0; i < VineBlocks.Length; i++)
+            {
+                //if(!VineBlocks[i].transform.GetChild(3).gameObject.activeSelf && !VineBlocks[i].transform.GetChild(4).gameObject.activeSelf 
+                //    )
+                //{
+                    Debug.Log("VineGround abilityCount: " + m_currAbilityCount);
+
+                    VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
+                    VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
+                //}
+                
             }
         }
 

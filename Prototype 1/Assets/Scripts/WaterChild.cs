@@ -24,7 +24,7 @@ public class WaterChild : Player
         //put out fire
         if(m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 0;
+            m_currAbilityCount -= 1;
             StartCoroutine(PutOutFire(_fire));
         }
     }
@@ -33,7 +33,7 @@ public class WaterChild : Player
         //Create ice block in river
         if (m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 0;
+            m_currAbilityCount -= 1;
             StartCoroutine(CastIceBlock(_waterBlock));
         }
     }
