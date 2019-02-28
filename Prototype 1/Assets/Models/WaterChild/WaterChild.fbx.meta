@@ -1,50 +1,67 @@
 fileFormatVersion: 2
-guid: e782e96ae68c8554e8ae63f74da5466a
+guid: fc011d6fb6178294db7d325f847514a9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Body
-    100002: //RootNode
-    100004: Head
-    100006: L_Arm
-    100008: L_Foot
-    100010: L_ForeArm
-    100012: L_Hand
-    100014: L_HandEnd
-    100016: L_Knee
-    100018: L_Leg
-    100020: R_Arm
-    100022: R_Foot
-    100024: R_ForeArm
-    100026: R_Hand
-    100028: R_HandEnd
-    100030: R_Knee
-    100032: R_Leg
-    100034: Top
-    100036: UpperBody
-    100038: WholeRig
-    400000: Body
-    400002: //RootNode
-    400004: Head
-    400006: L_Arm
-    400008: L_Foot
-    400010: L_ForeArm
-    400012: L_Hand
-    400014: L_HandEnd
-    400016: L_Knee
-    400018: L_Leg
-    400020: R_Arm
-    400022: R_Foot
-    400024: R_ForeArm
-    400026: R_Hand
-    400028: R_HandEnd
-    400030: R_Knee
-    400032: R_Leg
-    400034: Top
-    400036: UpperBody
-    400038: WholeRig
-    7400000: Take 001
+    100000: AquaClothes
+    100002: AquaClothes4
+    100004: Body
+    100006: Eyes
+    100008: Head
+    100010: L_Arm
+    100012: L_Foot
+    100014: L_ForeArm
+    100016: L_Hand
+    100018: L_HandEnd
+    100020: L_Knee
+    100022: L_Leg
+    100024: R_Arm
+    100026: R_Foot
+    100028: R_ForeArm
+    100030: R_Hand
+    100032: R_HandEnd
+    100034: R_Knee
+    100036: R_Leg
+    100038: Top
+    100040: UpperBody
+    100042: //RootNode
+    100044: WaterChild_Base
+    100046: WholeRig
+    400000: AquaClothes
+    400002: AquaClothes4
+    400004: Body
+    400006: Eyes
+    400008: Head
+    400010: L_Arm
+    400012: L_Foot
+    400014: L_ForeArm
+    400016: L_Hand
+    400018: L_HandEnd
+    400020: L_Knee
+    400022: L_Leg
+    400024: R_Arm
+    400026: R_Foot
+    400028: R_ForeArm
+    400030: R_Hand
+    400032: R_HandEnd
+    400034: R_Knee
+    400036: R_Leg
+    400038: Top
+    400040: UpperBody
+    400042: //RootNode
+    400044: WaterChild_Base
+    400046: WholeRig
+    2100000: WaterChild_Base1
+    2100002: WaterChild_Clothes
+    4300000: WaterChild_Base
+    4300002: Eyes
+    4300004: AquaClothes
+    4300006: AquaClothes4
     9500000: //RootNode
+    13700000: AquaClothes
+    13700002: AquaClothes4
+    13700004: Eyes
+    13700006: WaterChild_Base
   externalObjects: {}
   materials:
     importMaterials: 1
