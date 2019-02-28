@@ -26,8 +26,10 @@ public class FillImage : MonoBehaviour
     {
         // scale = m_child.GetAbilityCount() / m_maxTimes;
 
+        //if(m_child.GetIsLeading() && m_child.GetElement() == Player.Element.Forest))
+
         // rectTransform.localScale = new Vector3(rectTransform.localScale.x, scale, rectTransform.localScale.z);
-        if(m_child.GetAbilityCount() != 0)
+        if (m_child.GetAbilityCount() != 0)
         {
             m_charm.fillAmount = m_child.GetAbilityCount() / m_maxTimes;
         }
