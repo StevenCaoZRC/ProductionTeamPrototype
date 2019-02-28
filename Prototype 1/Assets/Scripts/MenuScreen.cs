@@ -7,13 +7,13 @@ public class MenuScreen : MonoBehaviour
 {
     public GameObject MainMenuUI;
     public GameObject HowToPlayUI;
-    public GameObject CreditsMenuUI;
+    public GameObject CreditsUI;
 
-    public void Start()
+    void Start()
     {
         MainMenuUI.SetActive(true);
         HowToPlayUI.SetActive(false);
-        CreditsMenuUI.SetActive(false);
+        CreditsUI.SetActive(false);
     }
 
     public void PlayGame()
@@ -25,19 +25,20 @@ public class MenuScreen : MonoBehaviour
     {
         MainMenuUI.SetActive(true);
         HowToPlayUI.SetActive(false);
-        CreditsMenuUI.SetActive(false);
+        CreditsUI.SetActive(false);
     }
     public void LoadHelpMenu()
     {
         HowToPlayUI.SetActive(true);
         MainMenuUI.SetActive(false);
+        CreditsUI.SetActive(false);
     }
 
     public void LoadCreditsMenu()
     {
-        CreditsMenuUI.SetActive(true);
-        HowToPlayUI.SetActive(false);
+        CreditsUI.SetActive(true);
         MainMenuUI.SetActive(false);
+        HowToPlayUI.SetActive(false);
     }
 
     public void QuitGame()
