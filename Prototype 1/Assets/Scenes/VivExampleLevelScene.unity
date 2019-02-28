@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657862, g: 0.49641234, b: 0.5748166, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028477, g: 0.22571525, b: 0.30692348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19333,9 +19333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
-  rectTransform: {fileID: 1583226278}
   m_child: {fileID: 393144400}
-  Charm: {fileID: 0}
+  m_charm: {fileID: 0}
 --- !u!114 &1583226281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26097,9 +26096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
-  rectTransform: {fileID: 2058076922}
   m_child: {fileID: 803765053}
-  Charm: {fileID: 0}
+  m_charm: {fileID: 0}
 --- !u!114 &2058076924
 MonoBehaviour:
   m_ObjectHideFlags: 0
