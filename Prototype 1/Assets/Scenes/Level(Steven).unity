@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657862, g: 0.49641234, b: 0.5748166, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028477, g: 0.22571525, b: 0.30692348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2454,11 +2454,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
         type: 3}
-      propertyPath: VineBlocks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
       propertyPath: VineBlocks.Array.data[0]
       value: 
       objectReference: {fileID: 113604471}
@@ -2467,11 +2462,6 @@ PrefabInstance:
       propertyPath: VineBlocks.Array.data[1]
       value: 
       objectReference: {fileID: 1791596431}
-    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: VineBlocks.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3843797261974457785, guid: 461af3a1561eafd4da9a37d5df9028f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2532,11 +2522,6 @@ PrefabInstance:
       propertyPath: m_camera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 5153020353457779233, guid: 461af3a1561eafd4da9a37d5df9028f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461af3a1561eafd4da9a37d5df9028f9, type: 3}
 --- !u!4 &798340353 stripped
@@ -4768,12 +4753,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1274125864}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1275305838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3526345409870321045, guid: e39de04ebb847114daa2c4e2a18c9090,
-    type: 3}
-  m_PrefabInstance: {fileID: 3526345411011136251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1308412849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6755,22 +6734,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 752536424}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1977707569
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977707568}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &1984791681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7193227922886303297, guid: e62f3e1e405ba3f42b7c204c5356da62,
@@ -7169,41 +7132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Charm / SpellWheel
       objectReference: {fileID: 0}
-    - target: {fileID: 3526345409870321045, guid: e39de04ebb847114daa2c4e2a18c9090,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 632234039446668810, guid: e39de04ebb847114daa2c4e2a18c9090,
-        type: 3}
-      propertyPath: Character
-      value: 
-      objectReference: {fileID: 1977707568}
-    - target: {fileID: 632234039446668810, guid: e39de04ebb847114daa2c4e2a18c9090,
-        type: 3}
-      propertyPath: WaterCharm
-      value: 
-      objectReference: {fileID: 1275305838}
-    - target: {fileID: 632234039446668810, guid: e39de04ebb847114daa2c4e2a18c9090,
-        type: 3}
-      propertyPath: ForestCharm
-      value: 
-      objectReference: {fileID: 5067007540661560466}
     - target: {fileID: 632234039446668810, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_character
       value: 
       objectReference: {fileID: 1977707568}
-    - target: {fileID: 632234039446668810, guid: e39de04ebb847114daa2c4e2a18c9090,
-        type: 3}
-      propertyPath: m_waterCharm
-      value: 
-      objectReference: {fileID: 1275305838}
-    - target: {fileID: 632234039446668810, guid: e39de04ebb847114daa2c4e2a18c9090,
-        type: 3}
-      propertyPath: m_forestCharm
-      value: 
-      objectReference: {fileID: 5067007540661560466}
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7272,32 +7205,32 @@ PrefabInstance:
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
@@ -7314,11 +7247,6 @@ PrefabInstance:
       propertyPath: m_child
       value: 
       objectReference: {fileID: 1739016785}
-    - target: {fileID: 5067007540661560466, guid: e39de04ebb847114daa2c4e2a18c9090,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2645062593471131644, guid: e39de04ebb847114daa2c4e2a18c9090,
         type: 3}
       propertyPath: m_child
@@ -7326,12 +7254,6 @@ PrefabInstance:
       objectReference: {fileID: 585522124}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39de04ebb847114daa2c4e2a18c9090, type: 3}
---- !u!1 &5067007540661560466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5067007540661560466, guid: e39de04ebb847114daa2c4e2a18c9090,
-    type: 3}
-  m_PrefabInstance: {fileID: 3526345411011136251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8075374141174264795 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8075374141174264795, guid: e39de04ebb847114daa2c4e2a18c9090,

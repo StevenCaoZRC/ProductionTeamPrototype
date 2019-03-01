@@ -85,4 +85,6 @@ public class Player : MonoBehaviour
 
     public virtual void SpellOne(GameObject _object) { }
     public virtual void SpellTwo(GameObject _object) { }
+    public virtual void Reset() { }
+
 }

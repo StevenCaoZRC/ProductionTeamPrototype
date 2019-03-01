@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Camera m_camera; //grabs the main camera
     public NavMeshAgent m_agent;
-    public float m_speed = 5.0f;
+    public float m_speed = 3.0f;
     public float m_iceMoveTime = 2.0f;
     Vector3 m_targetDir;
     public Animator m_doubleCharaAnim;
@@ -29,12 +29,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        m_agent.angularSpeed = 0;
-
         if (m_agent.isOnOffMeshLink && !m_traversingLink)
         {
             StartCoroutine(WaterLink());
 
+        }
+
+        if(m_isMoving)
+        {
+            if(m_waterChildAnim.gameObject.activeSelf)
+                m_waterChildAnim.SetBool("WCWalk", true);
+
+            if (m_forestChildAnim.gameObject.activeSelf)
+                m_forestChildAnim.SetBool("FCWalk", true);
+        }
+        else
+        {
+            if (m_waterChildAnim.gameObject.activeSelf)
+                m_waterChildAnim.SetBool("WCWalk", false);
+
+            if (m_forestChildAnim.gameObject.activeSelf)
+                m_forestChildAnim.SetBool("FCWalk", false);
         }
        // Debug.Log("Stop: " + m_agent.stoppingDistance);
         //if(transform.position != m_hitLocation)
@@ -123,26 +138,17 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Move()
     {
         m_isMoving = true;
-        m_waterChildAnim.SetBool("WCWalk", true);
-        m_forestChildAnim.SetBool("FCWalk", true);
 
         m_agent.SetDestination(m_hitLocation); // Start moving
         yield return new WaitForSeconds(0.05f); // compensating for remaining dist not updating immediately
-
-
-        m_waterChildAnim.SetBool("WCWalk", true);
-        m_forestChildAnim.SetBool("FCWalk", true);
+        
         while ((m_agent.remainingDistance != 0 && m_agent.enabled)) // if agent is not at destination
         {
-            m_waterChildAnim.SetBool("WCWalk", true);
-            m_forestChildAnim.SetBool("FCWalk", true);
             //Cancel movement if destination is not reachable
             if (m_agent.remainingDistance == Mathf.Infinity || m_agent.pathPending
                 || m_agent.pathStatus == NavMeshPathStatus.PathPartial
                 || (m_agent.remainingDistance < m_agent.stoppingDistance && m_targeting))
             {
-                m_waterChildAnim.SetBool("WCWalk", false);
-                m_forestChildAnim.SetBool("FCWalk", false);
                 m_targeting = false;
                 m_isMoving = false;
                 yield break;
@@ -151,8 +157,6 @@ public class PlayerMovement : MonoBehaviour
             FacePosition(m_hitLocation); //Rotate chara to face location
             yield return null;
         }
-        m_waterChildAnim.SetBool("WCWalk", false);
-        m_forestChildAnim.SetBool("FCWalk", false);
         m_targeting = false;
         m_isMoving = false;
     }
@@ -161,14 +165,14 @@ public class PlayerMovement : MonoBehaviour
     //Used to start StraightAcross routine and to end the offmeshlink movement
     IEnumerator WaterLink()
     {
-        //m_doubleCharaAnim.SetTrigger("JumpIce");
-
+        m_waterChildAnim.SetBool("WCJump", true);
         m_traversingLink = true;
         //MoveAcrossLink
         yield return StartCoroutine(StraightAcross());
 
         m_agent.CompleteOffMeshLink(); //Must complete manual offmeshlink to 'land' on other side
         m_traversingLink = false;
+        m_waterChildAnim.SetBool("WCJump", false);
 
     }
 

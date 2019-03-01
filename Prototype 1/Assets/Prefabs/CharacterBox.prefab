@@ -89,12 +89,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 0
-  m_selectedPos: {fileID: 3083971064813888089}
-  m_backupPos:
-  - {fileID: 2178121581548191481}
-  - {fileID: 1767712711218482463}
-  - {fileID: 1038708050224938163}
-  m_childOneLeading: 1
+  m_waterLeading: 1
+  Climbed: 0
 --- !u!114 &3862658002689625971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3241480433977725789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -0.341, z: -0.5}
+  m_LocalPosition: {x: 0, y: -0.341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6258194251920299221}
@@ -670,7 +666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5166305251678795198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.341, z: 0.3}
+  m_LocalPosition: {x: 0, y: -0.341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7859508057495412273}
@@ -1645,6 +1641,18 @@ PrefabInstance:
     - target: {fileID: 400020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
       propertyPath: m_Name
@@ -2874,6 +2882,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
       propertyPath: m_Name
       value: NatureChild
@@ -2881,7 +2901,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c0d1587ec7f7abd478cd44831b3aeec8, type: 2}
+      objectReference: {fileID: 9100000, guid: 24bdd6d03909cd5459e07c4aba37cc07, type: 2}
     - target: {fileID: 13700000, guid: c52f077750f38544dab85a167f7a95d5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
