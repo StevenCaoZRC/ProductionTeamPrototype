@@ -71,15 +71,11 @@ public class ForestChild : Player
                         VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
                         VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
                     }
-                
                 }
             }
         }
         else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
         {
-            Debug.Log("VineGround DESCEND: " + IsDecending);
-
-            
             DecendingLoc = _Vines;
             BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             for (int i = 0; i < VineBlocks.Length; i++)
@@ -96,6 +92,8 @@ public class ForestChild : Player
                             m_currAbilityCount -= 1;
                             decendingVine.transform.GetChild(3).gameObject.SetActive(true);
                             decendingVine.transform.GetChild(4).gameObject.SetActive(true);
+                            Debug.Log("DOES IT EVER REACH");
+
                         }
                     }
                         

@@ -31,26 +31,24 @@ public class PlayerMovement : MonoBehaviour
     {
         if (m_agent.isOnOffMeshLink && !m_traversingLink)
         {
+            StartWalkAnim();
+
             StartCoroutine(WaterLink());
-
         }
-
-        if(m_isMoving)
+        if (!m_agent.isOnOffMeshLink && !m_traversingLink)
         {
-            if(m_waterChildAnim.gameObject.activeSelf)
-                m_waterChildAnim.SetBool("WCWalk", true);
 
-            if (m_forestChildAnim.gameObject.activeSelf)
-                m_forestChildAnim.SetBool("FCWalk", true);
+            if (m_isMoving)
+            {
+                StartWalkAnim();
+            }
+            else
+            {
+                EndWalkAnim();
+            }
         }
-        else
-        {
-            if (m_waterChildAnim.gameObject.activeSelf)
-                m_waterChildAnim.SetBool("WCWalk", false);
 
-            if (m_forestChildAnim.gameObject.activeSelf)
-                m_forestChildAnim.SetBool("FCWalk", false);
-        }
+        
        // Debug.Log("Stop: " + m_agent.stoppingDistance);
         //if(transform.position != m_hitLocation)
         //{
@@ -144,16 +142,22 @@ public class PlayerMovement : MonoBehaviour
         
         while ((m_agent.remainingDistance != 0 && m_agent.enabled)) // if agent is not at destination
         {
+            StartWalkAnim();
+            
             //Cancel movement if destination is not reachable
-            if (m_agent.remainingDistance == Mathf.Infinity || m_agent.pathPending
-                || m_agent.pathStatus == NavMeshPathStatus.PathPartial
-                || (m_agent.remainingDistance < m_agent.stoppingDistance && m_targeting))
+            if (m_agent.pathPending || (m_agent.remainingDistance < m_agent.stoppingDistance && m_targeting))
             {
                 m_targeting = false;
                 m_isMoving = false;
                 yield break;
             }
-            
+
+            //Keep moving if avoiding obstacles 
+            if(m_agent.remainingDistance == Mathf.Infinity || m_agent.pathStatus == NavMeshPathStatus.PathPartial)
+            {
+                m_isMoving = true;
+            }
+
             FacePosition(m_hitLocation); //Rotate chara to face location
             yield return null;
         }
@@ -165,14 +169,12 @@ public class PlayerMovement : MonoBehaviour
     //Used to start StraightAcross routine and to end the offmeshlink movement
     IEnumerator WaterLink()
     {
-        m_waterChildAnim.SetBool("WCJump", true);
         m_traversingLink = true;
         //MoveAcrossLink
         yield return StartCoroutine(StraightAcross());
 
         m_agent.CompleteOffMeshLink(); //Must complete manual offmeshlink to 'land' on other side
         m_traversingLink = false;
-        m_waterChildAnim.SetBool("WCJump", false);
 
     }
 
@@ -204,4 +206,23 @@ public class PlayerMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * m_speed);
     }
+
+    void StartWalkAnim()
+    {
+        if (m_waterChildAnim.gameObject.activeSelf)
+            m_waterChildAnim.SetBool("WCWalk", true);
+
+        if (m_forestChildAnim.gameObject.activeSelf)
+            m_forestChildAnim.SetBool("FCWalk", true);
+    }
+
+    void EndWalkAnim()
+    {
+        if (m_waterChildAnim.gameObject.activeSelf)
+            m_waterChildAnim.SetBool("WCWalk", false);
+
+        if (m_forestChildAnim.gameObject.activeSelf)
+            m_forestChildAnim.SetBool("FCWalk", false);
+    }
+
 }
