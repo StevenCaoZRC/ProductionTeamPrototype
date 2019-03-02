@@ -39,6 +39,7 @@ public class ForestChild : Player
     {
         m_charaElement = Element.Forest;
         m_currAbilityCount = 4;
+        m_maxAbilityCount = 4;
 
         timeStarted = Time.time;
         for (int i = 0; i < VineBlocks.Length; i++)
@@ -73,7 +74,6 @@ public class ForestChild : Player
                 
                 }
             }
-               
         }
         else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
         {

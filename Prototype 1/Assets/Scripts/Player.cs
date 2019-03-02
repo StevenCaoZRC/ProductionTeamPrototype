@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
     protected bool m_isCasting = false;
     //protected bool m_isLeading = false;
 
-    protected int m_currAbilityCount = 5;
-    protected int m_maxAbilityCount = 5;
+    protected float m_currAbilityCount = 5;
+    protected float m_maxAbilityCount = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         m_currAbilityCount = newAmount;
     }
 
-    public int GetAbilityCount()
+    public float GetAbilityCount()
     {
         return m_currAbilityCount;
     }
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         m_maxAbilityCount = newAmount;
     }
 
-    public int GetMaxAbilityCount()
+    public float GetMaxAbilityCount()
     {
         return m_maxAbilityCount;
     }

@@ -21,6 +21,7 @@ public class WaterChild : Player
     {
         m_charaElement = Element.Water;
         m_currAbilityCount = 3;
+        m_maxAbilityCount = 3;
     }
 
     public override void SpellOne(GameObject _fire)

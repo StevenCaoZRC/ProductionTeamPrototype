@@ -11,10 +11,10 @@ public class SwitchingCharms : MonoBehaviour
     void Start()
     {
        if(m_character.GetComponent<PlayerControl>().GetIsLeading())
-        {
+       {
             m_waterCharm.SetActive(true);
             m_forestCharm.SetActive(false);
-        }
+       }
     }
 
     // Update is called once per frame
