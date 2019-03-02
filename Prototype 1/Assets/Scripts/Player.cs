@@ -13,8 +13,10 @@ public class Player : MonoBehaviour
     protected Element m_charaElement = Element.None;
     protected bool m_isActive = false;
     protected bool m_isCasting = false;
-    protected int m_currAbilityCount = 5;
-    protected int m_maxAbilityCount = 5;
+    //protected bool m_isLeading = false;
+
+    protected float m_currAbilityCount = 5;
+    protected float m_maxAbilityCount = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class Player : MonoBehaviour
         m_currAbilityCount = newAmount;
     }
 
-    public int GetAbilityCount()
+    public float GetAbilityCount()
     {
         return m_currAbilityCount;
     }
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour
         m_maxAbilityCount = newAmount;
     }
 
-    public int GetMaxAbilityCount()
+    public float GetMaxAbilityCount()
     {
         return m_maxAbilityCount;
     }
@@ -66,7 +68,16 @@ public class Player : MonoBehaviour
     {
         return m_isActive;
     }
-    
+    //public void SetIsLeading(bool _leading)
+    //{
+    //    m_isLeading = _leading;
+    //}
+
+    //public bool GetIsLeading()
+    //{
+    //    return m_isLeading;
+    //}
+
     public void PlaySwitchAnim()
     {
         m_childAnim.SetTrigger("Fidget");
@@ -74,4 +85,6 @@ public class Player : MonoBehaviour
 
     public virtual void SpellOne(GameObject _object) { }
     public virtual void SpellTwo(GameObject _object) { }
+    public virtual void Reset() { }
+
 }

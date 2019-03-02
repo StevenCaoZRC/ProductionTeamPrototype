@@ -8,9 +8,7 @@ public class WaterChild : Player
     // Start is called before the first frame update
     void Awake()
     {
-        m_charaElement = Element.Water;
-        m_currAbilityCount = 3;
-
+        Reset();
     }
 
     // Update is called once per frame
@@ -19,12 +17,19 @@ public class WaterChild : Player
         
     }
 
+    public override void Reset()
+    {
+        m_charaElement = Element.Water;
+        m_currAbilityCount = 3;
+        m_maxAbilityCount = 3;
+    }
+
     public override void SpellOne(GameObject _fire)
     {
         //put out fire
         if(m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 0;
+            m_currAbilityCount -= 1;
             StartCoroutine(PutOutFire(_fire));
         }
     }
@@ -33,7 +38,7 @@ public class WaterChild : Player
         //Create ice block in river
         if (m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 0;
+            m_currAbilityCount -= 1;
             StartCoroutine(CastIceBlock(_waterBlock));
         }
     }

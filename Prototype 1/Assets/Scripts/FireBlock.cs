@@ -29,7 +29,10 @@ public class FireBlock : Block
     {
         if(fireBurning)
         {
+            //Skip platform
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+
             fireBurning = false;
             m_isWalkable = true;
             m_blockType = BlockType.Ground;
