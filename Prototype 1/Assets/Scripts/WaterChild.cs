@@ -27,18 +27,23 @@ public class WaterChild : Player
     public override void SpellOne(GameObject _fire)
     {
         //put out fire
-        if(m_currAbilityCount > 0)
+        if(m_currAbilityCount > 0 && !m_isCasting)
         {
             m_currAbilityCount -= 1;
+            m_isCasting = true;
+
             StartCoroutine(PutOutFire(_fire));
         }
     }
     public override void SpellTwo(GameObject _waterBlock)
     {
         //Create ice block in river
-        if (m_currAbilityCount > 0)
+        if (m_currAbilityCount > 0 && !m_isCasting 
+            && _waterBlock.GetComponent<WaterBlock>().GetBlockType() == BlockType.Water)
         {
             m_currAbilityCount -= 1;
+            m_isCasting = true;
+
             StartCoroutine(CastIceBlock(_waterBlock));
         }
     }
@@ -46,8 +51,6 @@ public class WaterChild : Player
     private IEnumerator PutOutFire(GameObject _fire)
     {
         m_childAnim.SetTrigger("WCWater");
-
-        m_isCasting = true;
 
         //Play fire dying animation 
         yield return new WaitForSeconds(2);
@@ -62,13 +65,11 @@ public class WaterChild : Player
     private IEnumerator CastIceBlock(GameObject _water)
     {
         m_childAnim.SetTrigger("WCIce");
-
-        m_isCasting = true;
         yield return new WaitForSeconds(1.5f);
 
         //Play fire dying animation 
         _water.gameObject.GetComponent<WaterBlock>().CreateIce();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2.5f);
 
         //Make it walkable only after animation is done
         _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
