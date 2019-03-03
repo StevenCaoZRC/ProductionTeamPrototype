@@ -12,10 +12,8 @@ public class PlayerControl : MonoBehaviour
     public PlayerMovement m_movement;
     public LayerMask m_layerMask;
     public bool m_waterLeading = true;
-
-    [Header("Private //just for checking")]
-    [SerializeField]
-    private bool Climbed = false;
+    public GameObject m_playerFrontRay;
+    
     
     private void Start()
     {
@@ -35,6 +33,7 @@ public class PlayerControl : MonoBehaviour
             m_childOne.gameObject.SetActive(false);
             m_childTwo.gameObject.SetActive(true);
         }
+
     }
 
     // Update is called once per frame
@@ -47,11 +46,27 @@ public class PlayerControl : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(LayerMask.LayerToName(hit.collider.transform.gameObject.layer));
                 if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")
                     || hit.collider.gameObject.layer == LayerMask.NameToLayer("VineBlock"))
                 {
+                    Debug.Log(LayerMask.LayerToName(hit.collider.transform.gameObject.layer));
+
                     m_movement.MovePlayer(hit);
+                }
+
+                if(hit.collider != null)
+                {
+                    if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)// && hit.transform.gameObject.transform.forward == transform.position)
+                    {
+                        //Put out fire
+                        m_movement.MoveToTarget(hit.transform.gameObject);
+                    }
+
+                    if (hit.transform.gameObject.tag == "WaterBlock" && m_waterLeading)// && hit.transform.gameObject.transform.forward == transform.position)
+                    {
+                        //Create Ice
+                        m_movement.MoveToTarget(hit.transform.gameObject);
+                    }
                 }
             }
         }
@@ -63,43 +78,67 @@ public class PlayerControl : MonoBehaviour
            
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.collider.transform.gameObject.name);
+                Vector3 dir = (hit.transform.position - transform.position);
 
-                if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)// && hit.transform.gameObject.transform.forward == transform.position)
+                // the player is within a radius of 3 units to this game object
+                Debug.Log("Magnitude?: " + ((hit.transform.position - transform.position).sqrMagnitude));
+                if ((hit.transform.position - transform.position).sqrMagnitude < 3*3)
                 {
-                    //Put out fire
-                    m_movement.MoveToTarget(hit.transform.gameObject);
-                    
-                    m_childOne.SpellOne(hit.transform.gameObject);
+                    if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)
+                    {
+                        //Put out fire
+                        m_movement.MoveToTarget(hit.transform.gameObject);
+                        m_childOne.SpellOne(hit.transform.gameObject);
 
+                    }
+
+                    if (hit.transform.gameObject.tag == "WaterBlock" && m_waterLeading)
+                    {
+                        //Create Ice
+                        m_movement.MoveToTarget(hit.transform.gameObject);
+
+                        m_childOne.SpellTwo(hit.transform.gameObject);
+                    }
                 }
 
-                if (hit.transform.gameObject.tag == "WaterBlock" && m_waterLeading)// && hit.transform.gameObject.transform.forward == transform.position)
+                RaycastHit charaHit;
+                Ray charaRay = new Ray(transform.position, Vector3.down * 2);
+                if (Physics.Raycast(charaRay, out charaHit))
                 {
-                    //Create Ice
-                    m_movement.MoveToTarget(hit.transform.gameObject);
+                    Debug.Log("Stnading ?" + charaHit.transform.gameObject.tag);
+                    Debug.Log("Clicked ?" + hit.transform.gameObject.tag);
 
-                    m_childOne.SpellTwo(hit.transform.gameObject);
-                }
+                    //Going down to vine ground
+                    if (charaHit.transform.gameObject.tag == "VineBlock" 
+                        && hit.transform.gameObject.tag == "VineGround"
+                        && !m_waterLeading)
+                    {
+                        if (hit.transform.gameObject == charaHit.transform.GetChild(6).gameObject)
+                        {
+                            m_childTwo.SpellOne(charaHit.transform.gameObject);
+                        }
+                    }
 
-                if (hit.transform.gameObject.tag == "VineBlock" && !m_waterLeading && !Climbed)
-                {
-                   
-                    m_childTwo.SpellOne(hit.transform.gameObject);
-                    Climbed = true;
-                    //m_movement.MoveToTarget(hit.transform.gameObject);
+                    //Going up to vine block
+                    if (charaHit.transform.gameObject.tag == "VineGround"
+                        && hit.transform.gameObject.tag == "VineBlock"
+                        && !m_waterLeading)
+                    {
+                        Debug.Log("sorta");
 
-                }
+                        if (hit.transform.gameObject.name == charaHit.transform.parent.name)
+                        {
+                            Debug.Log("notAtAll");
 
-                if (hit.transform.gameObject.tag == "VineGround" && !m_waterLeading && Climbed)
-                {
-                    //m_movement.MoveToTarget(hit.transform.gameObject);
-                    m_childTwo.SpellOne(hit.transform.gameObject);
-                    Climbed = false;
-                   
+                            m_childTwo.SpellTwo(hit.transform.gameObject);
+                        }
+                    }
                 }
             }
+
+            
         }
+
         //Single Mouse Right click
         if (Input.GetMouseButtonDown(2))
         {

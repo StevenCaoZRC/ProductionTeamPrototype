@@ -17,10 +17,13 @@ public class PlayerMovement : MonoBehaviour
     bool m_traversingLink = false;
     bool m_targeting = false;
     bool m_isMoving = false;
+    bool m_isTargetMove = false;
 
     RaycastHit m_hit;
     Vector3 m_toLookAt;
     Vector3 m_hitLocation;
+    Quaternion m_intendedRotation;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(m_agent.isOnOffMeshLink)
+        {
+            Debug.Log("WHERE IT STORT");
+
+        }
         if (m_agent.isOnOffMeshLink && !m_traversingLink)
         {
             StartWalkAnim();
@@ -37,17 +45,24 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!m_agent.isOnOffMeshLink && !m_traversingLink)
         {
-
             if (m_isMoving)
             {
+
                 StartWalkAnim();
             }
             else
             {
                 EndWalkAnim();
+                if(m_isTargetMove)
+                    FacePosition(m_hitLocation);
             }
         }
 
+        //if (m_isRotating)
+        //{
+        //    FacePosition(m_toLookAt);
+        //}
+        
         
        // Debug.Log("Stop: " + m_agent.stoppingDistance);
         //if(transform.position != m_hitLocation)
@@ -61,25 +76,24 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer(RaycastHit _hit)
     {
         m_hit = _hit;
-
+        m_isTargetMove = false;
         MovementDestination();
     }
 
     public void MoveToTarget(GameObject _object)
     {
+        m_isTargetMove = true;
         m_targetDir = _object.transform.position - transform.position;
 
         //If player is clicking on a pos more than 1 square && clicking a higher square
-        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f)
-            )//&& (m_targetDir.y <= 0 && m_targetDir.y >= -1.5f))
+        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f))
         {
             m_hitLocation = new Vector3(_object.transform.position.x, transform.position.y, _object.transform.position.z);
 
             if (!m_traversingLink && m_agent != null) //If not already on a link
             {
                 m_targeting = true;
-                m_agent.stoppingDistance = 3.5f;
-
+                m_agent.stoppingDistance = 1.5f;
                 StartCoroutine(Move());
             }
         }
@@ -101,30 +115,6 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Move());
             }
         }
-        
-        //---------Steven old code
-        //
-        //Quaternion _targetDir = new Quaternion();
-
-        //if (isRotating == true && ableToRotate == true)
-        //{
-        //    _targetDir = Quaternion.LookRotation(rayHitPoint - transform.position);
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetDir, speed * Time.deltaTime);
-        //}
-
-
-        ////Debug.Log(isRotating);
-        //if (transform.rotation.eulerAngles.y == _targetDir.eulerAngles.y)
-        //{
-        //    isRotating = false;
-        //    ableToRotate = false;
-        //    agent.SetDestination(hitLocation);
-        //    if (agent.transform.position == transform.position)
-        //    {
-        //        isRotating = true;
-        //    }
-        //}
-
     }
 
     public bool GetIsMoving()
@@ -138,12 +128,12 @@ public class PlayerMovement : MonoBehaviour
         m_isMoving = true;
 
         m_agent.SetDestination(m_hitLocation); // Start moving
+
         yield return new WaitForSeconds(0.05f); // compensating for remaining dist not updating immediately
-        
+
         while ((m_agent.remainingDistance != 0 && m_agent.enabled)) // if agent is not at destination
         {
             StartWalkAnim();
-            
             //Cancel movement if destination is not reachable
             if (m_agent.pathPending || (m_agent.remainingDistance < m_agent.stoppingDistance && m_targeting))
             {
@@ -153,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Keep moving if avoiding obstacles 
-            if(m_agent.remainingDistance == Mathf.Infinity || m_agent.pathStatus == NavMeshPathStatus.PathPartial)
+            if(m_agent.remainingDistance == Mathf.Infinity)
             {
                 m_isMoving = true;
             }
