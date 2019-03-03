@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float m_speed = 3.0f;
     public float m_iceMoveTime = 2.0f;
     Vector3 m_targetDir;
-    public Animator m_doubleCharaAnim;
     public Animator m_waterChildAnim;
     public Animator m_forestChildAnim;
 

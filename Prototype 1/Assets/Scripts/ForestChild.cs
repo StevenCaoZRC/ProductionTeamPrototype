@@ -38,6 +38,8 @@ public class ForestChild : Player
     public override void Reset()
     {
         m_charaElement = Element.Forest;
+        //m_currAbilityCount = LevelLoader.GetLvlForestMana();
+        //m_maxAbilityCount = LevelLoader.GetLvlMaxForestMana();
         m_currAbilityCount = 4;
         m_maxAbilityCount = 4;
 
