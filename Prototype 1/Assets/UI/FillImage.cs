@@ -2,48 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [ExecuteInEditMode]
 public class FillImage : MonoBehaviour
 {
-    [Range(0.0f, 1.0f)]
-    public float scale = 1.0f;
-    //public float m_times = 5.0f;
     private float m_maxTimes;
 
-   // public RectTransform rectTransform;
     public Player m_child;
-
-    public Image Charm;
+    public Image m_charm;
+    public TextMeshProUGUI m_manaCount;
 
     private void Start()
     {
-        m_maxTimes = m_child.GetAbilityCount();
-        Charm.fillAmount = 1.0f;
+        Reset();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        // scale = m_child.GetAbilityCount() / m_maxTimes;
-
-        //if(m_child.GetIsLeading() && m_child.GetElement() == Player.Element.Forest))
-
-        // rectTransform.localScale = new Vector3(rectTransform.localScale.x, scale, rectTransform.localScale.z);
-        if (m_child.GetAbilityCount() != 0)
-        {
-            Charm.fillAmount = m_child.GetAbilityCount() / m_maxTimes;
-        }
-        
-        //Charm.fillAmount = 1.0f;
-
+        float count = m_child.GetAbilityCount() / m_child.GetMaxAbilityCount();
+        m_charm.fillAmount = count;
+        m_manaCount.text = ((int)m_child.GetAbilityCount()).ToString();
     }
 
-
-    //public void AdjustScale(float _numTimes, float _maxTimes)
-    //{
-    //    m_times = _numTimes;
-    //    m_maxTimes = _maxTimes;
-    //}
-
+    public void Reset()
+    {
+        m_maxTimes = m_child.GetMaxAbilityCount();
+        m_charm.fillAmount = m_child.GetAbilityCount() / m_maxTimes;
+    }
 }

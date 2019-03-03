@@ -8,15 +8,20 @@ public class WaterChild : Player
     // Start is called before the first frame update
     void Awake()
     {
-        m_charaElement = Element.Water;
-        m_currAbilityCount = 3;
-
+        Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public override void Reset()
+    {
+        m_charaElement = Element.Water;
+        m_currAbilityCount = 3;
+        m_maxAbilityCount = 3;
     }
 
     public override void SpellOne(GameObject _fire)

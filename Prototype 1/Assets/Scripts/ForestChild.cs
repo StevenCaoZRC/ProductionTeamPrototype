@@ -23,20 +23,10 @@ public class ForestChild : Player
     public bool  IsDecending  = false;
   
     // Start is called before the first frame update
-    void Start()
-    {
-        timeStarted = Time.time;
-        for (int i = 0; i < VineBlocks.Length; i++)
-        {
-            VineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
-            VineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
-        }
 
-    }
     void Awake()
     {
-        m_charaElement = Element.Forest;
-        m_currAbilityCount = 4; 
+        Reset();
     }
     // Update is called once per frame
     void Update()
@@ -44,6 +34,22 @@ public class ForestChild : Player
         Climbing();
         Decending(); 
     }
+
+    public override void Reset()
+    {
+        m_charaElement = Element.Forest;
+        m_currAbilityCount = 4;
+        m_maxAbilityCount = 4;
+
+        timeStarted = Time.time;
+        for (int i = 0; i < VineBlocks.Length; i++)
+        {
+            VineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
+            VineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
+        }
+    }
+
+
     public override void SpellOne(GameObject _Vines)
     {
         if (_Vines.tag == "VineBlock")
@@ -65,16 +71,11 @@ public class ForestChild : Player
                         VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
                         VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
                     }
-                
                 }
             }
-               
         }
         else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
         {
-            Debug.Log("VineGround DESCEND: " + IsDecending);
-
-            
             DecendingLoc = _Vines;
             BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             for (int i = 0; i < VineBlocks.Length; i++)
@@ -86,10 +87,13 @@ public class ForestChild : Player
                     if (hit.transform.gameObject.tag == "VineBlock" && VineBlocks[i].tag == hit.transform.gameObject.tag)
                     {
                         decendingVine = hit.transform.gameObject;
-                        if (decendingVine.transform.GetChild(3).gameObject.activeSelf == false && decendingVine.transform.GetChild(4).gameObject.activeSelf == false)
+                        if (m_currAbilityCount > 0 && decendingVine.transform.GetChild(3).gameObject.activeSelf == false && decendingVine.transform.GetChild(4).gameObject.activeSelf == false)
                         {
+                            m_currAbilityCount -= 1;
                             decendingVine.transform.GetChild(3).gameObject.SetActive(true);
                             decendingVine.transform.GetChild(4).gameObject.SetActive(true);
+                            Debug.Log("DOES IT EVER REACH");
+
                         }
                     }
                         

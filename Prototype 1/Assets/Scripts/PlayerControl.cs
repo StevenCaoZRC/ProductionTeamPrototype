@@ -11,11 +11,7 @@ public class PlayerControl : MonoBehaviour
     public Animator m_doubleCharaAnimator;
     public PlayerMovement m_movement;
     public LayerMask m_layerMask;
-    public bool m_waterLeading;
-
-    [Header("Target Positions For Characters to stay at (Idle)")]
-    public GameObject m_selectedPos;
-    public GameObject[] m_backupPos;
+    public bool m_waterLeading = true;
 
     [Header("Private //just for checking")]
     [SerializeField]
@@ -26,12 +22,19 @@ public class PlayerControl : MonoBehaviour
         //Depending on who is leading when script starts up, set character as lead
 
         //Get From level read script for whoever leads first
-        m_waterLeading = true;
+        m_childOne.GetComponent<Player>().Reset();
+        m_childTwo.GetComponent<Player>().Reset();
 
-        //if(m_waterLeading)
-        //{
-        //    SwitchPos(m_childTwo, m_childOne);
-        //}
+        if (m_waterLeading)
+        {
+            m_childOne.gameObject.SetActive(true);
+            m_childTwo.gameObject.SetActive(false);
+        }
+        else
+        {
+            m_childOne.gameObject.SetActive(false);
+            m_childTwo.gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -82,7 +85,6 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform.gameObject.tag == "VineBlock" && !m_waterLeading && !Climbed)
                 {
                    
-                    Debug.Log("GROW VINES");
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = true;
                     //m_movement.MoveToTarget(hit.transform.gameObject);
@@ -91,7 +93,6 @@ public class PlayerControl : MonoBehaviour
 
                 if (hit.transform.gameObject.tag == "VineGround" && !m_waterLeading && Climbed)
                 {
-                    Debug.Log("NANI");
                     //m_movement.MoveToTarget(hit.transform.gameObject);
                     m_childTwo.SpellOne(hit.transform.gameObject);
                     Climbed = false;
@@ -110,35 +111,27 @@ public class PlayerControl : MonoBehaviour
     //Handles animation
     public void SwitchCharaPos()
     {
-        m_childOne.PlaySwitchAnim();
-        m_childTwo.PlaySwitchAnim();
 
         if (m_waterLeading)
         {
-            SwitchPos(m_childOne, m_childTwo);
-
-            //Play animations
-            m_waterLeading = true;
-        }
-        else
-        {
-            SwitchPos(m_childTwo, m_childOne);
+            m_childOne.gameObject.SetActive(false);
+            m_childTwo.gameObject.SetActive(true);
+            m_childTwo.PlaySwitchAnim();
 
             //Play animations
             m_waterLeading = false;
         }
+        else
+        {
+            m_childOne.gameObject.SetActive(true);
+            m_childTwo.gameObject.SetActive(false);
+
+            m_childOne.PlaySwitchAnim();
+
+            //Play animations
+            m_waterLeading = true;
+        }
         Debug.Log("Child leading: " + ((m_waterLeading) ? m_childOne.tag : m_childTwo.tag));
-    }
-
-    //Switches positions of two players
-    private void SwitchPos(Player _p1, Player _p2)
-    {
-        
-        //Switches backup player to the front
-        _p2.transform.position = m_selectedPos.transform.position;
-
-        //Switches leading player to the back
-        _p1.transform.position = m_backupPos[Random.Range(0, 3)].transform.position;
     }
 
     public void SetIsLeading(bool _leading)

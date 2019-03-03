@@ -11,18 +11,15 @@ public class SwitchingCharms : MonoBehaviour
     void Start()
     {
        if(m_character.GetComponent<PlayerControl>().GetIsLeading())
-        {
-            Debug.Log("hihihihi" + m_character.GetComponent<PlayerControl>().GetIsLeading());
+       {
             m_waterCharm.SetActive(true);
             m_forestCharm.SetActive(false);
-        }
+       }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("in update" + m_character.GetComponent<PlayerControl>().GetIsLeading());
-
         if (m_character != null)
         {
             if (m_character.GetComponent<PlayerControl>().GetIsLeading())
@@ -30,7 +27,7 @@ public class SwitchingCharms : MonoBehaviour
                 m_waterCharm.SetActive(true);
                 m_forestCharm.SetActive(false);
             }
-            else if (!m_character.GetComponent<PlayerControl>().GetIsLeading())
+            else
             {
                 m_waterCharm.SetActive(false);
                 m_forestCharm.SetActive(true);
