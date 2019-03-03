@@ -115,6 +115,7 @@ public class PlayerControl : MonoBehaviour
                     {
                         if (hit.transform.gameObject == charaHit.transform.GetChild(6).gameObject)
                         {
+                           
                             m_childTwo.SpellOne(charaHit.transform.gameObject);
                         }
                     }

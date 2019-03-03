@@ -15,6 +15,7 @@ public class WaterBlock : Block
     void Start()
     {
         Reset();
+        FindObjectOfType<AudioManager>().Play("Water");
     }
 
     // Update is called once per frame
@@ -35,7 +36,10 @@ public class WaterBlock : Block
         if (m_waterIsEmpty)
         {
             StartCoroutine(SpawnIceAfterAnimation());
+            FindObjectOfType<AudioManager>().PlayOnce("Freeze");
+            
         }
+        
     }
 
     IEnumerator SpawnIceAfterAnimation()
@@ -48,6 +52,7 @@ public class WaterBlock : Block
         m_waterIsEmpty = false;
         m_blockType = BlockType.Ice;
         m_waterLink.SetActive(true);
+       
         yield return null;
     }
 

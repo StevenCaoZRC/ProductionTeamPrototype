@@ -46,31 +46,50 @@ MonoBehaviour:
   sounds:
   - name: ClimbingVine
     clip: {fileID: 8300000, guid: 145c0d2a0617f974d9d284d66b196145, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    SpatialBlend: 1
     source: {fileID: 0}
   - name: CrystalCollect
     clip: {fileID: 8300000, guid: f64b76bf81203b348a7631b7905b2370, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    SpatialBlend: 1
     source: {fileID: 0}
   - name: Fire
     clip: {fileID: 8300000, guid: b4b8732b92221a944ad38c08842b16ce, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    SpatialBlend: 0.8
     source: {fileID: 0}
   - name: Water
     clip: {fileID: 8300000, guid: 49763193cbf57aa41ac3d2999ecd5031, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    SpatialBlend: 0.8
     source: {fileID: 0}
   - name: Freeze
     clip: {fileID: 8300000, guid: cde6cecd9d642394981e1f4750a14e0b, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    SpatialBlend: 0.9
     source: {fileID: 0}
-  - name: IcecubDrop
+  - name: IceCubeDrop
     clip: {fileID: 8300000, guid: 0929d8ea4536d0841b681f53ba4eb50f, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    SpatialBlend: 0.9
+    source: {fileID: 0}
+  - name: BGM
+    clip: {fileID: 8300000, guid: acfd26dcb9764eb4fbf302ee9e962eb6, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    SpatialBlend: 0
     source: {fileID: 0}

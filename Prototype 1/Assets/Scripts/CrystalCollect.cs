@@ -27,6 +27,7 @@ public class CrystalCollect : MonoBehaviour
             m_collected.SetActive(true);
             m_notCollected.SetActive(false);
             gameObject.SetActive(false);
+            FindObjectOfType<AudioManager>().PlayOnce("CrystalCollect");
         }
 
     }
