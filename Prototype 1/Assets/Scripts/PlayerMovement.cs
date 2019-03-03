@@ -149,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 m_targeting = false;
                 m_isMoving = false;
+                Debug.Log("WHERE IT ENDS");
                 yield break;
             }
 
