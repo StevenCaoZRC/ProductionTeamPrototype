@@ -223,6 +223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7971740440182032306}
     m_Modifications:
+    - target: {fileID: 1141729969707864, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
+      propertyPath: m_Name
+      value: FireParticles
+      objectReference: {fileID: 0}
     - target: {fileID: 4030165839563792, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2129215
@@ -279,9 +283,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1141729969707864, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
-      propertyPath: m_Name
-      value: FireParticles
+    - target: {fileID: 1504851549349786, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199302993464224412, guid: 4731675d126ccd04993c928afe603e1a,
         type: 3}
@@ -333,15 +337,6 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 198572486298984182, guid: 4731675d126ccd04993c928afe603e1a,
-        type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1504851549349786, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
 --- !u!1001 &5361101280153822814
@@ -354,10 +349,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 25b5eda0935c13d4890678b5f2393575, type: 3}
       propertyPath: m_Name
       value: log (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 25b5eda0935c13d4890678b5f2393575, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 25b5eda0935c13d4890678b5f2393575, type: 3}
       propertyPath: m_LocalPosition.x
@@ -432,6 +423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8003651714125283680}
     m_Modifications:
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Name
+      value: platform
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -476,10 +471,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
-      propertyPath: m_Name
-      value: platform
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -499,6 +490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7271936324415173026}
     m_Modifications:
+    - target: {fileID: 1141729969707864, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
+      propertyPath: m_Name
+      value: FireParticles (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4030165839563792, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -554,10 +549,6 @@ PrefabInstance:
     - target: {fileID: 4030165839563792, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141729969707864, guid: 4731675d126ccd04993c928afe603e1a, type: 3}
-      propertyPath: m_Name
-      value: FireParticles (1)
       objectReference: {fileID: 0}
     - target: {fileID: 199302993464224412, guid: 4731675d126ccd04993c928afe603e1a,
         type: 3}

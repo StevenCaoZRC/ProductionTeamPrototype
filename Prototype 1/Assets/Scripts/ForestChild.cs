@@ -9,18 +9,18 @@ public class ForestChild : Player
     public float lerpTime = 4;
     public float totalDistance;
     public GameObject BothCharacters;
-    public GameObject[] VineBlocks;
+    private GameObject[] m_vineBlocks;
 
     private PlayerControl playerCtrl;
-    private GameObject CheckVine;
+    private GameObject m_vineToCheck;
 
-    private GameObject vine;
+    private GameObject m_targetBlock;
     private GameObject decendingVine;
     private Vector3 temp;
 
-    private GameObject DecendingLoc;
-    public bool ClimbingVines = false;
-    public bool  IsDecending  = false;
+    private GameObject m_decendingLoc;
+    public bool m_climbingVines = false;
+    public bool  m_isDecending  = false;
   
     // Start is called before the first frame update
 
@@ -42,76 +42,67 @@ public class ForestChild : Player
         m_maxAbilityCount = 4;
 
         timeStarted = Time.time;
-        for (int i = 0; i < VineBlocks.Length; i++)
+
+        GameObject[] temp = new GameObject[GameObject.FindGameObjectsWithTag("VineBlock").Length];
+        temp = GameObject.FindGameObjectsWithTag("VineBlock");
+        temp.CopyTo(temp, 0);
+        m_vineBlocks = temp;
+
+        for (int i = 0; i < m_vineBlocks.Length; i++)
         {
-            VineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
-            VineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
+            m_vineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
+            m_vineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
         }
     }
 
 
-    public override void SpellOne(GameObject _Vines)
+    public override void SpellOne(GameObject _vineBlock)
     {
-        if (_Vines.tag == "VineBlock")
-        {
-            BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
-            ClimbingVines = true;
-            CheckVine = _Vines;
-            for (int i = 0; i < VineBlocks.Length; i++)
-            {
-                if (VineBlocks[i].name == CheckVine.name)
-                {
-                    if (!VineBlocks[i].transform.GetChild(3).gameObject.activeSelf && !VineBlocks[i].transform.GetChild(4).gameObject.activeSelf
-                    && m_currAbilityCount > 0)
-                    {
-                        Debug.Log("VineBlock abilityCount: " + m_currAbilityCount);
-
-                        m_currAbilityCount -= 1;
-                        vine = VineBlocks[i];
-                        VineBlocks[i].transform.GetChild(3).gameObject.SetActive(true);
-                        VineBlocks[i].transform.GetChild(4).gameObject.SetActive(true);
-                    }
-                }
-            }
-        }
-        else if (_Vines.tag == "VineGround" && BothCharacters.transform.position.x == vine.transform.GetChild(0).transform.position.x)
-        {
-            DecendingLoc = _Vines;
-            BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
-            for (int i = 0; i < VineBlocks.Length; i++)
-            {
-                RaycastHit hit;
-                Ray ray = new Ray(BothCharacters.transform.position, Vector3.down);
-                if(Physics.Raycast(ray, out hit))
-                {
-                    if (hit.transform.gameObject.tag == "VineBlock" && VineBlocks[i].tag == hit.transform.gameObject.tag)
-                    {
-                        decendingVine = hit.transform.gameObject;
-                        if (m_currAbilityCount > 0 && decendingVine.transform.GetChild(3).gameObject.activeSelf == false && decendingVine.transform.GetChild(4).gameObject.activeSelf == false)
-                        {
-                            m_currAbilityCount -= 1;
-                            decendingVine.transform.GetChild(3).gameObject.SetActive(true);
-                            decendingVine.transform.GetChild(4).gameObject.SetActive(true);
-                            Debug.Log("DOES IT EVER REACH");
-
-                        }
-                    }
-                        
-                            
-                } 
-                
-            }
-            IsDecending = true;
-        }
-
-    }
-    public override void SpellTwo(GameObject _waterBlock)
-    {
+        //Standing above a vine block, Need to get down.
         if (m_currAbilityCount > 0)
         {
-            m_currAbilityCount -= 1;
+            BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
 
-            //Do spell
+            //If vines not active
+            if (!_vineBlock.transform.GetChild(3).gameObject.activeSelf 
+             && !_vineBlock.transform.GetChild(4).gameObject.activeSelf)
+            {
+                m_currAbilityCount -= 1;
+                m_isDecending = true;
+                _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
+                _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
+                m_targetBlock = _vineBlock.transform.GetChild(6).gameObject;
+            }
+            else
+            {
+                m_isDecending = true;
+                m_targetBlock = _vineBlock.transform.GetChild(6).gameObject;
+            }
+        }
+    }
+
+    public override void SpellTwo(GameObject _vineBlock)
+    {
+        Debug.Log("AT THE BOT");
+        if(m_currAbilityCount > 0)
+        {
+            //If not active
+            BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
+
+            if (!_vineBlock.transform.GetChild(3).gameObject.activeSelf &&
+            !_vineBlock.transform.GetChild(4).gameObject.activeSelf)
+            {
+                m_currAbilityCount -= 1;
+                m_climbingVines = true;
+                _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
+                _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
+                m_targetBlock = _vineBlock;
+            }
+            else //if active
+            {
+                m_climbingVines = true;
+                m_targetBlock = _vineBlock;
+            }
         }
     }
 
@@ -125,90 +116,61 @@ public class ForestChild : Player
         
         return result;
     }
+
     public void Climbing()
     {
-        
-        if (ClimbingVines == true)
+        if (m_climbingVines == true)
         {
             Vector3 EndPostionPT1 = new Vector3(BothCharacters.transform.position.x,
-                                                vine.transform.GetChild(0).transform.position.y,
+                                                m_targetBlock.transform.GetChild(0).transform.position.y,
                                                 BothCharacters.transform.position.z);
 
             totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT1);
             BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT1, timeStarted,totalDistance );
 
            
-            if(BothCharacters.transform.position.y == vine.transform.GetChild(0).transform.position.y)
+            if(BothCharacters.transform.position.y == m_targetBlock.transform.GetChild(0).transform.position.y)
             {
-                Vector3 EndPostionPT2 = new Vector3(vine.transform.GetChild(0).transform.position.x,
+                Vector3 EndPostionPT2 = new Vector3(m_targetBlock.transform.GetChild(0).transform.position.x,
                                                    BothCharacters.transform.position.y,
-                                                  vine.transform.GetChild(0).transform.position.z);
+                                                   m_targetBlock.transform.GetChild(0).transform.position.z);
 
                 totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT2);
                 BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT2, timeStarted, totalDistance);
             }
-            if (BothCharacters.transform.position == vine.transform.GetChild(0).transform.position)
+            if (BothCharacters.transform.position == m_targetBlock.transform.GetChild(0).transform.position)
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
-                ClimbingVines = false;
-        
-               
+                m_climbingVines = false;
             }
-        
-            
-            
-            //  old code steven
-            /*Vector3 CurrentPlayerLocation = BothCharacters.transform.GetChild(0).transform.position;
-
-            float fracComplete = 5.0f;
-            
-            //player.transform.position = transform.position + temp;\
-            temp = new Vector3(vine.transform.position.x, vine.transform.position.y + (vine.transform.position.y / 2), vine.transform.position.z);
-
-            BothCharacters.transform.position = new Vector3(BothCharacters.transform.position.x, Mathf.Lerp(BothCharacters.transform.position.y, vine.transform.GetChild(0).transform.position.y, Time.deltaTime * fracComplete), BothCharacters.transform.position.z);
-
-            if (BothCharacters.transform.position.y > vine.transform.GetChild(0).transform.position.y - 0.01 && BothCharacters.transform.position.y <= vine.transform.GetChild(0).transform.position.y)
-            {
-                BothCharacters.transform.position = new Vector3(Mathf.Lerp(BothCharacters.transform.position.x, vine.transform.GetChild(0).transform.position.x, Time.deltaTime * fracComplete), BothCharacters.transform.position.y, Mathf.Lerp(BothCharacters.transform.position.z, vine.transform.GetChild(0).transform.position.z, Time.deltaTime * fracComplete));
-            }
-        
-            if (BothCharacters.transform.position == temp)
-            {
-                BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
-                ClimbingVines = false;
-
-            }*/
         }
     }
     
     public void Decending()
     {
-
-        if (IsDecending == true)
+        if (m_isDecending == true)
         {
-            Debug.Log("yaALLL DESCEND: " + IsDecending);
-
-            Vector3 EndPostionPT1 = new Vector3(DecendingLoc.transform.position.x,
+            Vector3 EndPostionPT1 = new Vector3(m_targetBlock.transform.position.x,
                                                 BothCharacters.transform.position.y,
-                                                DecendingLoc.transform.position.z);
+                                                m_targetBlock.transform.position.z);
 
             totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT1);
             BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT1, timeStarted, totalDistance);
 
             //yield return new WaitUntil(()=> BothCharacters.transform.position.y == vine.transform.GetChild(0).transform.position.y);
-            if (BothCharacters.transform.position.x == DecendingLoc.transform.position.x && BothCharacters.transform.position.z == DecendingLoc.transform.position.z)
+            if (BothCharacters.transform.position.x == m_targetBlock.transform.position.x && BothCharacters.transform.position.z == m_targetBlock.transform.position.z)
             {
-                Vector3 EndPostionPT2 = new Vector3(DecendingLoc.transform.position.x,
-                                                   DecendingLoc.transform.position.y + 1 ,
-                                                  DecendingLoc.transform.position.z);
+                Vector3 EndPostionPT2 = new Vector3(m_targetBlock.transform.position.x,
+                                                   m_targetBlock.transform.position.y + 1,
+                                                  m_targetBlock.transform.position.z);
 
                 totalDistance = Vector3.Distance(BothCharacters.transform.position, EndPostionPT2);
                 BothCharacters.transform.position = Lerp(BothCharacters.transform.position, EndPostionPT2, timeStarted, totalDistance);
             }
-            if (BothCharacters.transform.position.y == DecendingLoc.transform.position.y + 1)
+            if (BothCharacters.transform.position.y == m_targetBlock.transform.position.y + 1)
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
-                IsDecending = false;
+                m_isDecending = false;
             }
         }
        
