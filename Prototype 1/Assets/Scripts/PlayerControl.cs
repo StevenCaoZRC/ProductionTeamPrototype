@@ -8,10 +8,11 @@ public class PlayerControl : MonoBehaviour
     [Header("Character references")]
     public Player m_childOne;
     public Player m_childTwo;
+
     public PlayerMovement m_movement;
     public bool m_waterLeading = true;
     public GameObject m_playerFrontRay;
-    
+    public bool m_menuActivated = false;
     private void Start()
     {
         Reset();
@@ -43,7 +44,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !m_menuActivated)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -75,7 +76,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !m_menuActivated)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -180,4 +181,6 @@ public class PlayerControl : MonoBehaviour
     {
         return m_waterLeading;
     }
+
+   
 }
