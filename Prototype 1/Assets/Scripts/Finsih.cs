@@ -23,7 +23,7 @@ public class Finsih : MonoBehaviour
         if (other.tag == "Player")
         {
             
-            SceneManager.LoadScene("TutorialScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

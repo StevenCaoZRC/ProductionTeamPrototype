@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class WaterChild : Player
 {
-
+    AudioManager AudioMger;
     // Start is called before the first frame update
     void Start()
     {
         Reset();
+        AudioMger = FindObjectOfType<AudioManager>();
+        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     public override void Reset()
@@ -29,10 +33,11 @@ public class WaterChild : Player
         //put out fire
         if(m_currAbilityCount > 0 && !m_isCasting)
         {
+           
             m_currAbilityCount -= 1;
             m_isCasting = true;
-
             StartCoroutine(PutOutFire(_fire));
+           
         }
     }
     public override void SpellTwo(GameObject _waterBlock)
@@ -41,10 +46,12 @@ public class WaterChild : Player
         if (m_currAbilityCount > 0 && !m_isCasting 
             && _waterBlock.GetComponent<WaterBlock>().GetBlockType() == BlockType.Water)
         {
+         
             m_currAbilityCount -= 1;
             m_isCasting = true;
 
             StartCoroutine(CastIceBlock(_waterBlock));
+           
         }
     }
 
@@ -69,15 +76,17 @@ public class WaterChild : Player
 
         //Play fire dying animation 
         _water.gameObject.GetComponent<WaterBlock>().CreateIce();
-        yield return new WaitForSeconds(2.5f);
 
+        yield return new WaitForSeconds(1.0f);
+        AudioMger.Play("IceCubeDrop");
+        yield return new WaitForSeconds(1.5f);
         //Make it walkable only after animation is done
         _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
         //Spawn ice block in water block. float.
-
+       
         m_isCasting = false;
-
-        yield return null;
+       
+         yield return null;
     }
 
 }

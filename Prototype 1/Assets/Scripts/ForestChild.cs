@@ -21,11 +21,13 @@ public class ForestChild : Player
     private GameObject m_decendingLoc;
     public bool m_climbingVines = false;
     public bool  m_isDecending  = false;
-  
+    public bool CanBePlayed = false;
+    AudioManager audioMnger;
     // Start is called before the first frame update
     void Start()
     {
         Reset();
+        audioMnger = FindObjectOfType<AudioManager>();
     }
     // Update is called once per frame
     void Update()
@@ -61,11 +63,11 @@ public class ForestChild : Player
         if (m_currAbilityCount > 0)
         {
             BothCharacters.GetComponent<NavMeshAgent>().enabled = false;
-
             //If vines not active
             if (!_vineBlock.transform.GetChild(3).gameObject.activeSelf 
              && !_vineBlock.transform.GetChild(4).gameObject.activeSelf)
             {
+                CanBePlayed = true;
                 m_currAbilityCount -= 1;
                 m_isDecending = true;
                 _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
@@ -75,6 +77,7 @@ public class ForestChild : Player
             else
             {
                 m_isDecending = true;
+                 CanBePlayed = true;
                 m_targetBlock = _vineBlock.transform.GetChild(6).gameObject;
             }
         }
@@ -93,6 +96,7 @@ public class ForestChild : Player
             {
                 m_currAbilityCount -= 1;
                 m_climbingVines = true;
+                CanBePlayed = true;
                 _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
                 _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
                 m_targetBlock = _vineBlock;
@@ -100,6 +104,7 @@ public class ForestChild : Player
             else //if active
             {
                 m_climbingVines = true;
+                CanBePlayed = true;
                 m_targetBlock = _vineBlock;
             }
         }
@@ -120,6 +125,13 @@ public class ForestChild : Player
     {
         if (m_climbingVines == true)
         {
+            if (CanBePlayed)
+            {
+                audioMnger.PlayOnce("ClimbingVine");
+            }
+            CanBePlayed = false;
+
+
             Vector3 EndPostionPT1 = new Vector3(BothCharacters.transform.position.x,
                                                 m_targetBlock.transform.GetChild(0).transform.position.y,
                                                 BothCharacters.transform.position.z);
@@ -141,6 +153,7 @@ public class ForestChild : Player
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 m_climbingVines = false;
+                audioMnger.Stop("ClimbingVine");
             }
         }
     }
@@ -149,6 +162,11 @@ public class ForestChild : Player
     {
         if (m_isDecending == true)
         {
+            if (CanBePlayed)
+            {
+                audioMnger.PlayOnce("ClimbingVine");
+            }
+            CanBePlayed = false;
             Vector3 EndPostionPT1 = new Vector3(m_targetBlock.transform.position.x,
                                                 BothCharacters.transform.position.y,
                                                 m_targetBlock.transform.position.z);
@@ -170,12 +188,9 @@ public class ForestChild : Player
             {
                 BothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 m_isDecending = false;
+                audioMnger.Stop("ClimbingVine");
             }
         }
-       
-
-
-
     }
 
 }

@@ -9,13 +9,14 @@ public class FireBlock : Block
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Fire");
         Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     public override void Reset()

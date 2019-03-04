@@ -8,13 +8,15 @@ public class WaterBlock : Block
     public GameObject m_waterLink;
     public Transform m_startBlock;
     public Transform m_endBlock;
-
+    AudioManager AudioMgr;
     bool m_waterIsEmpty = true;
 
     // Start is called before the first frame update
     void Start()
     {
         Reset();
+        AudioMgr = FindObjectOfType<AudioManager>();
+        AudioMgr.Play("Water");
     }
 
     // Update is called once per frame
@@ -35,7 +37,10 @@ public class WaterBlock : Block
         if (m_waterIsEmpty)
         {
             StartCoroutine(SpawnIceAfterAnimation());
+            FindObjectOfType<AudioManager>().Play("Freeze");
+            
         }
+        
     }
 
     IEnumerator SpawnIceAfterAnimation()
@@ -48,6 +53,7 @@ public class WaterBlock : Block
         m_waterIsEmpty = false;
         m_blockType = BlockType.Ice;
         m_waterLink.SetActive(true);
+       
         yield return null;
     }
 
