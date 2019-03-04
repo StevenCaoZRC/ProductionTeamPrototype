@@ -4,54 +4,46 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
+    static LevelLoader instance = null;
+
     public Level m_level;
 
-    static public string m_levelName;
-    static public bool m_waterIsLeading;
-    static public float m_waterMana;
-    static public float m_maxWaterMana;
-    static public float m_forestMana;
-    static public float m_maxForestMana;
-    static public GameObject m_startingPosition;
-
-    public void Start()
+    private void Awake()
     {
-        m_levelName =         m_level.levelName;
-        m_waterIsLeading =    m_level.waterIsLeading;
-        m_waterMana =         m_level.waterMana;
-        m_maxWaterMana =      m_level.maxWaterMana;
-        m_forestMana =        m_level.forestMana;
-        m_maxForestMana =     m_level.maxForestMana;
-        m_startingPosition =  m_level.startingPosition;
+        instance = this;
+    }
+    static public LevelLoader GetInstance()
+    {
+        return instance;
     }
 
-    static public string GetLvlName()
+    public string GetLvlName()
     {
-        return m_levelName;
+        return m_level.levelName;
     }
-    static public bool GetLvlWaterLeading()
+    public bool GetLvlWaterLeading()
     {
-        return m_waterIsLeading;
+        return m_level.waterIsLeading;
     }
-    static public float GetLvlWaterMana()
+    public float GetLvlWaterMana()
     {
-        return m_waterMana;
+        return m_level.waterMana;
     }
-    static public float GetLvlMaxWaterMana()
+    public float GetLvlMaxWaterMana()
     {
-        return m_maxWaterMana;
+        return m_level.maxWaterMana;
     }
-    static public float GetLvlForestMana()
+    public float GetLvlForestMana()
     {
-        return m_waterMana;
+        return m_level.waterMana;
     }
-    static public float GetLvlMaxForestMana()
+    public float GetLvlMaxForestMana()
     {
-        return m_maxWaterMana;
+        return m_level.maxWaterMana;
     }
 
-    static public Transform GetLvlStartingPos()
+    public Transform GetLvlStartingPos()
     {
-        return m_startingPosition.transform;
+        return m_level.startingPosition.transform;
     }
 }

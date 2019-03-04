@@ -6,7 +6,7 @@ public class WaterChild : Player
 {
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         Reset();
     }
@@ -20,10 +20,8 @@ public class WaterChild : Player
     public override void Reset()
     {
         m_charaElement = Element.Water;
-        //m_currAbilityCount = LevelLoader.GetLvlWaterMana();
-        //m_maxAbilityCount = LevelLoader.GetLvlMaxWaterMana();
-        m_currAbilityCount = 3;
-        m_maxAbilityCount = 3;
+        m_currAbilityCount = LevelLoader.GetInstance().GetLvlWaterMana();
+        m_maxAbilityCount = LevelLoader.GetInstance().GetLvlMaxWaterMana();
     }
 
     public override void SpellOne(GameObject _fire)
