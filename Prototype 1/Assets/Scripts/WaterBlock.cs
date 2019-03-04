@@ -38,7 +38,6 @@ public class WaterBlock : Block
         {
             StartCoroutine(SpawnIceAfterAnimation());
             FindObjectOfType<AudioManager>().Play("Freeze");
-            
         }
         
     }
@@ -55,25 +54,5 @@ public class WaterBlock : Block
         m_waterLink.SetActive(true);
        
         yield return null;
-    }
-
-    public void WaterWaitPosition(Transform _player, ref Vector3 _waitPos)
-    {
-        if(m_waterIsEmpty && !m_isWalkable)
-        {
-            Vector3 dist = _player.position - transform.position;
-            float dotProduct = Vector3.Dot(dist, transform.forward);
-            if(dotProduct == 1)
-            {
-                //Player is behind water block
-                _waitPos = new Vector3(m_startBlock.position.x, _player.position.y, m_startBlock.position.z);   
-            }
-            else
-            {
-                //Player is infront of water block
-                _waitPos = new Vector3(m_endBlock.position.x, _player.position.y, m_endBlock.position.z);
-
-            }
-        }
     }
 }
