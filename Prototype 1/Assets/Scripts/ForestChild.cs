@@ -24,8 +24,7 @@ public class ForestChild : Player
     public bool CanBePlayed = false;
     AudioManager audioMnger;
     // Start is called before the first frame update
-
-    void Awake()
+    void Start()
     {
         Reset();
         audioMnger = FindObjectOfType<AudioManager>();
@@ -40,10 +39,8 @@ public class ForestChild : Player
     public override void Reset()
     {
         m_charaElement = Element.Forest;
-        //m_currAbilityCount = LevelLoader.GetLvlForestMana();
-        //m_maxAbilityCount = LevelLoader.GetLvlMaxForestMana();
-        m_currAbilityCount = 4;
-        m_maxAbilityCount = 4;
+        m_currAbilityCount = LevelLoader.GetInstance().GetLvlForestMana();
+        m_maxAbilityCount = LevelLoader.GetInstance().GetLvlMaxForestMana();
 
         timeStarted = Time.time;
 
