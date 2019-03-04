@@ -19,7 +19,6 @@ public class PlayerControl : MonoBehaviour
 
     private void Reset()
     {
-        Debug.Log("LevelLoader Name: " + LevelLoader.GetInstance().GetLvlName());
         //Depending on who is leading when script starts up, set character as lead
         m_waterLeading = LevelLoader.GetInstance().GetLvlWaterLeading();
         transform.position = LevelLoader.GetInstance().GetLvlStartingPos().position;
@@ -86,22 +85,20 @@ public class PlayerControl : MonoBehaviour
                 Vector3 dir = (hit.transform.position - transform.position);
 
                 // the player is within a radius of 3 units to this game object
-                Debug.Log("Magnitude?: " + ((hit.transform.position - transform.position).sqrMagnitude));
+
                 if ((hit.transform.position - transform.position).sqrMagnitude < 3*3)
                 {
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)
                     {
                         //Put out fire
-                        //m_movement.Rotate(hit.transform.gameObject);
+                        m_movement.Rotate(hit.transform.gameObject);
                         m_childOne.SpellOne(hit.transform.gameObject);
-
                     }
 
                     if (hit.transform.gameObject.tag == "WaterBlock" && m_waterLeading)
                     {
                         //Create Ice
-                        m_movement.MoveToTarget(hit.transform.gameObject);
-
+                        //m_movement.MoveToTarget(hit.transform.gameObject);
                         m_childOne.SpellTwo(hit.transform.gameObject);
                     }
                 }
@@ -110,9 +107,6 @@ public class PlayerControl : MonoBehaviour
                 Ray charaRay = new Ray(transform.position, Vector3.down * 2);
                 if (Physics.Raycast(charaRay, out charaHit))
                 {
-                    Debug.Log("Stnading ?" + charaHit.transform.gameObject.tag);
-                    Debug.Log("Clicked ?" + hit.transform.gameObject.tag);
-
                     //Going down to vine ground
                     if (charaHit.transform.gameObject.tag == "VineBlock" 
                         && hit.transform.gameObject.tag == "VineGround"

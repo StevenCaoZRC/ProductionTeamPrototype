@@ -10569,7 +10569,7 @@ PrefabInstance:
     - target: {fileID: 1454346763326636602, guid: 85a0ea5689c85964fa7fc1127adf5926,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1454346763326636602, guid: 85a0ea5689c85964fa7fc1127adf5926,
         type: 3}
@@ -16287,7 +16287,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1265098278 stripped
 Transform:
@@ -27876,6 +27876,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3318268574024168461, guid: 1a3083d4c6183f44aac674c3c49cb089,
+        type: 3}
+      propertyPath: sounds.Array.data[0].SpatialBlend
+      value: 0.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a3083d4c6183f44aac674c3c49cb089, type: 3}
 --- !u!1001 &2088013012
@@ -28731,6 +28736,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2512595813771141737, guid: 461af3a1561eafd4da9a37d5df9028f9,
+        type: 3}
+      propertyPath: m_bothCharacters
+      value: 
+      objectReference: {fileID: 94147532}
     - target: {fileID: 3843797261974457785, guid: 461af3a1561eafd4da9a37d5df9028f9,
         type: 3}
       propertyPath: m_LocalPosition.x
