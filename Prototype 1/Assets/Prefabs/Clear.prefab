@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2466087298689877840, guid: 0b7a6b55ad35000408110eb13cb3e71c,
         type: 3}
       propertyPath: m_Name
-      value: CharmUIPanel
+      value: Clear
       objectReference: {fileID: 0}
     - target: {fileID: 2466087298689877841, guid: 0b7a6b55ad35000408110eb13cb3e71c,
         type: 3}
@@ -177,39 +177,6 @@ PrefabInstance:
       propertyPath: m_textInfo.textComponent
       value: 
       objectReference: {fileID: 4262702664017090268}
-    - target: {fileID: 1675319035, guid: 0b7a6b55ad35000408110eb13cb3e71c, type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1675319035, guid: 0b7a6b55ad35000408110eb13cb3e71c, type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1675319035, guid: 0b7a6b55ad35000408110eb13cb3e71c, type: 3}
-      propertyPath: m_textInfo.textComponent
-      value: 
-      objectReference: {fileID: 4150936956480677860}
-    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4e78aa993e833a84bbfadf5532588752,
-        type: 3}
-    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2466087300420326042, guid: 0b7a6b55ad35000408110eb13cb3e71c,
         type: 3}
       propertyPath: m_Sprite
@@ -231,17 +198,61 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1847473490016783936, guid: 0b7a6b55ad35000408110eb13cb3e71c,
-        type: 3}
-      propertyPath: m_Name
-      value: BackGround
-      objectReference: {fileID: 0}
     - target: {fileID: 1275177028588011695, guid: 0b7a6b55ad35000408110eb13cb3e71c,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d698640427c7ea645a12b576b4e171d5,
         type: 3}
+    - target: {fileID: 5785304290102462999, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ee6068f5a51e88545a744d69aebf3d06,
+        type: 3}
+    - target: {fileID: 2466087300325763034, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847473490016783936, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+        type: 3}
+      propertyPath: m_Name
+      value: BackGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e78aa993e833a84bbfadf5532588752,
+        type: 3}
+    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466087299034660333, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675319035, guid: 0b7a6b55ad35000408110eb13cb3e71c, type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675319035, guid: 0b7a6b55ad35000408110eb13cb3e71c, type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675319035, guid: 0b7a6b55ad35000408110eb13cb3e71c, type: 3}
+      propertyPath: m_textInfo.textComponent
+      value: 
+      objectReference: {fileID: 4150936956480677860}
     - target: {fileID: 3260631052650709291, guid: 0b7a6b55ad35000408110eb13cb3e71c,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -252,14 +263,25 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5785304290102462999, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+    - target: {fileID: 3412997814923705293, guid: 0b7a6b55ad35000408110eb13cb3e71c,
         type: 3}
-      propertyPath: m_Sprite
+      propertyPath: m_TargetGraphic
       value: 
-      objectReference: {fileID: 21300000, guid: ee6068f5a51e88545a744d69aebf3d06,
-        type: 3}
+      objectReference: {fileID: 590126287382463623}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7a6b55ad35000408110eb13cb3e71c, type: 3}
+--- !u!114 &590126287382463623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3579125373528733080, guid: 0b7a6b55ad35000408110eb13cb3e71c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4150936956006117663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1991253483762672519 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2466087300420326040, guid: 0b7a6b55ad35000408110eb13cb3e71c,
