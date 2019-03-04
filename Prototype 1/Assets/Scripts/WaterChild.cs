@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class WaterChild : Player
 {
     AudioManager AudioMger;
+    public GameObject m_waterSplashPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +80,14 @@ public class WaterChild : Player
 
         yield return new WaitForSeconds(1.0f);
         AudioMger.Play("IceCubeDrop");
+        
+        GameObject waterSplash = Instantiate(m_waterSplashPrefab, transform.position, Quaternion.identity);
+        waterSplash.transform.parent = _water.transform;
+        waterSplash.transform.GetChild(0).Translate(new Vector3(0f, 1f, 0f));
+        waterSplash.transform.GetChild(1).Translate(new Vector3(0f, 1f, 0f));
+       
         yield return new WaitForSeconds(1.5f);
+      
         //Make it walkable only after animation is done
         _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
         //Spawn ice block in water block. float.

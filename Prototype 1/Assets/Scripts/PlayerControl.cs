@@ -44,6 +44,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -59,7 +60,7 @@ public class PlayerControl : MonoBehaviour
                     m_movement.MovePlayer(hit);
                 }
 
-                if(hit.collider != null)
+                if (hit.collider != null)
                 {
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                     {
@@ -80,14 +81,14 @@ public class PlayerControl : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-           
+
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 dir = (hit.transform.position - transform.position);
 
                 // the player is within a radius of 3 units to this game object
                 Debug.Log("Magnitude?: " + ((hit.transform.position - transform.position).sqrMagnitude));
-                if ((hit.transform.position - transform.position).sqrMagnitude < 3*3)
+                if ((hit.transform.position - transform.position).sqrMagnitude < 3 * 3)
                 {
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)
                     {
@@ -114,13 +115,13 @@ public class PlayerControl : MonoBehaviour
                     Debug.Log("Clicked ?" + hit.transform.gameObject.tag);
 
                     //Going down to vine ground
-                    if (charaHit.transform.gameObject.tag == "VineBlock" 
+                    if (charaHit.transform.gameObject.tag == "VineBlock"
                         && hit.transform.gameObject.tag == "VineGround"
                         && !m_waterLeading)
                     {
                         if (hit.transform.gameObject == charaHit.transform.GetChild(6).gameObject)
                         {
-                           
+
                             m_childTwo.SpellOne(charaHit.transform.gameObject);
                         }
                     }
@@ -142,7 +143,7 @@ public class PlayerControl : MonoBehaviour
                 }
             }
 
-            
+
         }
 
         //Single Mouse Right click
@@ -150,6 +151,7 @@ public class PlayerControl : MonoBehaviour
         {
             SwitchCharaPos();
         }
+    
     }
 
     //Checks who is leading and switches them with the backup chara
