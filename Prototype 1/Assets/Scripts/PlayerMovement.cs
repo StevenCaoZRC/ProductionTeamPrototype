@@ -98,6 +98,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Rotate(GameObject _object)
+    {
+        m_isTargetMove = true;
+        m_targetDir = _object.transform.position - transform.position;
+
+        //If player is clicking on a pos more than 1 square && clicking a higher square
+        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f))
+        {
+            m_hitLocation = new Vector3(_object.transform.position.x, transform.position.y, _object.transform.position.z);
+        }
+    }
+
     //Sets position if location is more than 1 square away 
     void MovementDestination()
     {
