@@ -62,8 +62,7 @@ public class ForestChild : Player
             m_vineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
         }
     }
-
-
+    
     public override void SpellOne(GameObject _vineBlock)
     {
         //Standing above a vine block, Need to get down.
@@ -223,10 +222,5 @@ public class ForestChild : Player
 
             }
         }
-
-
-
-
     }
-
 }

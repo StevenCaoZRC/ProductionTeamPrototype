@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelLoader : MonoBehaviour
 {
     static LevelLoader instance = null;
-
+    public Transform _levelStart;
     public Level m_level;
 
     private void Awake()
@@ -44,6 +44,6 @@ public class LevelLoader : MonoBehaviour
 
     public Transform GetLvlStartingPos()
     {
-        return m_level.startingPosition.transform;
+        return _levelStart;
     }
 }
