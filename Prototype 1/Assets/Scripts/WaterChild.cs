@@ -22,6 +22,8 @@ public class WaterChild : Player
     public override void Reset()
     {
         m_charaElement = Element.Water;
+        //m_currAbilityCount = LevelLoader.GetLvlWaterMana();
+        //m_maxAbilityCount = LevelLoader.GetLvlMaxWaterMana();
         m_currAbilityCount = 3;
         m_maxAbilityCount = 3;
     }

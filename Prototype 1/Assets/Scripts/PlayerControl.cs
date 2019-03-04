@@ -8,7 +8,6 @@ public class PlayerControl : MonoBehaviour
     [Header("Character references")]
     public Player m_childOne;
     public Player m_childTwo;
-    public Animator m_doubleCharaAnimator;
     public PlayerMovement m_movement;
     public LayerMask m_layerMask;
     public bool m_waterLeading = true;

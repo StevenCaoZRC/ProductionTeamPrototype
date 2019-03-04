@@ -10512,11 +10512,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 761961691318040302, guid: 5d560ccf30c65624ca4e84bbf9b70e75,
-        type: 3}
-      propertyPath: m_Name
-      value: grass_1
-      objectReference: {fileID: 0}
     - target: {fileID: 7771126401591416677, guid: 5d560ccf30c65624ca4e84bbf9b70e75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10571,6 +10566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 761961691318040302, guid: 5d560ccf30c65624ca4e84bbf9b70e75,
+        type: 3}
+      propertyPath: m_Name
+      value: grass_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d560ccf30c65624ca4e84bbf9b70e75, type: 3}
