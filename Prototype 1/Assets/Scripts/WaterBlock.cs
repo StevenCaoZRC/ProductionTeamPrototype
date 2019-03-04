@@ -5,6 +5,7 @@ using UnityEngine;
 public class WaterBlock : Block
 {
     public GameObject m_iceBlockPrefab;
+   
     public GameObject m_waterLink;
     public Transform m_startBlock;
     public Transform m_endBlock;
@@ -47,7 +48,7 @@ public class WaterBlock : Block
         Debug.Log("Spawning water block");
         GameObject iceBlock = Instantiate(m_iceBlockPrefab, transform.position, Quaternion.identity);
         iceBlock.transform.parent = gameObject.transform;
-
+        
         yield return new WaitForSeconds(2.5f);
         m_waterIsEmpty = false;
         m_blockType = BlockType.Ice;
