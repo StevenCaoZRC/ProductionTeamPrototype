@@ -8,14 +8,15 @@ public class WaterBlock : Block
     public GameObject m_waterLink;
     public Transform m_startBlock;
     public Transform m_endBlock;
-
+    AudioManager AudioMgr;
     bool m_waterIsEmpty = true;
 
     // Start is called before the first frame update
     void Start()
     {
         Reset();
-        FindObjectOfType<AudioManager>().Play("Water");
+        AudioMgr = FindObjectOfType<AudioManager>();
+        AudioMgr.Play("Water");
     }
 
     // Update is called once per frame

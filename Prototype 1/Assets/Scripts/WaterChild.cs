@@ -5,12 +5,12 @@ using UnityEngine.Audio;
 
 public class WaterChild : Player
 {
-    
+    AudioManager AudioMger;
     // Start is called before the first frame update
     void Awake()
     {
         Reset();
-        
+        AudioMger = GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class WaterChild : Player
         //Make it walkable only after animation is done
         _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
         //Spawn ice block in water block. float.
-        
+        AudioMger.Play("IceCubeDrop");
         m_isCasting = false;
        
          yield return null;
