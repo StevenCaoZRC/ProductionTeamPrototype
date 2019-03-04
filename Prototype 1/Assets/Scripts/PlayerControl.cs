@@ -19,7 +19,6 @@ public class PlayerControl : MonoBehaviour
 
     private void Reset()
     {
-        Debug.Log("LevelLoader Name: " + LevelLoader.GetInstance().GetLvlName());
         //Depending on who is leading when script starts up, set character as lead
         m_waterLeading = LevelLoader.GetInstance().GetLvlWaterLeading();
         transform.position = LevelLoader.GetInstance().GetLvlStartingPos().position;
@@ -44,7 +43,6 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -60,7 +58,7 @@ public class PlayerControl : MonoBehaviour
                     m_movement.MovePlayer(hit);
                 }
 
-                if (hit.collider != null)
+                if(hit.collider != null)
                 {
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)// && hit.transform.gameObject.transform.forward == transform.position)
                     {
@@ -81,28 +79,26 @@ public class PlayerControl : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
+           
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 dir = (hit.transform.position - transform.position);
 
                 // the player is within a radius of 3 units to this game object
-                Debug.Log("Magnitude?: " + ((hit.transform.position - transform.position).sqrMagnitude));
-                if ((hit.transform.position - transform.position).sqrMagnitude < 3 * 3)
+
+                if ((hit.transform.position - transform.position).sqrMagnitude < 3*3)
                 {
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)
                     {
                         //Put out fire
                         m_movement.Rotate(hit.transform.gameObject);
                         m_childOne.SpellOne(hit.transform.gameObject);
-
                     }
 
                     if (hit.transform.gameObject.tag == "WaterBlock" && m_waterLeading)
                     {
                         //Create Ice
-                        m_movement.MoveToTarget(hit.transform.gameObject);
-
+                        //m_movement.MoveToTarget(hit.transform.gameObject);
                         m_childOne.SpellTwo(hit.transform.gameObject);
                     }
                 }
@@ -111,17 +107,14 @@ public class PlayerControl : MonoBehaviour
                 Ray charaRay = new Ray(transform.position, Vector3.down * 2);
                 if (Physics.Raycast(charaRay, out charaHit))
                 {
-                    Debug.Log("Stnading ?" + charaHit.transform.gameObject.tag);
-                    Debug.Log("Clicked ?" + hit.transform.gameObject.tag);
-
                     //Going down to vine ground
-                    if (charaHit.transform.gameObject.tag == "VineBlock"
+                    if (charaHit.transform.gameObject.tag == "VineBlock" 
                         && hit.transform.gameObject.tag == "VineGround"
                         && !m_waterLeading)
                     {
                         if (hit.transform.gameObject == charaHit.transform.GetChild(6).gameObject)
                         {
-
+                            m_movement.Rotate(charaHit.transform.gameObject);
                             m_childTwo.SpellOne(charaHit.transform.gameObject);
                         }
                     }
@@ -131,11 +124,9 @@ public class PlayerControl : MonoBehaviour
                         && hit.transform.gameObject.tag == "VineBlock"
                         && !m_waterLeading)
                     {
-                        Debug.Log("sorta");
-
                         if (hit.transform.gameObject.name == charaHit.transform.parent.name)
                         {
-                            Debug.Log("notAtAll");
+                            m_movement.Rotate(hit.transform.gameObject);
 
                             m_childTwo.SpellTwo(hit.transform.gameObject);
                         }
@@ -143,7 +134,7 @@ public class PlayerControl : MonoBehaviour
                 }
             }
 
-
+            
         }
 
         //Single Mouse Right click
@@ -151,7 +142,6 @@ public class PlayerControl : MonoBehaviour
         {
             SwitchCharaPos();
         }
-    
     }
 
     //Checks who is leading and switches them with the backup chara

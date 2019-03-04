@@ -35,11 +35,11 @@ public class LevelLoader : MonoBehaviour
     }
     public float GetLvlForestMana()
     {
-        return m_level.waterMana;
+        return m_level.forestMana;
     }
     public float GetLvlMaxForestMana()
     {
-        return m_level.maxWaterMana;
+        return m_level.maxForestMana;
     }
 
     public Transform GetLvlStartingPos()
