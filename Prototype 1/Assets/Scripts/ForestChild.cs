@@ -98,6 +98,7 @@ public class ForestChild : Player
         Debug.Log("AT THE BOT");
         if (m_currAbilityCount > 0)
         {
+
             //If not active
             if (!_vineBlock.transform.GetChild(3).gameObject.activeSelf &&
                 !_vineBlock.transform.GetChild(4).gameObject.activeSelf
@@ -150,6 +151,8 @@ public class ForestChild : Player
             }
             m_canBePlayed = false;
 
+
+            GetComponent<Animator>().SetBool("Climbing", true);
             Vector3 EndPostionPT1 = new Vector3(m_bothCharacters.transform.position.x,
                                                 m_targetBlock.transform.GetChild(0).transform.position.y,
                                                 m_bothCharacters.transform.position.z);
@@ -160,6 +163,8 @@ public class ForestChild : Player
 
             if (m_bothCharacters.transform.position.y == m_targetBlock.transform.GetChild(0).transform.position.y)
             {
+                GetComponent<Animator>().SetBool("Climbing", false);
+
                 Vector3 EndPostionPT2 = new Vector3(m_targetBlock.transform.GetChild(0).transform.position.x,
                                                    m_bothCharacters.transform.position.y,
                                                    m_targetBlock.transform.GetChild(0).transform.position.z);
@@ -169,6 +174,7 @@ public class ForestChild : Player
             }
             if (m_bothCharacters.transform.position == m_targetBlock.transform.GetChild(0).transform.position)
             {
+
                 m_bothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 m_climbingVines = false;
                 audioMnger.Stop("ClimbingVine");
@@ -197,6 +203,9 @@ public class ForestChild : Player
             //yield return new WaitUntil(()=> BothCharacters.transform.position.y == vine.transform.GetChild(0).transform.position.y);
             if (m_bothCharacters.transform.position.x == m_targetBlock.transform.position.x && m_bothCharacters.transform.position.z == m_targetBlock.transform.position.z)
             {
+                GetComponent<Animator>().SetBool("Climbing", true);
+
+
                 Vector3 EndPostionPT2 = new Vector3(m_targetBlock.transform.position.x,
                                                    m_targetBlock.transform.position.y + 1,
                                                   m_targetBlock.transform.position.z);
@@ -206,6 +215,8 @@ public class ForestChild : Player
             }
             if (m_bothCharacters.transform.position.y == m_targetBlock.transform.position.y + 1)
             {
+                GetComponent<Animator>().SetBool("Climbing", false);
+
                 m_bothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 m_isDecending = false;
                 audioMnger.Stop("ClimbingVine");

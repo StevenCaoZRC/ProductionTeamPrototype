@@ -114,7 +114,7 @@ public class PlayerControl : MonoBehaviour
                     {
                         if (hit.transform.gameObject == charaHit.transform.GetChild(6).gameObject)
                         {
-                           
+                            m_movement.Rotate(charaHit.transform.gameObject);
                             m_childTwo.SpellOne(charaHit.transform.gameObject);
                         }
                     }
@@ -124,11 +124,9 @@ public class PlayerControl : MonoBehaviour
                         && hit.transform.gameObject.tag == "VineBlock"
                         && !m_waterLeading)
                     {
-                        Debug.Log("sorta");
-
                         if (hit.transform.gameObject.name == charaHit.transform.parent.name)
                         {
-                            Debug.Log("notAtAll");
+                            m_movement.Rotate(hit.transform.gameObject);
 
                             m_childTwo.SpellTwo(hit.transform.gameObject);
                         }
