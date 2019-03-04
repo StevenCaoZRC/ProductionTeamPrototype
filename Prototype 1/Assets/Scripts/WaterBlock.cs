@@ -37,7 +37,7 @@ public class WaterBlock : Block
         if (m_waterIsEmpty)
         {
             StartCoroutine(SpawnIceAfterAnimation());
-            FindObjectOfType<AudioManager>().PlayOnce("Freeze");
+            FindObjectOfType<AudioManager>().Play("Freeze");
             
         }
         

@@ -10,13 +10,15 @@ public class WaterChild : Player
     void Awake()
     {
         Reset();
-        AudioMger = GetComponent<AudioManager>();
+        AudioMger = FindObjectOfType<AudioManager>();
+        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+      
     }
 
     public override void Reset()
@@ -76,12 +78,14 @@ public class WaterChild : Player
 
         //Play fire dying animation 
         _water.gameObject.GetComponent<WaterBlock>().CreateIce();
-        yield return new WaitForSeconds(2.5f);
-       
+
+        yield return new WaitForSeconds(1.0f);
+        AudioMger.Play("IceCubeDrop");
+        yield return new WaitForSeconds(1.5f);
         //Make it walkable only after animation is done
         _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
         //Spawn ice block in water block. float.
-        AudioMger.Play("IceCubeDrop");
+       
         m_isCasting = false;
        
          yield return null;

@@ -16,10 +16,7 @@ public class FireBlock : Block
     // Update is called once per frame
     void Update()
     {
-        if (!gameObject)
-        {
-            FindObjectOfType<AudioManager>().Stop("Fire");
-        }
+       
     }
 
     public override void Reset()
@@ -33,8 +30,6 @@ public class FireBlock : Block
     {
         if(fireBurning)
         {
-            
-            
             //Skip platform
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
