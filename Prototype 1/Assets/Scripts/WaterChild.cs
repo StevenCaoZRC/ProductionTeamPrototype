@@ -81,10 +81,8 @@ public class WaterChild : Player
         yield return new WaitForSeconds(1.0f);
         AudioMger.Play("IceCubeDrop");
         
-        GameObject waterSplash = Instantiate(m_waterSplashPrefab, transform.position, Quaternion.identity);
-        waterSplash.transform.parent = _water.transform;
-        waterSplash.transform.GetChild(0).Translate(new Vector3(0f, 1f, 0f));
-        waterSplash.transform.GetChild(1).Translate(new Vector3(0f, 1f, 0f));
+        GameObject waterSplash = Instantiate(m_waterSplashPrefab, _water.transform.position, Quaternion.identity);
+        
        
         yield return new WaitForSeconds(1.5f);
       
