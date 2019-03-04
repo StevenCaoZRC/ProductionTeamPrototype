@@ -92,7 +92,7 @@ public class PlayerControl : MonoBehaviour
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)
                     {
                         //Put out fire
-                        m_movement.MoveToTarget(hit.transform.gameObject);
+                        m_movement.Rotate(hit.transform.gameObject);
                         m_childOne.SpellOne(hit.transform.gameObject);
 
                     }
