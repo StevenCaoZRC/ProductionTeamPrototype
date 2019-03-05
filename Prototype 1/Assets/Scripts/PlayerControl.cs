@@ -116,7 +116,7 @@ public class PlayerControl : MonoBehaviour
                         if (hit.transform.gameObject == charaHit.transform.GetChild(6).gameObject)
                         {
                             //GetComponent<NavMeshAgent>().enabled = false;
-                            //m_movement.Rotate(charaHit.transform.gameObject);
+                            m_movement.Rotate(charaHit.transform.gameObject);
                             m_childTwo.SpellOne(charaHit.transform.gameObject);
                         }
                     }
@@ -128,7 +128,7 @@ public class PlayerControl : MonoBehaviour
                     {
                         if (hit.transform.gameObject.name == charaHit.transform.parent.name)
                         {
-                            //m_movement.Rotate(hit.transform.gameObject);
+                            m_movement.Rotate(hit.transform.gameObject);
                             //GetComponent<NavMeshAgent>().enabled = false;
 
                             m_childTwo.SpellTwo(hit.transform.gameObject);

@@ -31,11 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(m_agent.isOnOffMeshLink)
-        {
-            Debug.Log("WHERE IT STORT");
-
-        }
         if (m_agent.isOnOffMeshLink && !m_traversingLink)
         {
             StartWalkAnim();

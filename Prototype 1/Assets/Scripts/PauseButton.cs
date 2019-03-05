@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PauseButton : MonoBehaviour, IPointerEnterHandler
+public class PauseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     PlayerControl m_playerControl;
     // Start is called before the first frame update
@@ -20,5 +20,9 @@ public class PauseButton : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         m_playerControl.m_menuActivated = true;
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        m_playerControl.m_menuActivated = false;
     }
 }
