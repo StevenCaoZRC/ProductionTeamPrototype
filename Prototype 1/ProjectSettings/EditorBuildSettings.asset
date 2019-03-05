@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9e376be4c36b50a48812f2bc55e9c0d9
   - enabled: 1
-    path: Assets/Scenes/VivExampleLevelScene.unity
+    path: Assets/Scenes/Waterfall.unity
     guid: 3d7cc104aa78d35479d302f52d8de739
   m_configObjects: {}

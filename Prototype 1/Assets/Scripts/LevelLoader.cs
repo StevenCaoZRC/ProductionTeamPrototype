@@ -12,6 +12,12 @@ public class LevelLoader : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Start()
+    {
+        GameManager.SetSceneName(m_level.levelName);
+    }
+
     static public LevelLoader GetInstance()
     {
         return instance;
