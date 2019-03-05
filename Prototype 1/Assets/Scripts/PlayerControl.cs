@@ -8,16 +8,22 @@ public class PlayerControl : MonoBehaviour
     [Header("Character references")]
     public Player m_childOne;
     public Player m_childTwo;
-    public Animator m_doubleCharaAnimator;
     public PlayerMovement m_movement;
-    public LayerMask m_layerMask;
     public bool m_waterLeading = true;
     public GameObject m_playerFrontRay;
     
-    
     private void Start()
     {
+        Reset();
+    }
+
+    private void Reset()
+    {
+        Debug.Log("LevelLoader Name: " + LevelLoader.GetInstance().GetLvlName());
         //Depending on who is leading when script starts up, set character as lead
+        m_waterLeading = LevelLoader.GetInstance().GetLvlWaterLeading();
+        transform.position = LevelLoader.GetInstance().GetLvlStartingPos().position;
+        transform.rotation = LevelLoader.GetInstance().GetLvlStartingPos().rotation;
 
         //Get From level read script for whoever leads first
         m_childOne.GetComponent<Player>().Reset();
@@ -33,7 +39,6 @@ public class PlayerControl : MonoBehaviour
             m_childOne.gameObject.SetActive(false);
             m_childTwo.gameObject.SetActive(true);
         }
-
     }
 
     // Update is called once per frame
@@ -87,7 +92,7 @@ public class PlayerControl : MonoBehaviour
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)
                     {
                         //Put out fire
-                        m_movement.MoveToTarget(hit.transform.gameObject);
+                        m_movement.Rotate(hit.transform.gameObject);
                         m_childOne.SpellOne(hit.transform.gameObject);
 
                     }

@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float m_speed = 3.0f;
     public float m_iceMoveTime = 2.0f;
     Vector3 m_targetDir;
-    public Animator m_doubleCharaAnim;
     public Animator m_waterChildAnim;
     public Animator m_forestChildAnim;
 
@@ -96,6 +95,18 @@ public class PlayerMovement : MonoBehaviour
                 m_agent.stoppingDistance = 1.5f;
                 StartCoroutine(Move());
             }
+        }
+    }
+
+    public void Rotate(GameObject _object)
+    {
+        m_isTargetMove = true;
+        m_targetDir = _object.transform.position - transform.position;
+
+        //If player is clicking on a pos more than 1 square && clicking a higher square
+        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f))
+        {
+            m_hitLocation = new Vector3(_object.transform.position.x, transform.position.y, _object.transform.position.z);
         }
     }
 

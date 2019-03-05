@@ -17,8 +17,13 @@ MonoBehaviour:
   m_RequireOpaqueTexture: 1
   m_OpaqueDownsampling: 0
   m_SupportsHDR: 1
+<<<<<<< HEAD
   m_MSAA: 2
   m_RenderScale: 0.71
+=======
+  m_MSAA: 1
+  m_RenderScale: 0.9
+>>>>>>> 6b783e3b67fb63d8fc63655400bacf61fbe30b5c
   m_MainLightRenderingMode: 1
   m_MainLightShadowsSupported: 1
   m_MainLightShadowmapResolution: 1024

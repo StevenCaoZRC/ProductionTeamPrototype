@@ -23,8 +23,7 @@ public class ForestChild : Player
     public bool  m_isDecending  = false;
   
     // Start is called before the first frame update
-
-    void Awake()
+    void Start()
     {
         Reset();
     }
@@ -38,8 +37,8 @@ public class ForestChild : Player
     public override void Reset()
     {
         m_charaElement = Element.Forest;
-        m_currAbilityCount = 4;
-        m_maxAbilityCount = 4;
+        m_currAbilityCount = LevelLoader.GetInstance().GetLvlForestMana();
+        m_maxAbilityCount = LevelLoader.GetInstance().GetLvlMaxForestMana();
 
         timeStarted = Time.time;
 
