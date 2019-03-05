@@ -20,6 +20,5 @@ public class PauseButton : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         m_playerControl.m_menuActivated = true;
-        Debug.Log("THE CURSOR IS ON A UI ELEMENT");
     }
 }
