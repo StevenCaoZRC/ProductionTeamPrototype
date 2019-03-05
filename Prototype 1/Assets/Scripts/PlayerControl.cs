@@ -175,5 +175,11 @@ public class PlayerControl : MonoBehaviour
         return m_waterLeading;
     }
 
-   
+    public void Fidget()
+    {
+        if(m_waterLeading)
+        {
+
+        }
+    }
 }
