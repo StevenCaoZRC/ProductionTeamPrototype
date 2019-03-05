@@ -56,19 +56,18 @@ public class PlayerMovement : MonoBehaviour
                     FacePosition(m_hitLocation);
             }
         }
+    }
 
-        //if (m_isRotating)
-        //{
-        //    FacePosition(m_toLookAt);
-        //}
-        
-        
-       // Debug.Log("Stop: " + m_agent.stoppingDistance);
-        //if(transform.position != m_hitLocation)
-        //{
-        //    m_toLookAt = new Vector3(m_hitLocation.x, m_agent.transform.position.y, m_hitLocation.z);
-        //    transform.LookAt(m_toLookAt);
-        //}
+    public void Rotate(GameObject _object)
+    {
+        m_isTargetMove = true;
+        m_targetDir = _object.transform.position - transform.position;
+
+        //If player is clicking on a pos more than 1 square && clicking a higher square
+        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f))
+        {
+            m_hitLocation = new Vector3(_object.transform.position.x, transform.position.y, _object.transform.position.z);
+        }
     }
 
     // Update is called once per frame
@@ -95,18 +94,6 @@ public class PlayerMovement : MonoBehaviour
                 m_agent.stoppingDistance = 1.5f;
                 StartCoroutine(Move());
             }
-        }
-    }
-
-    public void Rotate(GameObject _object)
-    {
-        m_isTargetMove = true;
-        m_targetDir = _object.transform.position - transform.position;
-
-        //If player is clicking on a pos more than 1 square && clicking a higher square
-        if ((Mathf.Abs(m_targetDir.x) >= 0.9f || Mathf.Abs(m_targetDir.z) >= 0.9f))
-        {
-            m_hitLocation = new Vector3(_object.transform.position.x, transform.position.y, _object.transform.position.z);
         }
     }
 

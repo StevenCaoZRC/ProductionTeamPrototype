@@ -8,10 +8,11 @@ public class PlayerControl : MonoBehaviour
     [Header("Character references")]
     public Player m_childOne;
     public Player m_childTwo;
+
     public PlayerMovement m_movement;
     public bool m_waterLeading = true;
     public GameObject m_playerFrontRay;
-    
+    public bool m_menuActivated = false;
     private void Start()
     {
         Reset();
@@ -19,7 +20,6 @@ public class PlayerControl : MonoBehaviour
 
     private void Reset()
     {
-        Debug.Log("LevelLoader Name: " + LevelLoader.GetInstance().GetLvlName());
         //Depending on who is leading when script starts up, set character as lead
         m_waterLeading = LevelLoader.GetInstance().GetLvlWaterLeading();
         transform.position = LevelLoader.GetInstance().GetLvlStartingPos().position;
@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !m_menuActivated)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -76,7 +76,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !m_menuActivated)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -86,7 +86,7 @@ public class PlayerControl : MonoBehaviour
                 Vector3 dir = (hit.transform.position - transform.position);
 
                 // the player is within a radius of 3 units to this game object
-                Debug.Log("Magnitude?: " + ((hit.transform.position - transform.position).sqrMagnitude));
+
                 if ((hit.transform.position - transform.position).sqrMagnitude < 3*3)
                 {
                     if (hit.transform.gameObject.tag == "Fire" && m_waterLeading)
@@ -94,14 +94,12 @@ public class PlayerControl : MonoBehaviour
                         //Put out fire
                         m_movement.Rotate(hit.transform.gameObject);
                         m_childOne.SpellOne(hit.transform.gameObject);
-
                     }
 
                     if (hit.transform.gameObject.tag == "WaterBlock" && m_waterLeading)
                     {
                         //Create Ice
-                        m_movement.MoveToTarget(hit.transform.gameObject);
-
+                        //m_movement.MoveToTarget(hit.transform.gameObject);
                         m_childOne.SpellTwo(hit.transform.gameObject);
                     }
                 }
@@ -110,9 +108,6 @@ public class PlayerControl : MonoBehaviour
                 Ray charaRay = new Ray(transform.position, Vector3.down * 2);
                 if (Physics.Raycast(charaRay, out charaHit))
                 {
-                    Debug.Log("Stnading ?" + charaHit.transform.gameObject.tag);
-                    Debug.Log("Clicked ?" + hit.transform.gameObject.tag);
-
                     //Going down to vine ground
                     if (charaHit.transform.gameObject.tag == "VineBlock" 
                         && hit.transform.gameObject.tag == "VineGround"
@@ -120,6 +115,8 @@ public class PlayerControl : MonoBehaviour
                     {
                         if (hit.transform.gameObject == charaHit.transform.GetChild(6).gameObject)
                         {
+                            //GetComponent<NavMeshAgent>().enabled = false;
+                            //m_movement.Rotate(charaHit.transform.gameObject);
                             m_childTwo.SpellOne(charaHit.transform.gameObject);
                         }
                     }
@@ -129,25 +126,16 @@ public class PlayerControl : MonoBehaviour
                         && hit.transform.gameObject.tag == "VineBlock"
                         && !m_waterLeading)
                     {
-                        Debug.Log("sorta");
-
                         if (hit.transform.gameObject.name == charaHit.transform.parent.name)
                         {
-                            Debug.Log("notAtAll");
+                            //m_movement.Rotate(hit.transform.gameObject);
+                            //GetComponent<NavMeshAgent>().enabled = false;
 
                             m_childTwo.SpellTwo(hit.transform.gameObject);
                         }
                     }
                 }
             }
-
-            
-        }
-
-        //Single Mouse Right click
-        if (Input.GetMouseButtonDown(2))
-        {
-            SwitchCharaPos();
         }
     }
 
@@ -155,7 +143,6 @@ public class PlayerControl : MonoBehaviour
     //Handles animation
     public void SwitchCharaPos()
     {
-
         if (m_waterLeading)
         {
             m_childOne.gameObject.SetActive(false);
@@ -186,5 +173,13 @@ public class PlayerControl : MonoBehaviour
     public bool GetIsLeading()
     {
         return m_waterLeading;
+    }
+
+    public void Fidget()
+    {
+        if(m_waterLeading)
+        {
+
+        }
     }
 }

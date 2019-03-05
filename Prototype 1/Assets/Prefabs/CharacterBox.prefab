@@ -54,11 +54,9 @@ MonoBehaviour:
   m_childOne: {fileID: 6236646483759439658}
   m_childTwo: {fileID: 2512595813771141737}
   m_movement: {fileID: 3862658002689625971}
-  m_layerMask:
-    serializedVersion: 2
-    m_Bits: 0
   m_waterLeading: 1
   m_playerFrontRay: {fileID: 4724401179404826910}
+  m_menuActivated: 0
 --- !u!114 &3862658002689625971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,12 +174,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_childAnim: {fileID: 803765052}
   m_charaElement: 2
-  timeStarted: 0
-  lerpTime: 4
-  totalDistance: 0
-  BothCharacters: {fileID: 1507551707181514283}
+  m_timeStarted: 0
+  m_lerpTime: 4
+  m_totalDistance: 0
   m_climbingVines: 0
   m_isDecending: 0
+  m_canBePlayed: 0
 --- !u!95 &803765052
 Animator:
   serializedVersion: 3
@@ -278,6 +276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_childAnim: {fileID: 4688726052142135267}
   m_charaElement: 1
+  m_waterSplashPrefab: {fileID: 6863631829433606547, guid: 2382aa8c474657e41940b95d7dcf917e,
+    type: 3}
 --- !u!95 &4688726052142135267
 Animator:
   serializedVersion: 3

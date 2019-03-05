@@ -5,13 +5,19 @@ using UnityEngine;
 public class LevelLoader : MonoBehaviour
 {
     static LevelLoader instance = null;
-
+    public Transform _levelStart;
     public Level m_level;
 
     private void Awake()
     {
         instance = this;
     }
+
+    private void Start()
+    {
+        GameManager.SetSceneName(m_level.levelName);
+    }
+
     static public LevelLoader GetInstance()
     {
         return instance;
@@ -35,15 +41,15 @@ public class LevelLoader : MonoBehaviour
     }
     public float GetLvlForestMana()
     {
-        return m_level.waterMana;
+        return m_level.forestMana;
     }
     public float GetLvlMaxForestMana()
     {
-        return m_level.maxWaterMana;
+        return m_level.maxForestMana;
     }
 
     public Transform GetLvlStartingPos()
     {
-        return m_level.startingPosition.transform;
+        return _levelStart;
     }
 }

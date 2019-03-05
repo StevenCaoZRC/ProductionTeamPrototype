@@ -12,5 +12,4 @@ public class Level : ScriptableObject
     public float    maxWaterMana;
     public float    forestMana;
     public float    maxForestMana;
-    public GameObject startingPosition;
 }

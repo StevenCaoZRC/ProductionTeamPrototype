@@ -12,6 +12,10 @@ public class Sound
     public float volume;
     [Range(0.1f,3f)]
     public float pitch;
+    public bool loop;
+    // 0  is 2D and 1 is 3D
+    [Range(0f, 1f)]
+    public float SpatialBlend;
 
     //Populated in the AudioManager
     [HideInInspector]
