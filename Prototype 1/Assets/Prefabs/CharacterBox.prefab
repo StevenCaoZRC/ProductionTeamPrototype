@@ -56,6 +56,7 @@ MonoBehaviour:
   m_movement: {fileID: 3862658002689625971}
   m_waterLeading: 1
   m_playerFrontRay: {fileID: 4724401179404826910}
+  m_menuActivated: 0
 --- !u!114 &3862658002689625971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,13 +174,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_childAnim: {fileID: 803765052}
   m_charaElement: 2
-  timeStarted: 0
-  lerpTime: 4
-  totalDistance: 0
-  BothCharacters: {fileID: 1507551707181514283}
+  m_timeStarted: 0
+  m_lerpTime: 4
+  m_totalDistance: 0
   m_climbingVines: 0
   m_isDecending: 0
-  CanBePlayed: 0
+  m_canBePlayed: 0
 --- !u!95 &803765052
 Animator:
   serializedVersion: 3
