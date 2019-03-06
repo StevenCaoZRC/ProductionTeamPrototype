@@ -11,14 +11,17 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        //offset = transform.position - player.transform.position;
+
+        transform.position = new Vector3(player.transform.position.x -25.0f, transform.position.y, player.transform.position.z -25f);
         offset = transform.position - player.transform.position;
 
-        transform.position = new Vector3(player.transform.position.x, 0, player.transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         transform.position = player.transform.position + offset;
         if (Input.GetKeyDown(KeyCode.Space))
         {
