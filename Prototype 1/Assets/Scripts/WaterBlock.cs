@@ -18,6 +18,8 @@ public class WaterBlock : Block
         Reset();
         AudioMgr = FindObjectOfType<AudioManager>();
         AudioMgr.Play("Water");
+        AudioMgr.Stop("Freeze");
+
     }
 
     // Update is called once per frame

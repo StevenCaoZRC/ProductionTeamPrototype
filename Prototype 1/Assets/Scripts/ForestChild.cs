@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class ForestChild : Player
 {
-    public float m_timeStarted;
+    public float m_timeStarted = 0;
     public float m_lerpTime = 4;
-    public float m_totalDistance;
+    public float m_totalDistance = 0;
 
     public bool m_climbingVines = false;
     public bool m_isDecending = false;
@@ -20,12 +20,15 @@ public class ForestChild : Player
     private GameObject[] m_vineBlocks;
     private AudioManager audioMnger;
 
-
-
     // Start is called before the first frame update
     void Awake()
     {
         Reset();
+    }
+
+    private void Start()
+    {
+        audioMnger.Stop("ClimbingVine");
     }
 
     // Update is called once per frame
@@ -44,15 +47,12 @@ public class ForestChild : Player
         m_climbingVines = false;
         m_isDecending = false;
         m_canBePlayed = false;
+        m_timeStarted = 0;
 
         audioMnger = FindObjectOfType<AudioManager>();
         m_bothCharacters = transform.parent.gameObject;
 
-
-        m_timeStarted = Time.time;
-
-        GameObject[] temp = new GameObject[GameObject.FindGameObjectsWithTag("VineBlock").Length];
-        temp = GameObject.FindGameObjectsWithTag("VineBlock");
+        GameObject[] temp =  GameObject.FindGameObjectsWithTag("VineBlock");
         temp.CopyTo(temp, 0);
         m_vineBlocks = temp;
 
@@ -81,7 +81,8 @@ public class ForestChild : Player
 
             m_canBePlayed = true;
         }
-        else
+        else if(_vineBlock.transform.GetChild(3).gameObject.activeSelf &&
+                _vineBlock.transform.GetChild(4).gameObject.activeSelf)
         {
             m_bothCharacters.GetComponent<NavMeshAgent>().enabled = false;
             m_canBePlayed = true;
@@ -94,7 +95,6 @@ public class ForestChild : Player
 
     public override void SpellTwo(GameObject _vineBlock)
     {
-        Debug.Log("AT THE BOT");
         if (m_currAbilityCount > 0)
         {
 
@@ -110,17 +110,18 @@ public class ForestChild : Player
                 _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
                 _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
                 m_targetBlock = _vineBlock;
+                Debug.Log("m_target: " + m_targetBlock);
 
                 m_canBePlayed = true;
             }
-
-            if (_vineBlock.transform.GetChild(3).gameObject.activeSelf &&
+            else if (_vineBlock.transform.GetChild(3).gameObject.activeSelf &&
                 _vineBlock.transform.GetChild(4).gameObject.activeSelf) //if active
             {
                 m_bothCharacters.GetComponent<NavMeshAgent>().enabled = false;
 
                 m_climbingVines = true;
                 m_targetBlock = _vineBlock;
+                Debug.Log("m_target: " + m_targetBlock);
 
                 m_canBePlayed = true;
             }
@@ -142,8 +143,6 @@ public class ForestChild : Player
     {
         if (m_climbingVines == true)
         {
-            Debug.Log("Climbign: " + m_canBePlayed);
-
             if (m_canBePlayed)
             {
                 audioMnger.Play("ClimbingVine");
@@ -159,7 +158,6 @@ public class ForestChild : Player
             m_totalDistance = Vector3.Distance(m_bothCharacters.transform.position, EndPostionPT1);
             m_bothCharacters.transform.position = Lerp(m_bothCharacters.transform.position, EndPostionPT1, m_timeStarted, m_totalDistance);
 
-
             if (m_bothCharacters.transform.position.y == m_targetBlock.transform.GetChild(0).transform.position.y)
             {
                 GetComponent<Animator>().SetBool("Climbing", false);
@@ -173,9 +171,9 @@ public class ForestChild : Player
             }
             if (m_bothCharacters.transform.position == m_targetBlock.transform.GetChild(0).transform.position)
             {
-
                 m_bothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 m_climbingVines = false;
+                GetComponent<Animator>().SetBool("Climbing", false);
                 audioMnger.Stop("ClimbingVine");
             }
         }
