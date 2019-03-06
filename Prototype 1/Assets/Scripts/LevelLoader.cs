@@ -5,8 +5,11 @@ using UnityEngine;
 public class LevelLoader : MonoBehaviour
 {
     static LevelLoader instance = null;
-    public Transform _levelStart;
     public Level m_level;
+
+    public Transform m_levelStart;
+    public Transform m_crystalStart;
+
 
     private void Awake()
     {
@@ -50,6 +53,11 @@ public class LevelLoader : MonoBehaviour
 
     public Transform GetLvlStartingPos()
     {
-        return _levelStart;
+        return m_levelStart;
+    }
+
+    public Transform GetCrystalStartingPos()
+    {
+        return m_crystalStart;
     }
 }

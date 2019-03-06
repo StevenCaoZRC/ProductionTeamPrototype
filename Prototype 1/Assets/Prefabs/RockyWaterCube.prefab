@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3932086056086612760}
   - component: {fileID: 8061787399158362687}
   - component: {fileID: 2287009518321985550}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: RockyWaterCube
   m_TagString: Ground
   m_Icon: {fileID: 0}

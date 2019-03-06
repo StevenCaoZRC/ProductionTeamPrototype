@@ -18,6 +18,10 @@ public class CrystalCollect : MonoBehaviour
     {
         m_notCollected.SetActive(true);
         m_collected.SetActive(false);
+
+        transform.position = LevelLoader.GetInstance().GetCrystalStartingPos().position;
+        transform.rotation = LevelLoader.GetInstance().GetCrystalStartingPos().rotation;
+
     }
 
     void OnTriggerEnter(Collider col)

@@ -18,7 +18,7 @@ public class MenuScreen : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level(Steven)");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void LoadMainMenu()

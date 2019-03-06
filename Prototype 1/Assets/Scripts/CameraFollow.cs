@@ -12,7 +12,8 @@ public class CameraFollow : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         offset = transform.position - player.transform.position;
-        //offset.y += 1.0f;
+
+        transform.position = new Vector3(player.transform.position.x, 0, player.transform.position.z);
     }
 
     // Update is called once per frame
