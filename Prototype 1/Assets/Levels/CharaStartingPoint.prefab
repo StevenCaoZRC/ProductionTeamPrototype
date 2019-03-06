@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454346763326636602}
   m_Layer: 0
-  m_Name: StartingPoint
+  m_Name: CharaStartingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 3166546073964473075}
   - component: {fileID: 1158487987813998271}
   - component: {fileID: 8882865711331570212}
-  - component: {fileID: 90894257357983081}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -79,7 +78,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501651270758818416}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -109,19 +108,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &90894257357983081
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501651270758818416}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8803265429536062792
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +119,6 @@ GameObject:
   - component: {fileID: 4211051846765978833}
   - component: {fileID: 5831476423705093313}
   - component: {fileID: 1154269948378840858}
-  - component: {fileID: 3806047647657496988}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -171,7 +156,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8803265429536062792}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -201,16 +186,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3806047647657496988
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8803265429536062792}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
