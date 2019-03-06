@@ -5,23 +5,20 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     private GameObject player;
-    private  Vector3 offset;
+    private Vector3 offset = new Vector3(-26.0f, 21.5f, -26.0f);
 
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Camera>().fieldOfView = 15;
         player = GameObject.FindGameObjectWithTag("Player");
-        //offset = transform.position - player.transform.position;
-
-        transform.position = new Vector3(player.transform.position.x -25.0f, transform.position.y, player.transform.position.z -25f);
-        offset = transform.position - player.transform.position;
-
+        offset = new Vector3(-26.0f, 21.5f, -26.0f);
+        transform.position = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         transform.position = player.transform.position + offset;
         if (Input.GetKeyDown(KeyCode.Space))
         {
