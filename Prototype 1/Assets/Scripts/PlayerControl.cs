@@ -22,10 +22,11 @@ public class PlayerControl : MonoBehaviour
     {
         //Depending on who is leading when script starts up, set character as lead
         m_waterLeading = LevelLoader.GetInstance().GetLvlWaterLeading();
+
+        //Set starting position
         transform.position = LevelLoader.GetInstance().GetLvlStartingPos().position;
         transform.rotation = LevelLoader.GetInstance().GetLvlStartingPos().rotation;
 
-        //Get From level read script for whoever leads first
         m_childOne.GetComponent<Player>().Reset();
         m_childTwo.GetComponent<Player>().Reset();
 
