@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public Camera m_camera; //grabs the main camera
     public NavMeshAgent m_agent;
-    public float m_speed = 3.0f;
-    public float m_iceMoveTime = 2.0f;
     Vector3 m_targetDir;
     public Animator m_waterChildAnim;
     public Animator m_forestChildAnim;
@@ -17,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     bool m_targeting = false;
     bool m_isMoving = false;
     bool m_isTargetMove = false;
+
+    public float m_speed = 3.0f;
+    public float m_iceMoveTime = 2.0f;
 
     RaycastHit m_hit;
     Vector3 m_toLookAt;
@@ -27,6 +28,15 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Reset();
+    }
+
+    void Reset()
+    {
+        m_traversingLink = false;
+        m_targeting = false;
+        m_isMoving = false;
+        m_isTargetMove = false;
     }
 
     private void Update()

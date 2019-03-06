@@ -39,6 +39,8 @@ public class FinishLevel : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         SceneManager.LoadScene("Waterfall");
+        yield return new WaitForSeconds(2.0f);
+
         yield return null;
 
     }
