@@ -59,6 +59,7 @@ public class ForestChild : Player
         {
             m_vineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
             m_vineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
+            m_vineBlocks[i].GetComponent<VineBlock>().SetVinesSpawned(false);
         }
     }
     
@@ -76,6 +77,7 @@ public class ForestChild : Player
             m_isDecending = true;
             _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
             _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
+            _vineBlock.GetComponent<VineBlock>().SetVinesSpawned(true);
             m_targetBlock = _vineBlock.transform.GetChild(6).gameObject;
 
             m_canBePlayed = true;
@@ -102,16 +104,20 @@ public class ForestChild : Player
                 !_vineBlock.transform.GetChild(4).gameObject.activeSelf
                 && m_currAbilityCount > 0)
             {
+
                 m_bothCharacters.GetComponent<NavMeshAgent>().enabled = false;
 
                 m_currAbilityCount -= 1;
                 m_climbingVines = true;
                 _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
                 _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
+                _vineBlock.GetComponent<VineBlock>().SetVinesSpawned(true);
                 m_targetBlock = _vineBlock;
                 Debug.Log("m_target: " + m_targetBlock);
 
                 m_canBePlayed = true;
+
+
             }
             else if (_vineBlock.transform.GetChild(3).gameObject.activeSelf &&
                 _vineBlock.transform.GetChild(4).gameObject.activeSelf) //if active
@@ -142,6 +148,7 @@ public class ForestChild : Player
     {
         if (m_climbingVines == true)
         {
+
             if (m_canBePlayed)
             {
                 audioMnger.Play("ClimbingVine");
@@ -174,6 +181,7 @@ public class ForestChild : Player
                 m_climbingVines = false;
                 GetComponent<Animator>().SetBool("Climbing", false);
                 audioMnger.Stop("ClimbingVine");
+
             }
         }
     }

@@ -229,12 +229,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterBlock
       objectReference: {fileID: 0}
-    - target: {fileID: 9062458874765597670, guid: 448c957f8c2be404bb549e55c803d03c,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
-        type: 0}
     - target: {fileID: 9062458874765597666, guid: 448c957f8c2be404bb549e55c803d03c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -290,40 +284,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7944248291321057635, guid: 448c957f8c2be404bb549e55c803d03c,
-        type: 3}
-      propertyPath: m_waterLink
-      value: 
-      objectReference: {fileID: 1979058223149615231}
-    - target: {fileID: 7944248291321057635, guid: 448c957f8c2be404bb549e55c803d03c,
-        type: 3}
-      propertyPath: m_startBlock
-      value: 
-      objectReference: {fileID: 1979058223292913608}
-    - target: {fileID: 7944248291321057635, guid: 448c957f8c2be404bb549e55c803d03c,
-        type: 3}
-      propertyPath: m_endBlock
-      value: 
-      objectReference: {fileID: 1979058223244774223}
-    - target: {fileID: 1257990211, guid: 448c957f8c2be404bb549e55c803d03c, type: 3}
-      propertyPath: m_StartPoint.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257990211, guid: 448c957f8c2be404bb549e55c803d03c, type: 3}
-      propertyPath: m_EndPoint.x
-      value: -2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 448c957f8c2be404bb549e55c803d03c, type: 3}
 --- !u!4 &7400351672890833884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9062458874765597666, guid: 448c957f8c2be404bb549e55c803d03c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1979058221970448446}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1979058223149615231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1257990209, guid: 448c957f8c2be404bb549e55c803d03c,
     type: 3}
   m_PrefabInstance: {fileID: 1979058221970448446}
   m_PrefabAsset: {fileID: 0}
@@ -334,6 +299,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1979058223292913608}
     m_Modifications:
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Name
+      value: platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -377,14 +350,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
-      propertyPath: m_Name
-      value: platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
-      propertyPath: m_Layer
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -405,6 +370,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1979058223244774223}
     m_Modifications:
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Name
+      value: platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -448,14 +421,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
-      propertyPath: m_Name
-      value: platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
-      propertyPath: m_Layer
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 41cce074e545c5e4794e7d820b8ad425, type: 3}
       propertyPath: m_Materials.Array.data[0]
