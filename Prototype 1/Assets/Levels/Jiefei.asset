@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4674d0b7d039b354cada164e63540490, type: 3}
-  m_Name: Template
+  m_Name: Jiefei
   m_EditorClassIdentifier: 
-  levelName: Template
-  waterIsLeading: 0
-  waterMana: 5
-  maxWaterMana: 5
+  levelName: Waterfall
+  waterIsLeading: 1
+  waterMana: 4
+  maxWaterMana: 4
   forestMana: 4
   maxForestMana: 4
