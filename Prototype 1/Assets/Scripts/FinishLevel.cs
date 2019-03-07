@@ -9,7 +9,7 @@ public class FinishLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_particles = transform.GetChild(2).gameObject;
+        m_particles = transform.GetChild(1).gameObject;
     }
     
     private void OnTriggerEnter(Collider other)
@@ -37,7 +37,7 @@ public class FinishLevel : MonoBehaviour
 
         yield return new WaitForSeconds(4.0f);
 
-        SceneManager.LoadScene(LevelLoader.GetInstance().GetLvlName());
+        SceneManager.LoadScene(LevelLoader.GetInstance().GetNextLevel());
         //yield return new WaitForSeconds(2.0f);
 
         yield return null;

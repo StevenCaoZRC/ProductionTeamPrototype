@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3416,6 +3416,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7118626853614771781, guid: 21c090f0ff184464788f236a95d48a76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3520,16 +3530,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4680150671631276536, guid: 21c090f0ff184464788f236a95d48a76,
         type: 3}
@@ -11000,5 +11000,11 @@ PrefabInstance:
       propertyPath: m_levelStart
       value: 
       objectReference: {fileID: 1604985900}
+    - target: {fileID: 7703359909280166923, guid: 88757c52c6f32eb44ad9471800f3c8e6,
+        type: 3}
+      propertyPath: m_nextLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: e6c7bdea93a1cbd4b8add855771ec75e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88757c52c6f32eb44ad9471800f3c8e6, type: 3}

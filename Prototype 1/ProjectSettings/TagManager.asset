@@ -15,6 +15,7 @@ TagManager:
   - WaterBlock
   - VineGround
   - WaterIcon
+  - TutCanvas
   layers:
   - Default
   - TransparentFX
