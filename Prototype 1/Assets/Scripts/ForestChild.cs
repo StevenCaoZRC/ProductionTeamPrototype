@@ -113,8 +113,6 @@ public class ForestChild : Player
                 _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
                 _vineBlock.GetComponent<VineBlock>().SetVinesSpawned(true);
                 m_targetBlock = _vineBlock;
-                Debug.Log("m_target: " + m_targetBlock);
-
                 m_canBePlayed = true;
 
 
@@ -126,8 +124,6 @@ public class ForestChild : Player
 
                 m_climbingVines = true;
                 m_targetBlock = _vineBlock;
-                Debug.Log("m_target: " + m_targetBlock);
-
                 m_canBePlayed = true;
             }
         }
@@ -190,7 +186,6 @@ public class ForestChild : Player
     {
         if (m_isDecending == true)
         {
-            Debug.Log("Descending: " + m_canBePlayed);
             if (m_canBePlayed)
             {
                 audioMnger.Play("ClimbingVine");
