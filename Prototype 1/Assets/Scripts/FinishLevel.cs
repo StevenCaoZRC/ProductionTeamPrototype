@@ -35,7 +35,7 @@ public class FinishLevel : MonoBehaviour
             _gameObject.GetComponentInChildren<ForestChild>().PlaySwitchAnim();
         }
 
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(3.0f);
 
         SceneManager.LoadScene(LevelLoader.GetInstance().GetNextLevel());
         //yield return new WaitForSeconds(2.0f);

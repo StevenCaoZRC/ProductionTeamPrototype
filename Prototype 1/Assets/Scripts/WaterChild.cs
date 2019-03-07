@@ -14,7 +14,7 @@ public class WaterChild : Player
     void Start()
     {
         Reset();
-        
+        AudioMger = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class WaterChild : Player
         yield return new WaitForSeconds(1.3f);
 
         GameObject waterCast = Instantiate(m_waterCastPrefab, m_waterPoint.transform.position, m_waterPoint.transform.rotation);
-        FindObjectOfType<AudioManager>().PlayOnce("WaterSpray");
+        FindObjectOfType<AudioManager>().Play("WaterSpray");
         //Play fire dying animation 
         yield return new WaitForSeconds(1.0f);
 
@@ -84,7 +84,7 @@ public class WaterChild : Player
         _water.gameObject.GetComponent<WaterBlock>().CreateIce();
 
         yield return new WaitForSeconds(1.0f);
-        FindObjectOfType<AudioManager>().PlayOnce("IceCubeDrop");
+        FindObjectOfType<AudioManager>().Play("IceCubeDrop");
         
         GameObject waterSplash = Instantiate(m_waterSplashPrefab, _water.transform.position, Quaternion.identity);
         

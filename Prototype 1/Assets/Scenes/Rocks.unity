@@ -15699,7 +15699,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &883001108 stripped
 Transform:
@@ -34494,6 +34494,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1430220738735854254, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 3368846396517196863, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34564,6 +34569,11 @@ PrefabInstance:
       propertyPath: m_crystalText
       value: 
       objectReference: {fileID: 1692176139}
+    - target: {fileID: 7093563400293620030, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73af48dbbd01d6441aa23c5e0e2ed188, type: 3}
 --- !u!1001 &6915561454159718784

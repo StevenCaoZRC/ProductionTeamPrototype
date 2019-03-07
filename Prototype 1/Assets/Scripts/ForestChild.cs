@@ -28,7 +28,7 @@ public class ForestChild : Player
 
     private void Start()
     {
-        FindObjectOfType<AudioManager>().Stop("ClimbingVine");
+        audioMnger.Stop("ClimbingVine");
     }
 
     // Update is called once per frame
@@ -147,7 +147,7 @@ public class ForestChild : Player
 
             if (m_canBePlayed)
             {
-                FindObjectOfType<AudioManager>().PlayOnce("ClimbingVine");
+                FindObjectOfType<AudioManager>().Play("ClimbingVine");
             }
             m_canBePlayed = false;
 
@@ -188,7 +188,7 @@ public class ForestChild : Player
         {
             if (m_canBePlayed)
             {
-                FindObjectOfType<AudioManager>().PlayOnce("ClimbingVine");
+                FindObjectOfType<AudioManager>().Play("ClimbingVine");
             }
             m_canBePlayed = false;
 
