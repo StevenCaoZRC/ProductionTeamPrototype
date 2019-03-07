@@ -60,13 +60,15 @@ public class WaterChild : Player
     private IEnumerator PutOutFire(GameObject _fire)
     {
         m_childAnim.SetTrigger("WCWater");
-        GameObject waterCast = Instantiate(m_waterCastPrefab, m_waterPoint.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1.3f);
+
+        GameObject waterCast = Instantiate(m_waterCastPrefab, m_waterPoint.transform.position, m_waterPoint.transform.rotation);
 
         //Play fire dying animation 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.0f);
 
         _fire.transform.parent.parent.GetComponent<FireBlock>().PutOutFire();
-        //Destroy(waterCast);
+        Destroy(waterCast);
 
         m_isCasting = false;
 
