@@ -51,7 +51,10 @@ public class AudioManager : MonoBehaviour
     public void PlayOnce(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.PlayOneShot(s.source.clip);
+        if (s.source != null)
+        {
+            s.source.PlayOneShot(s.source.clip);
+        }
     }
 
     public void Stop(string name)

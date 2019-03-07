@@ -16,7 +16,7 @@ public class FireBlock : Block
     void Start()
     {
         m_waterFireIcon.SetActive(false);
-        FindObjectOfType<AudioManager>().Play("Fire");
+        FindObjectOfType<AudioManager>().PlayOnce("Fire");
         Reset();
     }
 
