@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Waterfall.unity
     guid: 3d7cc104aa78d35479d302f52d8de739
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JiefeiScene.unity
     guid: a2ccaab002b863b49a87fc6cf32251d4
   m_configObjects: {}
