@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4674d0b7d039b354cada164e63540490, type: 3}
   m_Name: AlexFaaan
   m_EditorClassIdentifier: 
-  levelName: 
-  waterIsLeading: 0
+  levelName: AlexScene
+  waterIsLeading: 1
   waterMana: 100
   maxWaterMana: 100
   forestMana: 100
