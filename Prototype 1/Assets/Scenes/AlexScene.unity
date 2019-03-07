@@ -16087,6 +16087,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 1430220738735854254, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 3368846396517196863, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16157,6 +16162,11 @@ PrefabInstance:
       propertyPath: m_crystalText
       value: 
       objectReference: {fileID: 1725160893}
+    - target: {fileID: 7093563400293620030, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73af48dbbd01d6441aa23c5e0e2ed188, type: 3}
 --- !u!1001 &7703359908108282253

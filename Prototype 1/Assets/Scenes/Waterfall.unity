@@ -14366,7 +14366,7 @@ PrefabInstance:
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}
@@ -14376,7 +14376,7 @@ PrefabInstance:
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}
@@ -23820,6 +23820,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 1430220738735854254, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 3368846396517196863, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23890,6 +23895,11 @@ PrefabInstance:
       propertyPath: m_crystalText
       value: 
       objectReference: {fileID: 1379754734}
+    - target: {fileID: 7093563400293620030, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73af48dbbd01d6441aa23c5e0e2ed188, type: 3}
 --- !u!1001 &1623551656
@@ -30182,7 +30192,7 @@ PrefabInstance:
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}
@@ -30192,7 +30202,7 @@ PrefabInstance:
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8003651714125283680, guid: 910c34e743e031945ba90b4a54a6304e,
         type: 3}

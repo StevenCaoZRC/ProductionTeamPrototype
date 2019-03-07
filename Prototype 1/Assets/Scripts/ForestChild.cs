@@ -147,7 +147,7 @@ public class ForestChild : Player
 
             if (m_canBePlayed)
             {
-                audioMnger.Play("ClimbingVine");
+                FindObjectOfType<AudioManager>().Play("ClimbingVine");
             }
             m_canBePlayed = false;
 
@@ -176,7 +176,7 @@ public class ForestChild : Player
                 m_bothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 m_climbingVines = false;
                 GetComponent<Animator>().SetBool("Climbing", false);
-                audioMnger.Stop("ClimbingVine");
+                FindObjectOfType<AudioManager>().Stop("ClimbingVine");
 
             }
         }
@@ -188,7 +188,7 @@ public class ForestChild : Player
         {
             if (m_canBePlayed)
             {
-                audioMnger.Play("ClimbingVine");
+                FindObjectOfType<AudioManager>().Play("ClimbingVine");
             }
             m_canBePlayed = false;
 
@@ -218,7 +218,7 @@ public class ForestChild : Player
 
                 m_bothCharacters.GetComponent<NavMeshAgent>().enabled = true;
                 m_isDecending = false;
-                audioMnger.Stop("ClimbingVine");
+                FindObjectOfType<AudioManager>().Stop("ClimbingVine");
 
             }
         }

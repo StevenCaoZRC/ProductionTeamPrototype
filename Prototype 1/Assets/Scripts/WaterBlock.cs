@@ -21,8 +21,8 @@ public class WaterBlock : Block
     {
         Reset();
         AudioMgr = FindObjectOfType<AudioManager>();
-        AudioMgr.Play("Water");
-        AudioMgr.Stop("Freeze");
+        FindObjectOfType<AudioManager>().Play("Water");
+        FindObjectOfType<AudioManager>().Stop("Freeze");
 
     }
 
