@@ -63,13 +63,13 @@ public class WaterChild : Player
         yield return new WaitForSeconds(1.3f);
 
         GameObject waterCast = Instantiate(m_waterCastPrefab, m_waterPoint.transform.position, m_waterPoint.transform.rotation);
-
+        AudioMger.Play("WaterSpray");
         //Play fire dying animation 
         yield return new WaitForSeconds(1.0f);
 
         _fire.transform.parent.parent.GetComponent<FireBlock>().PutOutFire();
         Destroy(waterCast);
-
+        AudioMger.Stop("WaterSpray");
         m_isCasting = false;
 
         yield return null;

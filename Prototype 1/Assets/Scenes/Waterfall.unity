@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -27801,6 +27801,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 967049974887384287, guid: 4db465c6003678f4491bc803781628b5,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 967049974887384285, guid: 4db465c6003678f4491bc803781628b5,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -27814,11 +27819,6 @@ PrefabInstance:
     - target: {fileID: 967049974887384286, guid: 4db465c6003678f4491bc803781628b5,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 967049974887384287, guid: 4db465c6003678f4491bc803781628b5,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -31216,6 +31216,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4659627580091506893, guid: fc92c9c5902cbdb43a1ae25a228cd5a6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc92c9c5902cbdb43a1ae25a228cd5a6, type: 3}
 --- !u!4 &6222037839877539948 stripped
@@ -31444,6 +31449,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7118626853614771781, guid: 21c090f0ff184464788f236a95d48a76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31548,16 +31563,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4680150672091127362, guid: 21c090f0ff184464788f236a95d48a76,
         type: 3}

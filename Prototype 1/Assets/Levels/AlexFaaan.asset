@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: AlexScene
   waterIsLeading: 1
-  waterMana: 100
-  maxWaterMana: 100
-  forestMana: 100
-  maxForestMana: 100
+  waterMana: 2
+  maxWaterMana: 2
+  forestMana: 4
+  maxForestMana: 4
