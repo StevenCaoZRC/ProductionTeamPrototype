@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5629240079757392044}
   - component: {fileID: 2353325030131454064}
   m_Layer: 0
-  m_Name: Bubble
+  m_Name: BubbleWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8111,6 +8111,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 714990762}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &736191630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7118626852826734584, guid: 21c090f0ff184464788f236a95d48a76,
+    type: 3}
+  m_PrefabInstance: {fileID: 1147879802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &742013276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3932086056086612760, guid: 8a8faef5de094d749b6d66baf5753e59,
@@ -16248,6 +16260,11 @@ PrefabInstance:
       propertyPath: m_collected
       value: 
       objectReference: {fileID: 1075561184}
+    - target: {fileID: 1112636076071252715, guid: 73af48dbbd01d6441aa23c5e0e2ed188,
+        type: 3}
+      propertyPath: m_crystalText
+      value: 
+      objectReference: {fileID: 736191630}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73af48dbbd01d6441aa23c5e0e2ed188, type: 3}
 --- !u!4 &1414888374 stripped

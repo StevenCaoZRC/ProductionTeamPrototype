@@ -56,9 +56,11 @@ public class WaterBlock : Block
         Debug.Log("Spawning water block");
         GameObject iceBlock = Instantiate(m_iceBlockPrefab, transform.position, Quaternion.identity);
         iceBlock.transform.parent = gameObject.transform;
-        
-        yield return new WaitForSeconds(2.5f);
+
+        yield return new WaitForSeconds(2.3f);
         m_waterIsEmpty = false;
+        m_waterIcon.SetActive(m_waterIsEmpty);
+
         m_blockType = BlockType.Ice;
         m_waterLink.SetActive(true);
        
@@ -80,10 +82,7 @@ public class WaterBlock : Block
     {
         if (other.tag == "Player")
         {
-            if (m_waterIsEmpty)
-            {
-                m_waterIcon.SetActive(false);
-            }
+            m_waterIcon.SetActive(false);
         }
     }
 }

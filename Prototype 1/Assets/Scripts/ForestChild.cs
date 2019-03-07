@@ -59,6 +59,7 @@ public class ForestChild : Player
         {
             m_vineBlocks[i].transform.GetChild(3).gameObject.SetActive(false);
             m_vineBlocks[i].transform.GetChild(4).gameObject.SetActive(false);
+            m_vineBlocks[i].GetComponent<VineBlock>().SetVinesSpawned(false);
         }
     }
     
@@ -76,6 +77,7 @@ public class ForestChild : Player
             m_isDecending = true;
             _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
             _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
+            _vineBlock.GetComponent<VineBlock>().SetVinesSpawned(true);
             m_targetBlock = _vineBlock.transform.GetChild(6).gameObject;
 
             m_canBePlayed = true;
@@ -109,6 +111,7 @@ public class ForestChild : Player
                 m_climbingVines = true;
                 _vineBlock.transform.GetChild(3).gameObject.SetActive(true);
                 _vineBlock.transform.GetChild(4).gameObject.SetActive(true);
+                _vineBlock.GetComponent<VineBlock>().SetVinesSpawned(true);
                 m_targetBlock = _vineBlock;
                 Debug.Log("m_target: " + m_targetBlock);
 

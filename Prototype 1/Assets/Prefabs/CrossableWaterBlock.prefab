@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -1923039037
-  m_StartPoint: {x: 1.6, y: 0, z: 0}
-  m_EndPoint: {x: -1.6, y: 0, z: 0}
+  m_StartPoint: {x: 2, y: 0, z: 0}
+  m_EndPoint: {x: -2, y: 0, z: 0}
   m_Width: 0.1
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -81,12 +81,11 @@ GameObject:
   - component: {fileID: 9062458874765597668}
   - component: {fileID: 9062458874765597671}
   - component: {fileID: 2122253200}
-  - component: {fileID: 7776482030105769939}
-  - component: {fileID: 886677981293516605}
+  - component: {fileID: 2339491797615758163}
   m_Layer: 0
   m_Name: CrossableWaterBlock
   m_TagString: WaterBlock
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
   m_IsActive: 1
@@ -197,7 +196,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!65 &7776482030105769939
+--- !u!65 &2339491797615758163
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,21 +207,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 1, y: 1, z: 0}
---- !u!65 &886677981293516605
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9062458874765597670}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: -1, y: 1, z: 0}
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &3354880262490536756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,11 +294,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble
       objectReference: {fileID: 0}
-    - target: {fileID: 6831595719109717561, guid: 8ca6bb0b0d05d6a4fa474c42a85daba6,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2959030783184115029, guid: 8ca6bb0b0d05d6a4fa474c42a85daba6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -321,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 2959030783184115029, guid: 8ca6bb0b0d05d6a4fa474c42a85daba6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.868
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 2959030783184115029, guid: 8ca6bb0b0d05d6a4fa474c42a85daba6,
         type: 3}
@@ -366,11 +347,6 @@ PrefabInstance:
     - target: {fileID: 2959030783184115029, guid: 8ca6bb0b0d05d6a4fa474c42a85daba6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5502708809858741459, guid: 8ca6bb0b0d05d6a4fa474c42a85daba6,
-        type: 3}
-      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
