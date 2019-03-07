@@ -16247,5 +16247,11 @@ PrefabInstance:
       propertyPath: m_crystalStart
       value: 
       objectReference: {fileID: 1799030450}
+    - target: {fileID: 7703359909280166923, guid: 88757c52c6f32eb44ad9471800f3c8e6,
+        type: 3}
+      propertyPath: m_nextLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: f7b72a838bb4cea42b4d9b26ee0b7d78,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88757c52c6f32eb44ad9471800f3c8e6, type: 3}
