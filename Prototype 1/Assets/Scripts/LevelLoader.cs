@@ -9,6 +9,7 @@ public class LevelLoader : MonoBehaviour
 
     public Transform m_levelStart;
     public Transform m_crystalStart;
+    public Level m_nextLevel;
 
 
     private void Awake()
@@ -59,5 +60,10 @@ public class LevelLoader : MonoBehaviour
     public Transform GetCrystalStartingPos()
     {
         return m_crystalStart;
+    }
+
+    public string GetNextLevel()
+    {
+        return m_nextLevel.levelName;
     }
 }

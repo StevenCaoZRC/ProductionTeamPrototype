@@ -12,14 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9e376be4c36b50a48812f2bc55e9c0d9
   - enabled: 1
-    path: Assets/Scenes/Waterfall.unity
-    guid: 3d7cc104aa78d35479d302f52d8de739
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 6026b90ee262f4446b66d69c05930421
+  - enabled: 1
+    path: Assets/Scenes/AlexScene.unity
+    guid: 9f6682d46bec9f7489063ed8ddb34514
   - enabled: 1
     path: Assets/Scenes/Rocks.unity
     guid: 457b06cfbd3558443bfeccc843f1acd8
   - enabled: 1
-    path: Assets/Scenes/AlexScene.unity
-    guid: 9f6682d46bec9f7489063ed8ddb34514
+    path: Assets/Scenes/Waterfall.unity
+    guid: 3d7cc104aa78d35479d302f52d8de739
   - enabled: 1
     path: Assets/Scenes/JiefeiScene.unity
     guid: a2ccaab002b863b49a87fc6cf32251d4

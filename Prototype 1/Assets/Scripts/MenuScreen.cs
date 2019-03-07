@@ -7,9 +7,12 @@ public class MenuScreen : MonoBehaviour
 {
     public GameObject MainMenuUI;
     public GameObject HowToPlayUI;
+
     public GameObject CreditsUI;
     public GameObject CreditsP1;
     public GameObject CreditsP2;
+    public GameObject Instr1;
+    public GameObject Instr2;
 
     void Start()
     {
@@ -28,12 +31,18 @@ public class MenuScreen : MonoBehaviour
         MainMenuUI.SetActive(true);
         HowToPlayUI.SetActive(false);
         CreditsUI.SetActive(false);
+        Instr1.SetActive(false);
+        Instr2.SetActive(false);
+        CreditsP1.SetActive(false);
+        CreditsP2.SetActive(false);
     }
     public void LoadHelpMenu()
     {
         HowToPlayUI.SetActive(true);
         MainMenuUI.SetActive(false);
         CreditsUI.SetActive(false);
+        CreditsP1.SetActive(false);
+        CreditsP2.SetActive(false);
     }
 
     public void LoadCreditsMenu()
@@ -52,6 +61,28 @@ public class MenuScreen : MonoBehaviour
         HowToPlayUI.SetActive(false);
         CreditsP1.SetActive(false);
         CreditsP2.SetActive(true);
+    }
+
+    public void LoadInstructions1()
+    {
+        CreditsUI.SetActive(false);
+        MainMenuUI.SetActive(false);
+        HowToPlayUI.SetActive(true);
+        CreditsP1.SetActive(false);
+        CreditsP2.SetActive(false);
+        Instr1.SetActive(true);
+        Instr2.SetActive(false);
+    }
+
+    public void LoadInstructions2()
+    {
+        CreditsUI.SetActive(false);
+        MainMenuUI.SetActive(false);
+        HowToPlayUI.SetActive(true);
+        CreditsP1.SetActive(false);
+        CreditsP2.SetActive(false);
+        Instr1.SetActive(false);
+        Instr2.SetActive(true);
     }
 
     public void QuitGame()

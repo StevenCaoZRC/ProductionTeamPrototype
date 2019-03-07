@@ -435,11 +435,6 @@ PrefabInstance:
       objectReference: {fileID: 4680150671336981514}
     - target: {fileID: 1991253483234225868, guid: a55e190adb1537b4e94cd828cd8ae860,
         type: 3}
-      propertyPath: m_child
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1991253483234225868, guid: a55e190adb1537b4e94cd828cd8ae860,
-        type: 3}
       propertyPath: m_charm
       value: 
       objectReference: {fileID: 4680150670566664117}
@@ -448,11 +443,6 @@ PrefabInstance:
       propertyPath: m_manaCount
       value: 
       objectReference: {fileID: 6951674635521384026}
-    - target: {fileID: 1991253483380679092, guid: a55e190adb1537b4e94cd828cd8ae860,
-        type: 3}
-      propertyPath: m_child
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1991253483380679092, guid: a55e190adb1537b4e94cd828cd8ae860,
         type: 3}
       propertyPath: m_charm
@@ -795,7 +785,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuObj
       objectReference: {fileID: 0}
-    - target: {fileID: 7434493112570150453, guid: 8e2eddf711e553d47a73e77e6190eac3,
+    - target: {fileID: 8507168829164835738, guid: 8e2eddf711e553d47a73e77e6190eac3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
