@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: JiefeiScene
   waterIsLeading: 1
-  waterMana: 4
-  maxWaterMana: 4
-  forestMana: 4
-  maxForestMana: 4
+  waterMana: 5
+  maxWaterMana: 5
+  forestMana: 5
+  maxForestMana: 5
