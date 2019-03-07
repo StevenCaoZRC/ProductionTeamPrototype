@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class SwitchingCharms : MonoBehaviour
 {
-    public GameObject m_character;
+    private GameObject m_character;
     public GameObject m_waterCharm;
     public GameObject m_forestCharm;
+
+    private void Awake()
+    {
+        m_character = GameObject.FindGameObjectWithTag("Player");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

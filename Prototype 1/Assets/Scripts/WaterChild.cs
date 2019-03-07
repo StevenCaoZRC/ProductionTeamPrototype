@@ -7,13 +7,14 @@ public class WaterChild : Player
 {
     AudioManager AudioMger;
     public GameObject m_waterSplashPrefab;
+    public GameObject m_waterCastPrefab;
+    public GameObject m_waterPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         Reset();
         AudioMger = FindObjectOfType<AudioManager>();
-        
-       
     }
 
     // Update is called once per frame
@@ -34,7 +35,7 @@ public class WaterChild : Player
         //put out fire
         if(m_currAbilityCount > 0 && !m_isCasting)
         {
-           
+            //m_waterPoint
             m_currAbilityCount -= 1;
             m_isCasting = true;
             StartCoroutine(PutOutFire(_fire));
@@ -59,11 +60,13 @@ public class WaterChild : Player
     private IEnumerator PutOutFire(GameObject _fire)
     {
         m_childAnim.SetTrigger("WCWater");
+        GameObject waterCast = Instantiate(m_waterCastPrefab, m_waterPoint.transform.position, Quaternion.identity);
 
         //Play fire dying animation 
         yield return new WaitForSeconds(2);
 
         _fire.transform.parent.parent.GetComponent<FireBlock>().PutOutFire();
+        //Destroy(waterCast);
 
         m_isCasting = false;
 
@@ -89,10 +92,12 @@ public class WaterChild : Player
         //Make it walkable only after animation is done
         _water.gameObject.GetComponent<WaterBlock>().SetWalkable(true);
         //Spawn ice block in water block. float.
-       
+        Destroy(waterSplash);
         m_isCasting = false;
        
          yield return null;
     }
+
+    
 
 }
