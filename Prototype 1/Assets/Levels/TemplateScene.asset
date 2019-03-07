@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4674d0b7d039b354cada164e63540490, type: 3}
-  m_Name: example
+  m_Name: TemplateScene
   m_EditorClassIdentifier: 
-  levelName: 
-  waterIsLeading: 0
-  waterMana: 0
-  maxWaterMana: 0
-  forestMana: 0
-  maxForestMana: 0
+  levelName: TemplateScene
+  waterIsLeading: 1
+  waterMana: 100
+  maxWaterMana: 100
+  forestMana: 100
+  maxForestMana: 100

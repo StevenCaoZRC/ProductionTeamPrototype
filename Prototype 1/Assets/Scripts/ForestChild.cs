@@ -41,7 +41,6 @@ public class ForestChild : Player
     public override void Reset()
     {
         m_charaElement = Element.Forest;
-
         m_currAbilityCount = LevelLoader.GetInstance().GetLvlForestMana();
         m_maxAbilityCount = LevelLoader.GetInstance().GetLvlMaxForestMana();
         m_climbingVines = false;
@@ -52,7 +51,7 @@ public class ForestChild : Player
         audioMnger = FindObjectOfType<AudioManager>();
         m_bothCharacters = transform.parent.gameObject;
 
-        GameObject[] temp =  GameObject.FindGameObjectsWithTag("VineBlock");
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("VineBlock");
         temp.CopyTo(temp, 0);
         m_vineBlocks = temp;
 
