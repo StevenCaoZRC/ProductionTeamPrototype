@@ -93,3 +93,10 @@ MonoBehaviour:
     loop: 1
     SpatialBlend: 0
     source: {fileID: 0}
+  - name: WaterSpray
+    clip: {fileID: 8300000, guid: e4c9df79379f98647aa4e6a163677d92, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    SpatialBlend: 0.9
+    source: {fileID: 0}
